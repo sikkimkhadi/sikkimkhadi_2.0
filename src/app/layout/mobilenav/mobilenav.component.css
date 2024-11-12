@@ -1,3 +1,4 @@
+/* General Styles */
 .sliding-navbar {
     padding: 1rem;
     display: none;
@@ -17,22 +18,24 @@
     width: 4rem;
 }
 
+/* Hamburger Menu Styles */
 .bar1,
+.bar2,
 .bar3 {
     background-color: rgb(112, 73, 11);
     height: 1.5px;
-    width: 30px;
-    margin: 6px;
     border-radius: 25px;
+    margin: 6px;
+}
+
+.bar1,
+.bar3 {
+    width: 30px;
 }
 
 .bar2 {
-    background-color: rgb(112, 73, 11);
-    height: 1.5px;
     width: 15px;
-    margin: 6px;
-    border-radius: 25px;
-    transform: translateX(100%)
+    transform: translateX(100%);
 }
 
 .mobile__nav-hamburger .bar1,
@@ -41,18 +44,18 @@
     display: block;
 }
 
+.mobile__nav-hamburger {
+    display: block;
+    transform: translateY(15px);
+}
 
+/* Header Styles */
 .mobile__nav-header {
     position: relative;
     display: flex;
     justify-content: flex-end;
     background-color: #f2c377;
     height: 0.1rem;
-}
-
-.mobile__nav-hamburger {
-    display: block;
-    transform: translateY(15px);
 }
 
 .mobile__nav-header-logo {
@@ -62,10 +65,23 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     gap: 2rem;
 }
 
+.mobile__nav-header-title {
+    color: rgb(112, 73, 11);
+    background-color: #f2c377;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 0 0 1rem 0;
+}
+
+/* Icon Styles */
 .icon-khadiindia,
 .icon-sikkim,
 .sikkim-khadi-icon {
@@ -73,19 +89,19 @@
     margin: auto;
 }
 
-.icon-sikkim>img {
+.icon-sikkim > img {
     width: 88px;
 }
 
-.sikkim-khadi-icon>img {
+.sikkim-khadi-icon > img {
     width: 72px;
-    transform: translateY(-1.8rem);
 }
 
-.icon-khadiindia>img {
+.icon-khadiindia > img {
     width: 112px;
 }
 
+/* Mobile Navigation Menu Styles */
 .mobile__nav-menu {
     background-color: #f2c377;
     width: 100%;
@@ -106,14 +122,18 @@
     transition: right 0.3s ease-in-out;
 }
 
+.mobile__nav-menu a {
+    text-decoration: none;
+    color: rgb(112, 73, 11);
+    margin: 5px 0;
+    font-size: 23px;
+}
+
 .mobile__nav-menu.active {
     right: 0;
 }
 
-.close-button img {
-    width: 25px;
-}
-
+/* Close Button Styles */
 .close-button {
     width: 25px;
     position: absolute;
@@ -121,15 +141,6 @@
     right: 30px;
 }
 
-
-.mobile__nav-menu a {
-    text-decoration: none;
-    color: rgb(112, 73, 11);
-    margin: 15px;
-    ;
-    font-size: 23px;
+.close-button img {
+    width: 25px;
 }
-
-/* NavMobile = mobile__nav-header
-hamburger = mobile__nav-hamburger
-mobilenav = mobile__nav-menu */

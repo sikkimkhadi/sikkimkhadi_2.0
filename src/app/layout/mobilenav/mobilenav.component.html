@@ -17,13 +17,14 @@
         <span class="bar3"></span>
     </button>
 
-  
-    
+
+
     <nav class="mobile__nav-menu" [class.active]="isMenuOpen()">
         <button class="close-button" (click)="toggleMenu()">
             <img src="../../../assets/navbar/close.png" alt="mobile menu close button">
         </button>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMenu()">Home</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            (click)="toggleMenu()">Home</a>
         <a routerLink="/outlets" routerLinkActive="active" (click)="toggleMenu()">Outlets</a>
         <a routerLink="/products" routerLinkActive="active" (click)="toggleMenu()">Products</a>
         <a routerLink="/production" routerLinkActive="active" (click)="toggleMenu()">Production & Training</a>
@@ -37,14 +38,20 @@
 <div class="mobile__nav-header-logo">
     <!-- Sikkim Government Logo -->
     <div class="icon-sikkim">
-      <img src="assets/navbar/sikkim_govt_png@0.33x.png" alt="Sikkim Government Logo">
+        <img src="assets/navbar/sikkim_govt_png@0.33x.png" alt="Sikkim Government Logo">
     </div>
     <!-- SKVIB Logo -->
     <div class="sikkim-khadi-icon">
-      <img src="assets/navbar/skvib@0.33x.png" alt="Sikkim Khadi and Village Industries Board Logo">
+        <img src="assets/navbar/skvib@0.33x.png" alt="Sikkim Khadi and Village Industries Board Logo">
     </div>
     <!-- Khadi India Logo -->
     <div class="icon-khadiindia">
-      <img src="assets/navbar/khadi-india@0.33x.png" alt="Khadi India Logo">
+        <img src="assets/navbar/khadi-india@0.33x.png" alt="Khadi India Logo">
     </div>
 </div>
+
+<h1 class="mobile__nav-header-title">
+    <span>Sikkim Khadi</span>
+    <span>&nbsp;and&nbsp;</span>
+    <span>&nbsp;Village Industries Board</span>
+</h1>
