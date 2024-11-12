@@ -1,1 +1,50 @@
-<h2>Mobile Nav</h2>
+<div class="sliding-navbar" [style.display]="showSlidingNav() ? 'flex' : 'none'">
+    <img src="../../../assets/navbar/skvib@0.33x.png" alt="Sikkim Govt. Logo">
+    <div class="sliding-hamburger" (click)="toggleMenu()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+</div>
+
+
+
+<header class="mobile__nav-header">
+
+    <button class="mobile__nav-hamburger" (click)="toggleMenu()">
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
+    </button>
+
+  
+    
+    <nav class="mobile__nav-menu" [class.active]="isMenuOpen()">
+        <button class="close-button" (click)="toggleMenu()">
+            <img src="../../../assets/navbar/close.png" alt="mobile menu close button">
+        </button>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMenu()">Home</a>
+        <a routerLink="/outlets" routerLinkActive="active" (click)="toggleMenu()">Outlets</a>
+        <a routerLink="/products" routerLinkActive="active" (click)="toggleMenu()">Products</a>
+        <a routerLink="/production" routerLinkActive="active" (click)="toggleMenu()">Production & Training</a>
+        <a routerLink="/pmegp" routerLinkActive="active" (click)="toggleMenu()">PMEGP</a>
+        <a routerLink="/beekeeping" routerLinkActive="active" (click)="toggleMenu()">Bee-Keeping</a>
+        <a routerLink="/about" routerLinkActive="active" (click)="toggleMenu()">About Us</a>
+        <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact Us</a>
+    </nav>
+</header>
+
+<div class="mobile__nav-header-logo">
+    <!-- Sikkim Government Logo -->
+    <div class="icon-sikkim">
+      <img src="assets/navbar/sikkim_govt_png@0.33x.png" alt="Sikkim Government Logo">
+    </div>
+    <!-- SKVIB Logo -->
+    <div class="sikkim-khadi-icon">
+      <img src="assets/navbar/skvib@0.33x.png" alt="Sikkim Khadi and Village Industries Board Logo">
+    </div>
+    <!-- Khadi India Logo -->
+    <div class="icon-khadiindia">
+      <img src="assets/navbar/khadi-india@0.33x.png" alt="Khadi India Logo">
+    </div>
+</div>
