@@ -7,11 +7,12 @@ import { AsyncPipe } from '@angular/common';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { MobilenavComponent } from './layout/mobilenav/mobilenav.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AsyncPipe, NavbarComponent, MobilenavComponent, FooterComponent],
+  imports: [RouterOutlet, AsyncPipe, NavbarComponent, MobilenavComponent, HomeComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

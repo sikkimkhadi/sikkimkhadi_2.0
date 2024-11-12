@@ -1,1 +1,36 @@
-<p>navbar works!</p>
+<!-- Main container for the navbar -->
+<div class="container">
+  <!-- Header section containing logos -->
+  <div class="header">
+    <!-- Sikkim Government Logo -->
+    <div class="icon-sikkim">
+      <img src="assets/navbar/sikkim_govt_png@0.33x.png" alt="Sikkim Government Logo">
+    </div>
+    <!-- SKVIB Logo -->
+    <div class="sikkim-khadi-icon">
+      <img src="assets/navbar/skvib@0.33x.png" alt="Sikkim Khadi and Village Industries Board Logo">
+    </div>
+    <!-- Khadi India Logo -->
+    <div class="icon-khadiindia">
+      <img src="assets/navbar/khadi-india@0.33x.png" alt="Khadi India Logo">
+    </div>
+  </div>
+
+  <!-- Main heading -->
+  <h1 class="header-title">
+    <span>Sikkim Khadi and Village Industries Board</span>
+  </h1>
+
+  <!-- Navigation menu -->
+  <nav class="navigation">
+    <!-- Router links with active state handling -->
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/outlets" routerLinkActive="active">Outlets</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/production" routerLinkActive="active">Production & Training</a>
+    <a routerLink="/pmegp" routerLinkActive="active">PMEGP</a>
+    <a routerLink="/beekeeping" routerLinkActive="active">BEE-KEEPING</a>
+    <a routerLink="/about" routerLinkActive="active">About Us</a>
+    <a routerLink="/contact" routerLinkActive="active">CONTACT US</a>
+  </nav>
+</div>

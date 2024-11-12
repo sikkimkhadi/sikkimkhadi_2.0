@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Global variables */
+  --primary-bg: #f6d7a6;
+  --max-container-width: 112rem;
+  --font-family-primary: 'Noto Sans', sans-serif;
+  
+  /* You can add more global variables here */
+}
+
+/* Reset styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-family-primary);
+  font-size: 62.5%; /* 10px = 1rem */
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--primary-bg);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Utility classes */
+.container {
+  max-width: var(--max-container-width);
+  margin: 0 auto;
+  padding: 0 2rem; /* Add padding for mobile */
+}
+
+/* Reset default styles */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  /* Better touch targets on mobile */
+  @media (max-width: 768px) {
+    padding: 0.8rem;
+  }
+}
