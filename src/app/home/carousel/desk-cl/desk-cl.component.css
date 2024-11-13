@@ -1,4 +1,85 @@
+/* Main carousel container styles
+-------------------------------------------------- */
 .carousel-d {
-    background-color: red;
     height: 30.8rem;
+    position: relative;    /* Required for absolute positioning of slides */
+    overflow: hidden;      /* Prevents slides from showing outside container */
+}
+
+/* Image styles
+-------------------------------------------------- */
+.carousel-d img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* Maintains aspect ratio while filling container */
+    display: block;        /* Removes unwanted spacing below image */
+}
+
+/* Text overlay styles
+-------------------------------------------------- */
+.carousel-d h1,
+.carousel-d p {
+    position: absolute;    /* Positions text over the image */
+    left: 1rem;
+    color: white;
+    background-color: rgba(112, 73, 11, 0.5);  /* Semi-transparent brown background */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    z-index: 1;           /* Ensures text appears above the image */
+}
+
+/* Title specific positioning */
+.carousel-d h1 {
+    bottom: 5rem;
+}
+
+/* Tagline specific positioning and styling */
+.carousel-d p {
+    font-size: 1.5rem;
+    bottom: 1rem;
+    left: 1.2rem;
+}
+
+/* Slide animation and transition styles
+-------------------------------------------------- */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;           /* Initially hidden */
+    transform: scale(1.05) translateX(10px);  /* Starting position for animation */
+    transition: all 0.8s ease-in-out;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+/* Active slide state */
+.slide.active {
+    opacity: 1;
+    transform: scale(1) translateX(0);  /* Final position */
+    visibility: visible;
+}
+
+/* Text animation styles
+-------------------------------------------------- */
+.slide h1,
+.slide p {
+    opacity: 0;
+    transform: translateY(20px);        /* Text starts slightly below final position */
+    transition: all 0.6s ease-out;
+    transition-delay: 0.4s;             /* Delays text animation until slide appears */
+}
+
+/* Active text state */
+.slide.active h1,
+.slide.active p {
+    opacity: 1;
+    transform: translateY(0);           /* Text moves to final position */
+}
+
+/* Animation sequence timing */
+.slide p {
+    transition-delay: 0.6s;             /* Tagline appears after title */
 }
