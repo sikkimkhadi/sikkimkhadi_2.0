@@ -37,9 +37,9 @@ export class MobClComponent {
   slides: CarouselSlide[] = [
     {
       id: 1,
-      image: '../../../../assets/carousel-mb/Incense.jpg',
-      title: 'Organic Incense',
-      tagline: 'Traditional aromatic experience'
+      image: '../../../../assets/carousel-mb/members.jpg',
+      title: 'SKVIB Members',
+      tagline: 'Our Team'
     },
     {
       id: 2,
@@ -64,6 +64,12 @@ export class MobClComponent {
       image: '../../../../assets/carousel-mb/toiletories.jpg',
       title: 'Khadi Toiletories',
       tagline: 'Handmade Toiletries'
+    },
+    {
+      id: 6,
+      image: '../../../../assets/carousel-mb/Incense.jpg',
+      title: 'Organic Incense',
+      tagline: 'Traditional aromatic experience'
     }
   ];
 
