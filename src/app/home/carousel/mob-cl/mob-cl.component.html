@@ -1,3 +1,15 @@
+<!-- Main carousel container -->
 <div class="carousel-m">
-  <img src="../../../../assets/carousel-mb/Incense.jpg" alt="">
+  <!-- Iterate through slides using Angular 17's @for syntax -->
+  @for (slide of slides; track slide.id) {
+    <!-- Individual slide container with conditional active class -->
+    <div class="slide" [class.active]="currentSlide === slide.id">
+      <!-- Slide image -->
+      <img [src]="slide.image" [alt]="slide.title">
+      <!-- Slide title overlay -->
+      <h1>{{slide.title}}</h1>
+      <!-- Slide tagline overlay -->
+      <p>{{slide.tagline}}</p>
+    </div>
+  }
 </div>
