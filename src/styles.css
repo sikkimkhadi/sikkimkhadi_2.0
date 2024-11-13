@@ -35,7 +35,8 @@ body {
 .container {
   max-width: var(--max-container-width);
   margin: 0 auto;
-  padding: 0 2rem; /* Add padding for mobile */
+  /* padding: 0 2rem;  */
+  /* Add padding for mobile */
 }
 
 /* Reset default styles */

@@ -1,9 +1,17 @@
+<!-- Conditional rendering based on screen size -->
 @if (showNavbar | async) {
-  <app-navbar />
+<!-- Desktop navigation bar -->
+<app-navbar />
 } @else {
-  <app-mobilenav />
+<!-- Mobile navigation bar -->
+<app-mobilenav />
 }
+
+<!-- Main content container -->
 <main class="container">
+  <!-- Dynamic content based on routing -->
   <router-outlet />
 </main>
+
+<!-- Footer component -->
 <app-footer />

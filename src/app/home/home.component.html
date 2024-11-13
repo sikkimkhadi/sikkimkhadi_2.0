@@ -1,6 +1,12 @@
 <div class="home-container">
-    <h1>Hey dad !😎</h1>
-    <app-carousel />
+    <!-- Conditionally render carousel based on screen size -->
+    @if (isLargeScreen | async) {
+        <!-- Desktop/Tablet carousel -->
+        <app-desk-cl />
+    } @else {
+        <!-- Mobile carousel -->
+        <app-mob-cl />
+    }
     <app-portraits />
     <app-about />
     <app-homegallery />
