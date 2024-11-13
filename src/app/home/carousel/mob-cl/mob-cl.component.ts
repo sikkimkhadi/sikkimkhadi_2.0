@@ -37,15 +37,15 @@ export class MobClComponent {
   slides: CarouselSlide[] = [
     {
       id: 1,
-      image: '../../../../assets/carousel-mb/members.jpg',
-      title: 'SKVIB Members',
-      tagline: 'Our Team'
+      image: '../../../../assets/carousel-mb/Incense.jpg',
+      title: 'Organic Incense',
+      tagline: 'Traditional aromatic experience'
     },
     {
       id: 2,
-      image: '../../../../assets/carousel-mb/bhawan.jpg',
-      title: 'Khadi Bhawan',
-      tagline: 'Deorali, Gangtok'
+      image: '../../../../assets/carousel-mb/members.jpg',
+      title: 'SKVIB Members',
+      tagline: 'Our Team'
     },
     {
       id: 3,
@@ -67,9 +67,9 @@ export class MobClComponent {
     },
     {
       id: 6,
-      image: '../../../../assets/carousel-mb/Incense.jpg',
-      title: 'Organic Incense',
-      tagline: 'Traditional aromatic experience'
+      image: '../../../../assets/carousel-mb/bhawan.jpg',
+      title: 'Khadi Bhawan',
+      tagline: 'Deorali, Gangtok'
     }
   ];
 
