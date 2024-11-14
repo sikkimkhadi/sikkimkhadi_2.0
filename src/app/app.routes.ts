@@ -50,6 +50,38 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/rti-act/rti-act.component').then(m => m.RTIActComponent)
     },
     {
+        path: 'turuk',
+        loadComponent: () => import('./pages/production/turuk/turuk.component').then(m => m.TurukComponent)
+    },
+    {
+        path: 'dodak',
+        loadComponent: () => import('./pages/production/dodak/dodak.component').then(m => m.DodakComponent)
+    },
+    {
+        path: 'samdong',
+        loadComponent: () => import('./pages/production/samdong/samdong.component').then(m => m.SamdongComponent)
+    },
+    {
+        path: 'pune',
+        loadComponent: () => import('./pages/production/pune/pune.component').then(m => m.PuneComponent)
+    },
+    {
+        path: 'tarku',
+        loadComponent: () => import('./pages/production/tarku/tarku.component').then(m => m.TarkuComponent)
+    },
+    {
+        path: 'gom',
+        loadComponent: () => import('./pages/production/gom/gom.component').then(m => m.GomComponent)
+    },
+    {
+        path: 'raley',
+        loadComponent: () => import('./pages/production/raley/raley.component').then(m => m.RaleyComponent)
+    },
+    {
+        path: 'mendogaon',
+        loadComponent: () => import('./pages/production/mendogaon/mendogaon.component').then(m => m.MendogaonComponent)
+    },
+    {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
     }

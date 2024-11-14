@@ -1,0 +1,62 @@
+.pageContainer {
+    background-color: #F5D096;
+    border: 1px solid #F1BB67;
+    user-select: none;
+  }
+  
+  .acontents {
+    margin: 1rem auto;
+    padding: 2rem;
+    max-width: 80%;
+    background-color: #F6D7A6;
+    color: #70490b;
+    font-size: 1.6rem; 
+  }
+  
+  
+  .pmegp__header_text {
+    padding: 1rem;
+    text-align: center;
+    color: #000080;
+    font-weight: 900;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+  }
+  
+  .pmegp__header_text :nth-child(2), 
+  .pmegp__header_text :nth-child(3) {
+    text-transform: capitalize;
+    font-size: 2rem;
+  }
+  
+  .pmegp__header_text :nth-child(4), 
+  .pmegp__header_text :nth-child(5) {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+  
+  .RTI_section_para {
+    border-top: 1px solid #000080;
+    padding-top: 1rem;
+    color: rgb(112, 73, 11);
+    font-weight: 500;
+  }
+  
+  .dignitaries {
+    padding-top: 1rem;
+    padding-left: 1.5rem;
+  }
+  
+  .dignitaries p:nth-child(1) {
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+  
+  .dignitaries p:nth-child(2), 
+  .dignitaries p:nth-child(3), 
+  .dignitaries p:nth-child(4), 
+  .dignitaries p:nth-child(5) {
+    padding-left: 2.6rem;
+  }
+  
