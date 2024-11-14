@@ -46,6 +46,10 @@ export const routes: Routes = [
         loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
     },
     {
+        path: 'rti',
+        loadComponent: () => import('./pages/rti-act/rti-act.component').then(m => m.RTIActComponent)
+    },
+    {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
     }

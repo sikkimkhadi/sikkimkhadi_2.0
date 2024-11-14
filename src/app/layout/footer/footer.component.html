@@ -1,1 +1,75 @@
-<p>footer works!</p>
+<div class="container">
+    <!-- Footer with 3 main grid items -->
+    <footer class="footer">
+        <!-- Grid Item 1: Address section with company contact details -->
+        <div class="address">
+            <ul class="contact-info">
+                <li>
+                    <img src="../../../assets/icons/sk_icon.png" alt="skvib icon">
+                    <h3>Sikkim Khadi and Village Industries Board</h3>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/location.png" alt="location icon">
+                    <address>Khadi Bhawan Deorali, Gangtok Sikkim - 737102</address>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/phone-call.png" alt="phone icon">
+                    <a href="tel:+916296542761" aria-label="Call us at 6296542761">6296542761</a>
+                </li>
+                <li>
+                    <img src="../../../assets/icons/email.png" alt="email icon">
+                    <a href="mailto:sikkimkhadi@gmail.com" aria-label="Email us">
+                        sikkimkhadi&#64;gmail.com
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Grid Item 2: Important Links section -->
+        <nav class="links" aria-label="Important Links">
+            <h3>Important Links</h3>
+            <ul class="itemLinks">
+                <li>
+                    <a [routerLink]="['/news']" aria-label="News and Advertisements">
+                        News and Advertisements
+                    </a>
+                </li>
+                <li>
+                    <a href="../../../assets/pdf/SKVIB_ACT_1996.pdf" target="_blank" rel="noopener noreferrer"
+                        aria-label="Khadi Act PDF (opens in new tab)">
+                        Khadi Act
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/rti']" aria-label="RTI Act">
+                        RTI Act
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Grid Item 3: Social Media section -->
+        <section class="social_media">
+            <h3>Follow us:</h3>
+            <nav class="social_media_links" aria-label="Social Media Links">
+                <!-- Twitter Link -->
+                <a href="#" class="twitter" aria-label="Visit our Twitter page">
+                    <img src="../../../assets/icons/twitter.png" alt="twitter icon">
+                </a>
+
+                <!-- Facebook Link -->
+                <a href="#" class="facebook" aria-label="Visit our Facebook page">
+                    <img src="../../../assets/icons/facebook.png" alt="facebook icon">
+                </a>
+
+                <!-- Instagram Link -->
+                <a href="#" class="instagram" aria-label="Visit our Instagram page">
+                    <img src="../../../assets/icons/instagram.png" alt="instagram icon">
+                </a>
+            </nav>
+        </section>
+    </footer>
+
+    <!-- Copyright notice (outside the grid) -->
+    <div class="copyright">&copy; Sikkim Khadi and Village Industries Board, All rights reserved.</div>
+</div>

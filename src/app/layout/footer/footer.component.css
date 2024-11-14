@@ -1,0 +1,346 @@
+/* * {
+    border: 1px solid red;
+} */
+
+/* Main Footer Layout
+-------------------------------------------------- */
+.footer {
+    background-color: #f5d096;
+    display: grid;
+    grid-template-columns: minmax(400px, 2fr) 1fr 1fr;
+    gap: 2rem;
+    place-items: start;
+    padding: 4rem 2rem 2rem 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: normal;
+}
+
+.copyright {
+    text-align: center;
+    background-color: #f5d096;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.5rem;
+    color: #cd8514;
+    line-height: normal;
+}
+
+/* Reset default heading styles */
+h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    line-height: normal;
+}
+
+/* Contact Information Section
+-------------------------------------------------- */
+.address {
+    width: 100%;
+    display: block;
+}
+
+.contact-info {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.contact-info li h3,
+.contact-info li address,
+.contact-info li a {
+    color: #422b06;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+    flex: 1;
+    line-height: normal;
+}
+
+.contact-info address {
+    font-style: normal;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Image Styles
+-------------------------------------------------- */
+.footer img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Important Links Section
+-------------------------------------------------- */
+.links h3 {
+    color: #422b06;
+    font-size: 2rem;
+    text-decoration: underline;
+    margin-bottom: 0.75rem;
+    line-height: normal;
+}
+
+.itemLinks {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+.itemLinks li {
+    margin-bottom: 0.5rem;
+}
+
+.itemLinks li:last-child {
+    margin-bottom: 0;
+}
+
+.itemLinks a {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #422b06;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.6rem;
+    line-height: normal;
+}
+
+.itemLinks a::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.itemLinks a:hover,
+.itemLinks a:hover::before {
+    color: #CD8614;
+}
+
+/* Social Media Section */
+.social_media h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    color: #422b06;
+    font-size: 2rem;
+    text-decoration: underline;
+    margin-bottom: 0.75rem;
+    line-height: normal;
+}
+
+.social_media_links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.social_media_links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Social media icons hover effects */
+.social_media_links a:hover {
+    transform: translateY(-3px);  /* Slight lift effect */
+}
+
+.social_media_links a img {
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.social_media_links a:hover img {
+    filter: brightness(1.2);  /* Slightly brighten on hover */
+    transform: scale(1.1);    /* Slight grow effect */
+}
+
+/* Individual social media icon colors on hover */
+.social_media_links .twitter:hover img {
+    filter: drop-shadow(0 0 3px #1DA1F2);  /* Twitter blue */
+}
+
+.social_media_links .facebook:hover img {
+    filter: drop-shadow(0 0 3px #4267B2);  /* Facebook blue */
+}
+
+.social_media_links .instagram:hover img {
+    filter: drop-shadow(0 0 3px #E4405F);  /* Instagram pink */
+}
+
+/* Responsive Design
+-------------------------------------------------- */
+@media (max-width: 1024px) {
+    .footer {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info li h3,
+    .contact-info li address,
+    .contact-info li a {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        gap: 0;
+    }
+    /* Container styles */
+    .container {
+        width: 100%;
+    }
+
+    /* Footer grid container */
+    .footer {
+        width: 100%;
+        padding: 0;  /* Remove padding from footer */
+    }
+
+    /* Style for all grid items */
+    .footer > * {
+        width: 100%;
+        border-bottom: 2px solid #f8deb5;;
+        padding: 2rem;  
+        /* Add padding inside each section */
+    }
+
+    /* Remove border from last grid item */
+    .footer > *:last-child {
+        border-bottom: none;
+        padding-bottom: 2rem;  /* Keep consistent padding */
+    }
+
+    /* Contact info section */
+    /* .address ul {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0 ;
+    } */
+
+    .contact-info li h3,
+    .contact-info li address,
+    .contact-info li a {
+        white-space: normal;  /* Allow text to wrap */
+        font-size: 1.2rem;    /* Slightly smaller font */
+    }
+
+    .contact-info li {
+        margin-bottom: 1rem;       
+    }
+
+    .contact-info li a {
+        padding-left: 0;
+    }
+
+    /* Important links section */
+    .links,
+    .social_media {
+        justify-self: center;
+        align-self: center;
+    }
+    .links h3,
+    .social_media h3 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .links h3 {
+        margin-bottom: 2rem;
+    }
+
+    .itemLinks {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    /* List items */
+    .itemLinks li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Link styling */
+    .itemLinks a {
+        width: auto;
+        font-size: 1.4rem;
+        padding-left: 0;  /* Remove left padding used for chevron */
+        text-align: center;
+    }
+
+    /* Adjust chevron position for centered text */
+    .itemLinks a::before {
+        position: static;  /* Remove absolute positioning */
+        margin-right: 0.5rem;  /* Add space between chevron and text */
+        display: inline-block;
+    }
+
+    /* Social media section */
+    .social_media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social_media_links {
+        gap: 3rem;  /* Increased gap between social icons */
+    }
+
+    /* Copyright section */
+    .copyright {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .itemLinks {
+        margin: 0;
+        padding: 0;
+    }
+
+    .itemLinks li {
+        margin-bottom: 1rem;
+    }
+
+    .itemLinks li:last-child {
+        margin-bottom: 0;
+    }
+
+    .itemLinks a {
+        padding-left: 0;
+    }
+}
