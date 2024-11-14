@@ -10,6 +10,11 @@
     height: 42rem;
     position: relative;    /* Required for absolute positioning of slides */
     overflow: hidden;      /* Prevents slides from showing outside container */
+    margin: 2rem auto;         /* Adds vertical and horizontal spacing */
+    padding: 1rem;            /* Adds inner spacing */
+    max-width: 95%;          /* Prevents carousel from touching screen edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Optional: adds subtle shadow */
+    border-radius: 8px;      /* Optional: rounds the corners */
 }
 
 /* Image styles
@@ -20,6 +25,7 @@
     height: 100%;
     object-fit: cover;     /* Maintains aspect ratio while filling container */
     display: block;        /* Removes unwanted spacing below image */
+    border-radius: 4px;      /* Optional: rounds image corners */
 }
 
 /* Text overlay styles
