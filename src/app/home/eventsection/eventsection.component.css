@@ -1,0 +1,203 @@
+/* Main container for events section */
+.events {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8deb5;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    /* Distributes space evenly between cards */
+}
+
+/* Container for individual event content */
+.events .container {
+    display: flex;
+    flex-direction: column;
+    /* Stack children vertically */
+}
+
+/* Event card styling */
+.events .card {
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    transition: 0.3s;
+    /* Smooth transition for hover effects */
+    width: 33%;
+    /* Takes up one-third of the parent width */
+}
+
+/* Card title styling */
+.card .card-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #CD8614;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: #f9e5c5;
+    padding: 1rem;
+    border: 0.5px solid #ea9f2a;
+    border-radius: 9px;
+    flex: 0 0 auto;
+    /* Prevents flex stretching */
+    align-self: flex-start;
+    /* Aligns to start of container */
+}
+
+/* Link styling within cards */
+.card a {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #000080;
+    /* Navy blue color */
+    font-style: italic;
+    padding-left: 1rem;
+    text-decoration: none;
+    /* Removes default underline */
+    transition: all 0.2s ease;
+    /* Smooth transition for hover effects */
+    position: relative;
+    /* Required for absolute positioning of pseudo-elements */
+    display: inline-block;
+    /* Allows link to size to content */
+    flex: 0 0 auto;
+    /* Prevents flex stretching */
+    align-self: flex-start;
+    /* Aligns to start of container */
+}
+
+/* Custom underline effect using pseudo-element */
+.card a::before {
+    content: "";
+    /* Required for pseudo-elements */
+    position: absolute;
+    /* Positions relative to link */
+    bottom: -2px;
+    /* Positions slightly below text */
+    left: 1rem;
+    width: 0;
+    /* Starts with no width */
+    height: 1px;
+    /* Thickness of underline */
+    background-color: #000080;
+    transition: width 0.3s ease;
+    /* Animate width change */
+}
+
+/* Arrow icon using pseudo-element */
+.card a::after {
+    content: "→";
+    /* Adds arrow character */
+    position: absolute;
+    margin-left: 0.5rem;
+    opacity: 0;
+    /* Start invisible */
+    transform: translateX(-10px);
+    /* Start slightly left */
+    transition: all 0.3s ease;
+    color: #000080;
+}
+
+/* Hover effect for link */
+.card a:hover {
+    padding-left: 1.5rem;
+    /* Slight padding increase on hover */
+}
+
+/* Hover effect for underline */
+.card a:hover::before {
+    width: calc(100% - 0.5rem);
+    /* Expand to full width minus padding */
+}
+
+/* Hover effect for arrow */
+.card a:hover::after {
+    opacity: 1;
+    /* Make arrow visible */
+    transform: translateX(0);
+    /* Move arrow to position */
+    animation: arrowMove 1s ease-in-out infinite;
+    /* Start bouncing animation */
+}
+
+/* Animation for arrow bouncing effect */
+@keyframes arrowMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    /* Start position */
+    50% {
+        transform: translateX(5px);
+    }
+
+    /* Move right */
+    100% {
+        transform: translateX(0);
+    }
+
+    /* Back to start */
+}
+
+/* Hover effect for entire card */
+.events .card:hover {
+    transform: translateY(-5px);
+    /* Lift card slightly */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    /* Stronger shadow */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Mobile-specific styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    /* Change flex layout from row to column for better mobile viewing */
+    .events {
+        flex-direction: column;
+    }
+
+    /* Adjust card width to full width of container and add spacing between cards */
+    .events .card {
+        width: 100%;  /* Take up full container width on mobile */
+        margin-bottom: 1rem;  /* Add space between stacked cards */
+    }
+
+    /* Adjust title size and spacing for better mobile readability */
+    .card .card-title {
+        font-size: 1.8rem;  /* Maintain readable font size on mobile */
+        margin-bottom: 1rem;  /* Keep consistent spacing below title */
+    }
+
+    /* Simplified link style for mobile */
+    .card a {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #000080;
+        font-style: italic;
+        padding-left: 1rem;
+        text-decoration: underline;  /* Always show underline */
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Remove the pseudo-element underline animation */
+    .card a::before {
+        display: none;
+    }
+
+    /* Show and animate arrow continuously */
+    .card a::after {
+        content: "→";
+        position: absolute;
+        margin-left: 0.5rem;
+        opacity: 1;  /* Always visible */
+        transform: translateX(0);
+        color: #000080;
+        animation: arrowMove 1s ease-in-out infinite;  /* Continuous animation */
+    }
+
+    /* Remove hover effects since they're less useful on mobile */
+    .card a:hover {
+        padding-left: 1rem;  /* Remove padding change */
+    }
+}

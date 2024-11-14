@@ -34,6 +34,18 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/contactus/contactus.component').then(m => m.ContactusComponent)
     },
     {
+        path: 'latest',
+        loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent)
+    },
+    {
+        path: 'upcoming',
+        loadComponent: () => import('./events/upcoming/upcoming.component').then(m => m.UpcomingComponent)
+    },
+    {
+        path: 'annual',
+        loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
+    },
+    {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
     }
