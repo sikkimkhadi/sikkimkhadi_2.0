@@ -34,6 +34,6 @@ export class HomeComponent {
   // Observable that emits true for screens >= 768px (tablet/desktop)
   // and false for smaller screens (mobile)
   isLargeScreen = this.breakpointObserver
-    .observe(['(min-width: 768px)'])
+    .observe(['(min-width: 769px)'])
     .pipe(map(result => result.matches));
 }

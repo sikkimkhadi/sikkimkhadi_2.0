@@ -1,0 +1,113 @@
+/* ========================================
+   Welcome Section Styles
+   ======================================== */
+
+/* Reset H1 styles while maintaining semantic value
+ * Used in about.component to match design requirements
+ * while keeping accessibility benefits of h1 tag
+ */
+h1 {
+  /* Remove default margins and padding */
+  margin: 0;
+  padding: 0;
+  
+  /* Inherit text properties from parent */
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Main container styles
+ * Uses flexbox for centering content
+ */
+.welcome {
+    padding: 2rem 1.5rem;
+    background-color: #f5d096;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+/* Header styles
+ * Contains welcome text with golden background
+ */
+.welcome .welcome-text {
+    background-color: rgb(205, 134, 20);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 1rem 3rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1.5rem;
+    display: inline;
+}
+
+/* Content container styles
+ * Houses the main text and list
+ */
+.welcome .welcome-contents {
+    padding: 1rem 2rem;
+    color: rgb(112, 73, 11);
+}
+
+/* List item styles
+ * Custom styling for bullet points
+ */
+ol li {
+    margin-left: 8rem;
+    list-style-type: disc;
+}
+
+/* ========================================
+   Mobile Responsive Styles (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+    /* Mobile container adjustments */
+    .welcome {
+        padding: 2rem 1.5rem;
+        background-color: #f5d096;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.6rem;
+    }
+
+    /* Mobile header text adjustments */
+    .welcome .welcome-text { 
+        font-weight: 500;
+        font-size: 1.8rem;
+        padding: 2rem 4rem;
+    }
+
+    /* Mobile heading layout */
+    .welcome .welcome-text h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    /* Welcome text size adjustment */
+    .welcomeTo {
+        font-size: 1.2rem;
+    }
+  
+    /* Mobile content adjustments */
+    .welcome .welcome-contents {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        margin-bottom: 5px;
+    }
+
+    /* Mobile list adjustments */
+    .details ol {
+        margin: 1rem auto 0 1rem;
+        font-size: 1.5rem;
+    }
+
+    /* Mobile list item adjustments */
+    ol li {
+        margin-left: 0;
+        list-style-type: disc;
+    }
+}

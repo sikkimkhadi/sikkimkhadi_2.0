@@ -17,7 +17,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 })
 export class AppComponent {
   showNavbar = this.breakpointObserver
-    .observe(['(min-width: 768px)'])
+    .observe(['(min-width: 769px)'])
     .pipe(map((result: BreakpointState) => result.matches));
 
   constructor(private breakpointObserver: BreakpointObserver) {}
