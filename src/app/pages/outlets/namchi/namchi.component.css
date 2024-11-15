@@ -1,0 +1,123 @@
+.outlets_l {
+    padding: 2rem;
+    border: 1px solid #f2c377;
+}
+
+.location img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.outlet_address {
+    display: inline-block;
+    background-color: rgba(205, 134, 20, 0.8);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    color: #fcf3e4;
+    font-size: 1.5rem;
+    letter-spacing: 0.075rem;
+}
+
+.outlets_l .namchi {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 40rem);
+    grid-template-areas:
+        "n1 n1 n2 n2"
+        "n3 n3 n2 n2"
+        "n4 n4 n5 n5"
+        "n6 n6 n6 n7";
+    width: 100%;
+    height: 100%;
+    gap: 16px;
+}
+
+#n1 {
+    grid-area: n1;
+}
+
+#n2 {
+    grid-area: n2;
+}
+
+#n3 {
+    grid-area: n3;
+}
+
+#n4 {
+    grid-area: n4;
+}
+
+#n5 {
+    grid-area: n5;
+}
+
+#n6 {
+    grid-area: n6;
+}
+
+#n7 {
+    grid-area: n7;
+}
+
+.back-button {
+    display: none;
+    position: fixed;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: #fcf3e4;
+    color: #322105;
+    text-decoration: none;
+    bottom: -15rem;
+    /* Adjust as needed */
+    opacity: 0;
+    left: 30%;
+    /* Position horizontally in the middle */
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    z-index: 555;
+    /* Ensure it's above other content */
+    transition: all 0.3s ease;
+}
+
+.material-symbols-outlined {
+    vertical-align: middle;
+}
+
+
+@media (max-width:1100px) {
+    .outlets_l .namchi {
+        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 40rem);
+        grid-template-areas:
+            "n1 n1"
+            "n3 n2"
+            "n4 n2"
+            "n5 n5"
+            "n6 n6"
+            "n7 n7";
+    }
+}
+
+@media (max-width:768px) {
+    .outlets_l {
+        border: 1px solid #F1BB67;
+    }
+
+    .outlets_l .namchi {
+        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 40rem);
+        grid-template-areas:
+            "n1 n1"
+            "n2 n2"
+            "n3 n4"
+            "n5 n5"
+            "n6 n6"
+            "n7 n7";
+    }
+}

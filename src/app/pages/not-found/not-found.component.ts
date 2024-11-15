@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class NotFoundComponent {
   /** Countdown timer in seconds before redirect */
-  countdown: number = 6;
+  countdown: number = 10;
 
   constructor(private router: Router) {
     // Set up countdown interval

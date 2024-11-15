@@ -1,0 +1,114 @@
+.gallery {
+    padding: 2rem;
+    position: relative;
+    border: 1px solid #f2c377;
+}
+
+h1 {
+    padding: 1rem;
+    text-align: center;
+    color: rgb(112, 73, 11);
+    font-weight: 900;
+    font-size: 2.4rem;
+}
+
+.layer1 img {
+    width: 100%;
+    height: 100%;
+}
+
+.layer1 {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 20rem);
+    grid-template-areas:
+        "b1 b1 b2 b3"
+        "b1 b1 b4 b5";
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+}
+
+.layer2 {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 20rem);
+    grid-template-areas:
+        "d1 d2 d3 d3"
+        "d4 d5 d3 d3";
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+}
+
+.layer2 img {
+    width: 100%;
+    height: 100%;
+}
+
+#b1 {
+    grid-area: b1;
+}
+
+#b2 {
+    grid-area: b2;
+}
+
+#b3 {
+    grid-area: b3;
+}
+
+#b4 {
+    grid-area: b4;
+}
+
+#b5 {
+    grid-area: b5;
+}
+
+
+#d1 {
+    grid-area: d1;
+}
+
+#d2 {
+    grid-area: d2;
+}
+
+#d3 {
+    grid-area: d3;
+}
+
+#d4 {
+    grid-area: d4;
+}
+
+#d5 {
+    grid-area: d5;
+}
+
+@media (max-width:768px) {
+
+    .layer1 {
+        margin-top: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 30rem);
+        grid-template-areas:
+            "b1 b1"
+            "b2 b2"
+            "b3 b4"
+            "b5 b5";
+    }
+
+    .layer2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 30rem);
+        grid-template-areas:
+            "d1 d1"
+            "d2 d2 "
+            "d3 d4"
+            "d5 d5";
+    }
+}

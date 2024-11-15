@@ -1,0 +1,157 @@
+.outlets_l {
+    padding: 2rem;
+    border: 1px solid #f2c377;
+}
+
+.location img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.outlet_address {
+    display: inline-block;
+    background-color: rgba(205, 134, 20, 0.8);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    color: #fcf3e4;
+    font-size: 1.5rem;
+    letter-spacing: 0.075rem;
+}
+
+.outlets_l .jorethang {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 40rem);
+    grid-template-areas:
+        "j1 j1 j1 j1"
+        "j2 j2 j3 j3"
+        "j4 j4 j5 j5"
+        "j6 j6 j6 j6"
+        "j7 j7 j7 j7"
+        "j8  j8 j9 j9"
+        "j10 j10 j11 j11"
+        "j12 j12 j12 j12"
+        "j13 j13 j13 j14"
+        "j15 j15 j16 j16";
+    width: 100%;
+    height: 100%;
+    gap: 16px;
+}
+
+#j1 {
+    grid-area: j1;
+}
+
+#j2 {
+    grid-area: j2;
+}
+
+#j3 {
+    grid-area: j3;
+}
+
+#j4 {
+    grid-area: j4;
+}
+
+#j5 {
+    grid-area: j5;
+}
+
+#j6 {
+    grid-area: j6;
+}
+
+#j7 {
+    grid-area: j7;
+}
+
+#j8 {
+    grid-area: j8;
+}
+
+#j9 {
+    grid-area: j9;
+}
+
+#j10 {
+    grid-area: j10;
+}
+
+#j11 {
+    grid-area: j11;
+}
+
+#j12 {
+    grid-area: j12;
+}
+
+#j13 {
+    grid-area: j13;
+}
+
+#j14 {
+    grid-area: j14;
+}
+
+#j15 {
+    grid-area: j15;
+}
+
+#j16 {
+    grid-area: j16;
+}
+
+.back-button {
+    display: none;
+    position: fixed;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: #fcf3e4;
+    color: #322105;
+    text-decoration: none;
+    bottom: -15rem;
+    /* Adjust as needed */
+    opacity: 0;
+    left: 30%;
+    /* Position horizontally in the middle */
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    z-index: 555;
+    /* Ensure it's above other content */
+    transition: all 0.3s ease;
+}
+
+.material-symbols-outlined {
+    vertical-align: middle;
+}
+
+
+@media (max-width:768px) {
+    .outlets_l {
+        border: 1px solid #F1BB67;
+    }
+
+    .outlets_l .jorethang {
+        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 30rem);
+        grid-template-areas:
+            "j1 j1"
+            "j2 j3"
+            "j4 j4"
+            "j5 j5"
+            "j6 j6"
+            "j7 j7"
+            "j8 j9"
+            "j10 j11"
+            "j12 j12"
+            "j13 j14"
+            "j15 j15"
+            "j16 j16";
+    }
+}

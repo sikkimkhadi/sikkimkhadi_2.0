@@ -37,14 +37,14 @@ export const routes: Routes = [
         path: 'latest',
         loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent)
     },
-    {
-        path: 'upcoming',
-        loadComponent: () => import('./events/upcoming/upcoming.component').then(m => m.UpcomingComponent)
-    },
-    {
-        path: 'annual',
-        loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
-    },
+    // {
+    //     path: 'upcoming',
+    //     loadComponent: () => import('./events/upcoming/upcoming.component').then(m => m.UpcomingComponent)
+    // },
+    // {
+    //     path: 'annual',
+    //     loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
+    // },
     {
         path: 'rti',
         loadComponent: () => import('./pages/rti-act/rti-act.component').then(m => m.RTIActComponent)
@@ -80,6 +80,74 @@ export const routes: Routes = [
     {
         path: 'mendogaon',
         loadComponent: () => import('./pages/production/mendogaon/mendogaon.component').then(m => m.MendogaonComponent)
+    },
+    {
+        path: 'products/beebox',
+        loadComponent: () => import('./pages/products/beebox/beebox.component').then(m => m.BeeboxComponent)
+    },
+    {
+        path: 'products/saree',
+        loadComponent: () => import('./pages/products/saree/saree.component').then(m => m.SareeComponent)
+    },  
+    {
+        path: 'products/turmeric',
+        loadComponent: () => import('./pages/products/turmeric/turmeric.component').then(m => m.TurmericComponent)
+    },  
+    {
+        path: 'products/temitea',
+        loadComponent: () => import('./pages/products/temitea/temitea.component').then(m => m.TemiteaComponent)
+    },   
+    {
+        path: 'products/shawl',
+        loadComponent: () => import('./pages/products/shawl/shawl.component').then(m => m.ShawlComponent)
+    },   
+    {
+        path: 'products/toileteries',
+        loadComponent: () => import('./pages/products/toileteries/toileteries.component').then(m => m.ToileteriesComponent)
+    },
+    {
+        path: 'products/honey',
+        loadComponent: () => import('./pages/products/honey/honey.component').then(m => m.HoneyComponent)
+    },
+    {
+        path: 'products/duree',
+        loadComponent: () => import('./pages/products/duree/duree.component').then(m => m.DureeComponent)   
+    },
+    {
+        path: 'products/incense',
+        loadComponent: () => import('./pages/products/incense/incense.component').then(m => m.IncenseComponent)
+    },
+    {
+        path: 'products/pillow',
+        loadComponent: () => import('./pages/products/pillow/pillow.component').then(m => m.PillowComponent)
+    },
+    {
+        path: 'products/quilt',
+        loadComponent: () => import('./pages/products/quilt/quilt.component').then(m => m.QuiltComponent)
+    },
+    {
+        path: 'outlets/namchi',
+        loadComponent: () => import('./pages/outlets/namchi/namchi.component').then(m => m.NamchiComponent)
+    },
+    {
+        path: 'outlets/gyalshing',
+        loadComponent: () => import('./pages/outlets/gyalshing/gyalshing.component').then(m => m.GyalshingComponent)
+    },
+    {
+        path: 'outlets/singtam',
+        loadComponent: () => import('./pages/outlets/singtam/singtam.component').then(m => m.SingtamComponent)
+    },
+    {
+        path: 'outlets/deorali',
+        loadComponent: () => import('./pages/outlets/deorali/deorali.component').then(m => m.DeoraliComponent)
+    },
+    {
+        path: 'outlets/jorethang',
+        loadComponent: () => import('./pages/outlets/jorethang/jorethang.component').then(m => m.JorethangComponent)
+    },
+    {
+        path: 'outlets/supermarket',
+        loadComponent: () => import('./pages/outlets/supermarket/supermarket.component').then(m => m.SupermarketComponent)
     },
     {
         path: '**',
