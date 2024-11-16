@@ -27,4 +27,9 @@ h2 {
   h2 {
     font-size: 1.8rem;
   }
+
+  svg {
+    height: 70%;
+    width: 70%;
+  }
 }
