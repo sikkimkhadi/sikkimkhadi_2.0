@@ -43,19 +43,20 @@ export class LatestComponent {
       imageUrl: '../../../assets/events/slbc_12_09/thumbnail.jpg'
     },
     {
+      id: '17-09-2024',
+      title: 'Bishwakarma Puja',
+      date: '17th September 2024',
+      description: 'Bishwakarma Puja was celebrated at Khadi Bhawan, Deorali.',
+      imageUrl: '../../../assets/events/bishwakarma_17_09/thumbnail.jpg'
+    },
+    {
       id: '27-09-2024',
       title: 'Empowering Farmers through Bee-Keeping and Entrepreneurship',
       date: '27th September 2024',
       description: 'A meeting in Duga, Rangpo discussed about bee-keeping and PMEGP, inspiring farmers towards self-entrepreneurship',
       imageUrl: '../../../assets/events/duga_27_10/thumbnail.jpg'
     },
-    {
-      id: '17-09-2024',
-      title: 'Angular Workshop',
-      date: '17th September 2024',
-      description: 'Hands-on workshop covering the latest Angular features.',
-      imageUrl: '../../../assets/events/duga_27_10/thumbnail.jpg'
-    }
+    
   ]);
 
   constructor(public router: Router) { }

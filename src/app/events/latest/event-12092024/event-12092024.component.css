@@ -1,0 +1,105 @@
+.event-details {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  /* background-color: #ffffff; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  /* border-radius: 8px; */
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: #000080;
+  font-size: 1.75rem;
+  /* margin-bottom: 1.5rem; */
+  padding-bottom: 0.5rem;
+  /* border-bottom: 2px solid #e0e0e0; */
+}
+
+time {
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #00006e;
+    display: block;
+    /* margin-top: 0.5rem; */
+    font-style: italic;
+}
+
+h2 {
+  color: #303f9f;
+  font-size: 1.25rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.meeting-info {
+  line-height: 1.6;
+}
+
+.dignitaries ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.dignitaries li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  color: #593a09;
+}
+
+.other-attendees {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  /* border-top: 1px solid #e0e0e0; */
+}
+
+.other-attendees p {
+  line-height: 1.6;
+  color: #593a09;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+.programme_images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.programme_images img {
+  margin-top: 2rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .event-details {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+}
+
+/* Optional: Utility class for visually hiding elements while keeping them accessible */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -1,0 +1,32 @@
+h1 {
+    text-align: left;
+    color: #000080;
+    font-weight: bold;
+}
+
+time {
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #00006e;
+    display: block;
+    /* margin-top: 0.5rem; */
+    font-style: italic;
+}
+
+article p {
+    margin-top: 2rem;
+}
+
+.biswakarma__images {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.biswakarma__images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+ }
