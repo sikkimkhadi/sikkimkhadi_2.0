@@ -8,12 +8,15 @@
     <div class="pmegp__header_text">
       <p>Prime Minister's Employment <br> Generation Programme</p>
     </div>
-    <section class="pmegp__pictures">
-      <img src="../../../assets/pmegp/confectionary.jpg" alt="">
-      <img src="../../../assets/pmegp/beauty_parlour.jpg" alt="">
-      <img src="../../../assets/pmegp/cafe.jpg" alt="">
-      <img src="../../../assets/pmegp/women_weaving.jpg" alt="">
-    </section>
+    <!-- pictures carousel -->
+    @if (isLargeScreen | async) {
+    <!-- Desktop/Tablet carousel -->
+    <app-pmegp-cl-desk />
+    } @else {
+    <!-- Mobile carousel -->
+    <app-pmegp-cl-mob />
+    }
+
     <div class="pmegp__attach__table__header">
       <p class="pmepg_table_title"><span>A glance at</span><span>PMEGP performance</span><span>by SKVIB</span></p>
     </div>
@@ -184,14 +187,7 @@
 
     </div>
     <!-- RESPONSIVE MOBILE TABLE ENDS HERE -->
-    <!-- pictures carousel -->
-    @if (isLargeScreen | async) {
-    <!-- Desktop/Tablet carousel -->
-    <app-pmegp-cl-desk />
-    } @else {
-    <!-- Mobile carousel -->
-    <app-pmegp-cl-mob />
-    }
+
 
     <div class="pmegp__contents">
       <section class="pmegp_intro">
