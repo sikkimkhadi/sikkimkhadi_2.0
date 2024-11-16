@@ -27,11 +27,26 @@ export interface Event {
 export class LatestComponent {
   // Static data should be moved to a separate service or constant file
   events = signal<Event[]>([
+   
+    {
+      id: '14-08-2024',
+      title: 'Farewell to Our Esteemed Retirees',
+      date: '14th August 2024',
+      description: 'A heartfelt farewell honoring six retiring staff members with mementos and gifts at Khadi Bhawan Deorali.',
+      imageUrl: '../../../assets/events/farewell_14_08/thumbnail.jpg'
+    },
+    {
+      id: '12-09-2024',
+      title: 'SLBC Steering Committee Meeting & 80th State Level Banker’s Committee Meeting',
+      date: '12th September 2024',
+      description: 'Key stakeholders convened in Gangtok to discuss banking progress and initiatives for the June 2024 quarter',
+      imageUrl: '../../../assets/events/slbc_12_09/thumbnail.jpg'
+    },
     {
       id: '27-09-2024',
-      title: 'Tech Conference 2024',
+      title: 'Empowering Farmers through Bee-Keeping and Entrepreneurship',
       date: '27th September 2024',
-      description: 'Join us for an exciting day of technology talks and networking.',
+      description: 'A meeting in Duga, Rangpo discussed about bee-keeping and PMEGP, inspiring farmers towards self-entrepreneurship',
       imageUrl: '../../../assets/events/duga_27_10/thumbnail.jpg'
     },
     {

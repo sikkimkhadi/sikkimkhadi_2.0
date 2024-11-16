@@ -57,3 +57,31 @@
     flex-direction: column;
     gap: 1.5rem;
 }
+
+@media (max-width: 768px) {
+    .pageContainer {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .acontents {
+        margin: 0.5rem auto;
+        padding: 1rem;
+        max-width: 95%;
+        font-size: 1.4rem;
+    }
+
+    .breadcrumb {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .breadcrumb a,
+    .breadcrumb span {
+        font-size: 1rem;
+    }
+
+    .breadcrumb ol {
+        flex-wrap: wrap;
+    }
+}

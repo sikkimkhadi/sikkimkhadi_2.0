@@ -1,0 +1,67 @@
+.farewell-programme {
+  max-width: 80rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  text-align: left;
+  color: #000080;
+  /* margin-bottom: 2rem; */
+  font-weight: bold;
+}
+time {
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #00006e;
+    display: block;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.intro-text {
+  margin: 2rem 0;
+  line-height: 1.6;
+}
+
+.retirees-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  color: #704a02;
+}
+
+.retirees-table tr:nth-child(odd) {
+  background-color: #f3c376;
+}
+
+.retirees-table tr:nth-child(even) {
+  background-color: #f3c376;
+}
+
+.retirees-table th,
+.retirees-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #F1BB67;
+}
+
+.retirees-table th {
+  background-color: #f5d095;
+  font-weight: bold;
+  border-top: 1px solid #F1BB67;
+  border-bottom: 1px solid #F1BB67;
+}
+
+.retirees-table th:first-child {
+  border-left: 1px solid #F1BB67;
+}
+
+.retirees-table th:last-child {
+  border-right: 1px solid #F1BB67;
+}
+
+.retirees-table tr:hover {
+  background-color: transparent;
+}

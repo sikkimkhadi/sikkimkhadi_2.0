@@ -38,12 +38,20 @@ export const routes: Routes = [
         loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent),
         children: [
             {
+                path: '12-09-2024',
+                loadComponent: () => import('./events/latest/event-12092024/event-12092024.component').then(m => m.Event12092024Component)
+            },
+            {
                 path: '27-09-2024',
                 loadComponent: () => import('./events/latest/event-27092024/event-27092024.component').then(m => m.Event27092024Component)
             },
             {
                 path: '17-09-2024',
                 loadComponent: () => import('./events/latest/event-17092024/event-17092024.component').then(m => m.Event17092024Component)
+            },
+            {
+                path: '14-08-2024',
+                loadComponent: () => import('./events/latest/event-14082024/event-14082024.component').then(m => m.Event14082024Component)
             }
         ]
     },
