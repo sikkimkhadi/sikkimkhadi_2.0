@@ -1,25 +1,22 @@
 <main class="pageContainer">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <ol>
+            <li>
+                <a routerLink="/latest">latest-events</a>
+                @if (!isLatestRoute()) {
+                    <span>&nbsp;/&nbsp;{{ eventDate() }}</span>
+                }
+            </li>
+        </ol>
+    </nav>
+
     <article class="acontents">
-        <header class="pmegp__header_text">
-            <h1>Bee-Keeping & PMEGP Awareness Meeting by Pandam Organic Agro FPO in Duga Rangpo</h1>
-            <time datetime="2024-09-27">27th September, 2024</time>
-        </header>
-        <section class="events__text">
-            <p>The PMEGP Awareness Meeting was conducted by Pandam Organic Agro FPO in Duga Rangpo on 27th September
-                2024. The meeting aimed to educate the local community about the Prime Minister's Employment Generation
-                Programme (PMEGP) and the benefits of bee-keeping. The event was attended by 30 participants, including
-                local farmers, entrepreneurs, and government officials. The meeting provided valuable information about
-                the PMEGP scheme, its objectives, and the various benefits it offers to entrepreneurs. The participants
-                were also informed about the process of applying for PMEGP loans and the support provided by the
-                government to promote entrepreneurship and employment generation in the region.</p>
-        </section>
-        <section class="events__pictures" aria-label="Event photographs">
-            <img id="img1" src="../../../assets/events/duga_27_10/img1.jpg" 
-                 alt="PMEGP Awareness Meeting participants at Duga Rangpo">
-            <img id="img2" src="../../../assets/events/duga_27_10/img2.jpg" 
-                 alt="Bee-keeping demonstration during the meeting">
-            <img id="img3" src="../../../assets/events/duga_27_10/img3.jpg" 
-                 alt="Group discussion with local farmers">
-        </section>
+        @if (isLatestRoute()) {
+        @for (event of events(); track event.id) {
+        <app-event-card [event]="event" (click)="router.navigate(['/latest', event.id])" />
+        }
+        }
+
+        <router-outlet />
     </article>
 </main>

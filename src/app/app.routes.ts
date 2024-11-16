@@ -35,7 +35,17 @@ export const routes: Routes = [
     },
     {
         path: 'latest',
-        loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent)
+        loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent),
+        children: [
+            {
+                path: '27-09-2024',
+                loadComponent: () => import('./events/latest/event-27092024/event-27092024.component').then(m => m.Event27092024Component)
+            },
+            {
+                path: '17-09-2024',
+                loadComponent: () => import('./events/latest/event-17092024/event-17092024.component').then(m => m.Event17092024Component)
+            }
+        ]
     },
     // {
     //     path: 'upcoming',
