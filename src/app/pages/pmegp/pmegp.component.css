@@ -249,6 +249,10 @@
   #d5 {
     grid-area:d5;
   }
+
+  .pmegp_howto li {
+    list-style: decimal;
+  }
   
   .pmepg_table_title {
     font-size: 2.4rem;
