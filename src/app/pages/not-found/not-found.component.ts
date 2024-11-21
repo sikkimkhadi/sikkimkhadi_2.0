@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 /**
  * 404 Not Found Component
@@ -7,25 +7,35 @@ import { Router } from '@angular/router';
  */
 @Component({
   selector: 'app-not-found',
-  standalone: true,
-  imports: [],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.css'
+  styleUrls: ['./not-found.component.scss'],
+  standalone: true,
+  imports: [RouterLink]
 })
-export class NotFoundComponent {
+export class NotFoundComponent implements OnInit, OnDestroy {
   /** Countdown timer in seconds before redirect */
-  countdown: number = 6;
+  countdown: number = 12;
+  private countdownInterval: any;
 
-  constructor(private router: Router) {
-    // Set up countdown interval
-    const interval = setInterval(() => {
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.startCountdown();
+  }
+
+  ngOnDestroy(): void {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+    }
+  }
+
+  private startCountdown(): void {
+    this.countdownInterval = setInterval(() => {
       this.countdown--;
-      
-      // When countdown reaches zero
       if (this.countdown === 0) {
-        clearInterval(interval);  // Clean up interval
-        this.router.navigate(['/']);  // Redirect to home page
+        clearInterval(this.countdownInterval);
+        this.router.navigate(['/']);
       }
-    }, 1000);  // Update every second
+    }, 1000);
   }
 }
