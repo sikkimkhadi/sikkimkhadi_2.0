@@ -1,23 +1,52 @@
-<div class="events">
-    <div class="card">
-      <img src="../../../assets/events/pic4.jpg" alt="event" style="width:100%">
-      <div class="container">
-        <p class="card-title">Our Latest Events</p>
-        <a [routerLink]="['/latest']">Read More</a>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../../assets/events/pic2.jpg" alt="event" style="width:100%">
-      <div class="container">
-        <p class="card-title">Upcoming Events</p>
-        <a [routerLink]="['/upcoming']">Read More</a>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../../assets/events/pic5.jpg" alt="event" style="width:100%">
-      <div class="container">
-        <p class="card-title">Annual Exhibition</p>
-        <a [routerLink]="['/annual']">Read More</a>
-      </div>
-    </div>
+<!-- Events Section -->
+<section class="events-section">
+  <div class="section-header">
+    <h2 class="section-title">Discover Our Events</h2>
+    <p class="section-subtitle">Explore the rich heritage of Sikkim's traditional crafts and modern initiatives</p>
   </div>
+  
+  <div class="events-grid" *ngIf="eventImages$ | async as images; else loadingTemplate">
+    <article class="event-card" *ngFor="let image of images; let i = index">
+      <div class="card-image-container">
+        <img 
+          [src]="image.url" 
+          [alt]="image.alt"
+          class="card-image"
+          loading="lazy"
+        >
+        <div class="image-overlay"></div>
+        <div class="card-badge">{{ getBadgeText(i) }}</div>
+      </div>
+      
+      <div class="card-content">
+        <h3 class="card-title">{{ getCardTitle(i) }}</h3>
+        <p class="card-description">{{ getCardDescription(i) }}</p>
+        
+        <div class="card-footer">
+          <a 
+            [routerLink]="getRouterLink(i)" 
+            class="cta-button"
+            [attr.aria-label]="'Learn more about ' + getCardTitle(i)"
+          >
+            <span class="button-text">Explore More</span>
+            <span class="button-icon" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <!-- Loading Template -->
+  <ng-template #loadingTemplate>
+    <div class="events-grid loading">
+      <div class="event-card skeleton" *ngFor="let item of [1,2,3]">
+        <div class="card-image-container skeleton-image"></div>
+        <div class="card-content">
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-button"></div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>

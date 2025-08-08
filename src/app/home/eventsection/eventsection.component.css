@@ -1,205 +1,358 @@
-/* Main container for events section */
-.events {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-color: #f8deb5;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    /* Distributes space evenly between cards */
+/* Modern Events Section Styling */
+.events-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #faf6f0 0%, #f8deb5 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Container for individual event content */
-.events .container {
-    display: flex;
-    flex-direction: column;
-    /* Stack children vertically */
+/* Decorative background elements */
+.events-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 40%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(244, 158, 19, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
 }
 
-/* Event card styling */
-.events .card {
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    /* Subtle shadow for depth */
-    transition: 0.3s;
-    /* Smooth transition for hover effects */
-    width: 33%;
-    /* Takes up one-third of the parent width */
+.events-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 30%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(205, 134, 20, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
 }
 
-/* Card title styling */
-.card .card-title {
-    font-family: var(--font-subheading);
-    font-size: var(--fs-h4);
-    font-weight: var(--fw-medium);
-    color: #CD8614;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    background-color: #f9e5c5;
-    padding: 1rem;
-    border: 0.5px solid #ea9f2a;
-    border-radius: 9px;
-    flex: 0 0 auto;
-    /* Prevents flex stretching */
-    align-self: flex-start;
-    /* Aligns to start of container */
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
-/* Link styling within cards */
-.card a {
+.section-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+    color: var(--brand-dark-brown);
+    margin: 0 0 1rem 0;
+    line-height: var(--lh-heading);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-primary-orange), var(--brand-secondary-orange));
+    border-radius: 2px;
+}
+
+.section-subtitle {
     font-family: var(--font-body);
     font-size: var(--fs-body);
-    margin-bottom: 1rem;
-    color: #000080;
-    /* Navy blue color */
-    font-style: italic;
-    padding-left: 1rem;
-    text-decoration: none;
-    /* Removes default underline */
-    transition: all 0.2s ease;
-    /* Smooth transition for hover effects */
+    color: var(--brand-dark-brown);
+    margin: 0;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--lh-body);
+}
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
-    /* Required for absolute positioning of pseudo-elements */
-    display: inline-block;
-    /* Allows link to size to content */
-    flex: 0 0 auto;
-    /* Prevents flex stretching */
-    align-self: flex-start;
-    /* Aligns to start of container */
+    z-index: 1;
 }
 
-/* Custom underline effect using pseudo-element */
-.card a::before {
-    content: "";
-    /* Required for pseudo-elements */
-    position: absolute;
-    /* Positions relative to link */
-    bottom: -2px;
-    /* Positions slightly below text */
-    left: 1rem;
-    width: 0;
-    /* Starts with no width */
-    height: 0.5px;
-    /* Thickness of underline */
-    background-color: #000080;
-    transition: width 0.3s ease;
-    /* Animate width change */
+/* Event Card */
+.event-card {
+    background: var(--neutral-white);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(244, 158, 19, 0.1);
 }
 
-/* Arrow icon using pseudo-element */
-.card a::after {
-    content: "→";
-    /* Adds arrow character */
+.event-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(244, 158, 19, 0.2);
+}
+
+/* Card Image Container - Portrait Layout */
+.card-image-container {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    background-color: #faf6f0;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.image-overlay {
     position: absolute;
-    margin-left: 0.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
     opacity: 0;
-    /* Start invisible */
-    transform: translateX(-10px);
-    /* Start slightly left */
-    transition: all 0.3s ease;
-    color: #000080;
+    transition: opacity 0.3s ease;
 }
 
-/* Hover effect for link */
-.card a:hover {
-    padding-left: 1.5rem;
-    /* Slight padding increase on hover */
-}
-
-/* Hover effect for underline */
-.card a:hover::before {
-    width: calc(100% - 0.5rem);
-    /* Expand to full width minus padding */
-}
-
-/* Hover effect for arrow */
-.card a:hover::after {
+.event-card:hover .image-overlay {
     opacity: 1;
-    /* Make arrow visible */
-    transform: translateX(0);
-    /* Move arrow to position */
-    animation: arrowMove 1s ease-in-out infinite;
-    /* Start bouncing animation */
 }
 
-/* Animation for arrow bouncing effect */
-@keyframes arrowMove {
+/* Card Badge */
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--brand-primary-orange), var(--brand-secondary-orange));
+    color: var(--neutral-white);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+    box-shadow: 0 4px 12px rgba(244, 158, 19, 0.3);
+    z-index: 2;
+}
+
+/* Card Content */
+.card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-title {
+    font-family: var(--font-subheading);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--brand-dark-brown);
+    margin: 0;
+    line-height: var(--lh-subheading);
+}
+
+.card-description {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    color: var(--brand-dark-brown);
+    line-height: var(--lh-body);
+    margin: 0;
+    opacity: 0.8;
+    flex-grow: 1;
+}
+
+/* Card Footer */
+.card-footer {
+    margin-top: 1rem;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--brand-light-orange), var(--brand-secondary-orange));
+    color: var(--neutral-white);
+    text-decoration: none;
+    border-radius: 2rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--brand-primary-orange), var(--brand-light-orange));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(244, 158, 19, 0.4);
+}
+
+.button-icon {
+    transition: transform 0.3s ease;
+    font-size: 1.2em;
+}
+
+.cta-button:hover .button-icon {
+    transform: translateX(4px);
+}
+
+/* Loading States */
+.events-grid.loading {
+    pointer-events: none;
+}
+
+.skeleton {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-image {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-title {
+    height: 1.5rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-text {
+    height: 1rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-button {
+    height: 2.5rem;
+    width: 8rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
     0% {
-        transform: translateX(0);
+        background-position: -200% 0;
     }
-
-    /* Start position */
-    50% {
-        transform: translateX(5px);
-    }
-
-    /* Move right */
     100% {
-        transform: translateX(0);
+        background-position: 200% 0;
     }
-
-    /* Back to start */
 }
 
-/* Hover effect for entire card */
-.events .card:hover {
-    transform: translateY(-5px);
-    /* Lift card slightly */
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    /* Stronger shadow */
-    transition: all 0.3s ease;
-    /* Smooth transition */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
 }
 
-/* Mobile-specific styles for screens smaller than 768px */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .events-grid {
+        gap: 1.5rem;
+    }
+    
+    .card-image-container {
+        height: 280px;
+    }
+}
+
 @media (max-width: 768px) {
-    /* Change flex layout from row to column for better mobile viewing */
-    .events {
-        flex-direction: column;
+    .events-section {
+        padding: 2rem 1rem;
     }
-
-    /* Adjust card width to full width of container and add spacing between cards */
-    .events .card {
-        width: 100%;  /* Take up full container width on mobile */
-        margin-bottom: 1rem;  /* Add space between stacked cards */
+    
+    .section-title {
+        font-size: var(--fs-h2);
     }
-
-    /* Adjust title size and spacing for better mobile readability */
-    .card .card-title {
-        font-size: 1.8rem;  /* Maintain readable font size on mobile */
-        margin-bottom: 1rem;  /* Keep consistent spacing below title */
+    
+    .section-subtitle {
+        font-size: var(--fs-small);
     }
-
-    /* Simplified link style for mobile */
-    .card a {
-        font-size: 1.6rem;
-        margin-bottom: 1rem;
-        color: #000080;
-        font-style: italic;
-        padding-left: 1rem;
-        text-decoration: underline;  /* Always show underline */
-        position: relative;
-        display: inline-block;
+    
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-
-    /* Remove the pseudo-element underline animation */
-    .card a::before {
-        display: none;
+    
+    .card-image-container {
+        height: 250px;
     }
-
-    /* Show and animate arrow continuously */
-    .card a::after {
-        content: "→";
-        position: absolute;
-        margin-left: 0.5rem;
-        opacity: 1;  /* Always visible */
-        transform: translateX(0);
-        color: #000080;
-        animation: arrowMove 1s ease-in-out infinite;  /* Continuous animation */
+    
+    .card-content {
+        padding: 1.5rem;
     }
+    
+    .card-title {
+        font-size: var(--fs-h4);
+    }
+    
+    .card-description {
+        font-size: var(--fs-small);
+    }
+    
+    .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: var(--fs-small);
+    }
+}
 
-    /* Remove hover effects since they're less useful on mobile */
-    .card a:hover {
-        padding-left: 1rem;  /* Remove padding change */
+@media (max-width: 480px) {
+    .events-section {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
+    
+    .card-content {
+        padding: 1rem;
     }
 }

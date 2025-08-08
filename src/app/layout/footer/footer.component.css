@@ -275,38 +275,37 @@ h3 {
     text-decoration: none;
 }
 
-/* Special styling for "About this Website" link */
+/* Special styling for "About this Website" link - matching Tejinfomedia style */
 .additional-links a:first-child {
-    background: linear-gradient(135deg, var(--neutral-very-light-gray), var(--neutral-almost-white));
-    /* background: linear-gradient(135deg, var(--brand-primary-blue), var(--brand-bright-blue)); */
-    color: var(--brand-primary-blue) !important;
-    padding: 0.7rem 1.4rem;
-    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--brand-light-orange), var(--brand-secondary-orange));
+    color: var(--neutral-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
     font-weight: var(--fw-semibold);
     font-size: var(--fs-tiny);
     text-align: center;
-    box-shadow: 0 3px 10px rgba(21, 79, 170, 0.3);
+    box-shadow: 0 2px 8px rgba(244, 158, 19, 0.3);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
     margin-top: 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .additional-links a:first-child:before {
     content: "ℹ️";
-    margin-right: 0.6rem;
+    margin-right: 0.5rem;
     font-size: 1rem;
 }
 
 .additional-links a:first-child:hover {
-    background: linear-gradient(135deg, var(--brand-bright-blue), var(--brand-primary-blue));
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 5px 15px rgba(21, 79, 170, 0.4);
-    border-color: var(--brand-bright-blue);
-    color: var(--neutral-white) !important;
+    background: linear-gradient(135deg, var(--brand-primary-orange), var(--brand-secondary-orange));
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(244, 158, 19, 0.4);
+    border-color: var(--brand-primary-orange);
+    color: var(--neutral-white);
     text-decoration: none;
 }
 
@@ -455,8 +454,8 @@ h3 {
 
     /* Ensure button text stays white on mobile */
     .additional-links a:first-child {
-        /* color: var(--neutral-white) !important; */
-        color: var(--brand-primary-blue) !important;
+        color: var(--neutral-white) !important;
+        /* color: var(--brand-primary-blue) !important; */
     }
 
     .additional-links a:first-child:hover {
