@@ -34,41 +34,48 @@ export class CloudinaryService {
   private mockDesktopSlides: CarouselSlide[] = [
     {
       id: 1,
+      url: '../../../../assets/carousel-desk/gandhi.jpg',
+      title: 'Mahatma Gandhi',
+      description: 'Father of the Khadi Movement',
+      category: 'ideal'
+    },
+    {
+      id: 2,
       url: '../../../../assets/carousel-desk/incense.jpg',
       title: 'Organic Incense',
       description: 'Traditional aromatic experience crafted with natural ingredients',
       category: 'products'
     },
     {
-      id: 2,
+      id: 3,
       url: '../../../../assets/carousel-desk/members.jpg',
       title: 'SKVIB Members',
       description: 'Our dedicated team working towards sustainable development',
       category: 'team'
     },
     {
-      id: 3,
+      id: 4,
       url: '../../../../assets/carousel-desk/bhawan.jpg',
       title: 'Khadi Bhawan',
       description: 'Our main center located at Deorali, Gangtok',
       category: 'locations'
     },
     {
-      id: 4,
+      id: 5,
       url: '../../../../assets/carousel-desk/store.jpg',
       title: 'Khadi Store',
       description: 'Visit our retail outlet at Deorali for authentic Khadi products',
       category: 'locations'
     },
     {
-      id: 5,
+      id: 6,
       url: '../../../../assets/carousel-desk/toiletories.jpg',
       title: 'Khadi Toiletries',
       description: 'Handmade toiletries using traditional methods and natural ingredients',
       category: 'products'
     },
     {
-      id: 6,
+      id: 7,
       url: '../../../../assets/carousel-desk/products.jpg',
       title: 'Khadi Products',
       description: 'Explore our complete collection of authentic Khadi items',
@@ -80,41 +87,48 @@ export class CloudinaryService {
   private mockMobileSlides: CarouselSlide[] = [
     {
       id: 1,
+      url: '../../../../assets/carousel-mb/gandhi_mobile.jpg',
+      title: 'Mahatma Gandhi',
+      description: 'Father of the Khadi Movement',
+      category: 'ideal'
+    },
+    {
+      id: 2,
       url: '../../../../assets/carousel-mb/Incense.jpg',
       title: 'Organic Incense',
       description: 'Traditional aromatic experience',
       category: 'products'
     },
     {
-      id: 2,
+      id: 3,
       url: '../../../../assets/carousel-mb/members.jpg',
       title: 'SKVIB Members',
       description: 'Our dedicated team',
       category: 'team'
     },
     {
-      id: 3,
+      id: 4,
       url: '../../../../assets/carousel-mb/honey.jpg',
       title: 'Organic Honey',
       description: 'Pure and natural sweetness',
       category: 'products'
     },
     {
-      id: 4,
+      id: 5,
       url: '../../../../assets/carousel-mb/store.jpg',
       title: 'Khadi Store',
       description: 'Deorali Khadi Outlet',
       category: 'locations'
     },
     {
-      id: 5,
+      id: 6,
       url: '../../../../assets/carousel-mb/toiletories.jpg',
       title: 'Khadi Toiletries',
       description: 'Handmade toiletries',
       category: 'products'
     },
     {
-      id: 6,
+      id: 7,
       url: '../../../../assets/carousel-mb/bhawan.jpg',
       title: 'Khadi Bhawan',
       description: 'Deorali, Gangtok',
