@@ -19,11 +19,12 @@
 .copyright {
     text-align: center;
     background-color: #f5d096;
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
     padding: 1.5rem;
-    color: #cd8514;
-    line-height: normal;
+    color: var(--brand-burnt-orange);
+    line-height: var(--lh-body);
 }
 
 /* Reset default heading styles */
@@ -56,29 +57,38 @@ h3 {
     width: 100%;
 }
 
-.contact-info li h3,
-.contact-info li address,
-.contact-info li a {
-    color: #422b06;
-    font-size: 1.6rem;
-    font-weight: 500;
+.contact-info li h3 {
+    color: var(--brand-dark-brown);
+    font-family: var(--font-subheading);
+    font-size: var(--fs-h4);
+    font-weight: var(--fw-semibold);
     margin: 0;
-    white-space: nowrap;
-    flex: 1;
-    line-height: normal;
+    margin-bottom: 0.5rem;
+    line-height: var(--lh-subheading);
 }
 
-.contact-info address {
+.contact-info li address {
+    color: var(--brand-dark-brown);
+    font-family: var(--font-body);
     font-style: normal;
+    font-size: var(--fs-small);
+    line-height: var(--lh-body);
+    margin: 0;
 }
 
-.contact-info a {
+.contact-info li a {
+    color: var(--brand-dark-brown);
+    font-family: var(--font-body);
     text-decoration: none;
-    color: inherit;
+    font-size: var(--fs-small);
+    transition: all 0.3s ease;
+    line-height: var(--lh-body);
 }
 
-.contact-info a:hover {
+.contact-info li a:hover {
+    color: var(--brand-primary-red);
     text-decoration: underline;
+    transform: translateX(2px);
 }
 
 /* Image Styles
@@ -93,11 +103,16 @@ h3 {
 /* Important Links Section
 -------------------------------------------------- */
 .links h3 {
-    color: #422b06;
-    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-subheading);
+    font-weight: var(--fw-semibold);
+    color: var(--brand-dark-brown);
+    font-size: var(--fs-h3);
     text-decoration: underline;
-    margin-bottom: 0.75rem;
-    line-height: normal;
+    text-decoration-color: var(--brand-secondary-orange);
+    margin-bottom: 1rem;
+    line-height: var(--lh-subheading);
 }
 
 .itemLinks {
@@ -117,17 +132,20 @@ h3 {
 .itemLinks a {
     position: relative;
     padding-left: 1.5rem;
-    color: #422b06;
+    color: var(--brand-dark-brown);
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1.6rem;
-    line-height: normal;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
 }
 
 .itemLinks a::before {
     content: "›";
     position: absolute;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 1.6rem;
     line-height: 1;
     color: inherit;
@@ -136,28 +154,29 @@ h3 {
 
 .itemLinks a:hover,
 .itemLinks a:hover::before {
-    color: #CD8614;
+    color: var(--brand-primary-orange);
+    transform: translateX(3px);
 }
 
 /* Social Media Section */
 .social_media h3 {
     margin: 0;
     padding: 0;
-    font-weight: normal;
-    color: #422b06;
-    font-size: 2rem;
+    font-family: var(--font-subheading);
+    font-weight: var(--fw-semibold);
+    color: var(--brand-dark-brown);
+    font-size: var(--fs-h3);
     text-decoration: underline;
+    text-decoration-color: var(--brand-primary-orange);
     margin-bottom: 0.75rem;
-    line-height: normal;
+    line-height: var(--lh-subheading);
 }
 
 .social_media_links {
     display: flex;
-    gap: 2rem;
-    justify-content: center;
+    gap: 1rem;
     align-items: center;
-    margin-top: 1rem;
-    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .social_media_links a {
@@ -185,15 +204,109 @@ h3 {
 
 /* Individual social media icon colors on hover */
 .social_media_links .twitter:hover img {
-    filter: drop-shadow(0 0 3px #1DA1F2);  /* Twitter blue */
+    filter: drop-shadow(0 0 5px var(--brand-primary-blue));
 }
 
 .social_media_links .facebook:hover img {
-    filter: drop-shadow(0 0 3px #4267B2);  /* Facebook blue */
+    filter: drop-shadow(0 0 5px var(--brand-bright-blue));
 }
 
 .social_media_links .instagram:hover img {
-    filter: drop-shadow(0 0 3px #E4405F);  /* Instagram pink */
+    filter: drop-shadow(0 0 5px var(--brand-pink));
+}
+
+/* Additional Links Section */
+.additional-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.additional-links a {
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: var(--brand-dark-brown);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    line-height: var(--lh-body);
+    position: relative;
+}
+
+/* Override for first child (About this website button) */
+.additional-links a:first-child {
+    color: var(--neutral-white) !important;
+}
+
+.additional-links a:hover {
+    color: var(--brand-primary-blue);
+    text-decoration: underline;
+    transform: translateY(-1px);
+}
+
+/* Special styling for "Powered by Tejinfomedia" link */
+.additional-links a[href*="tejinfomedia"] {
+    background: linear-gradient(135deg, var(--brand-light-orange), var(--brand-secondary-orange));
+    color: var(--neutral-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-tiny);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(244, 158, 19, 0.3);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.additional-links a[href*="tejinfomedia"]:before {
+    content: "⚡";
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.additional-links a[href*="tejinfomedia"]:hover {
+    background: linear-gradient(135deg, var(--brand-primary-orange), var(--brand-secondary-orange));
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(244, 158, 19, 0.4);
+    border-color: var(--brand-primary-orange);
+    color: var(--neutral-white);
+    text-decoration: none;
+}
+
+/* Special styling for "About this Website" link */
+.additional-links a:first-child {
+    background: linear-gradient(135deg, var(--brand-primary-blue), var(--brand-bright-blue));
+    color: var(--neutral-white) !important;
+    padding: 0.7rem 1.4rem;
+    border-radius: 1.5rem;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-tiny);
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(21, 79, 170, 0.3);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.additional-links a:first-child:before {
+    content: "ℹ️";
+    margin-right: 0.6rem;
+    font-size: 1rem;
+}
+
+.additional-links a:first-child:hover {
+    background: linear-gradient(135deg, var(--brand-bright-blue), var(--brand-primary-blue));
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(21, 79, 170, 0.4);
+    border-color: var(--brand-bright-blue);
+    color: var(--neutral-white) !important;
+    text-decoration: none;
 }
 
 /* Responsive Design
@@ -303,11 +416,17 @@ h3 {
         text-align: center;
     }
 
-    /* Adjust chevron position for centered text */
+    /* Replace chevrons with modern bullets for mobile */
     .itemLinks a::before {
-        position: static;  /* Remove absolute positioning */
-        margin-right: 0.5rem;  /* Add space between chevron and text */
-        display: inline-block;
+        content: "•";  /* Modern bullet point */
+        position: static;
+        margin-right: 0.8rem;
+        display: inline;
+        font-size: 1.2rem;
+        color: var(--brand-secondary-orange);
+        font-weight: bold;
+        vertical-align: baseline;
+        line-height: inherit;
     }
 
     /* Social media section */
@@ -319,11 +438,32 @@ h3 {
 
     .social_media_links {
         gap: 3rem;  /* Increased gap between social icons */
+        margin-bottom: 2rem;
+    }
+
+    /* Additional links mobile styles */
+    .additional-links {
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .additional-links a {
+        font-size: var(--fs-small);
+        text-align: center;
+    }
+
+    /* Ensure button text stays white on mobile */
+    .additional-links a:first-child {
+        color: var(--neutral-white) !important;
+    }
+
+    .additional-links a:first-child:hover {
+        color: var(--neutral-white) !important;
     }
 
     /* Copyright section */
     .copyright {
-        font-size: 1.1rem;
+        font-size: var(--fs-small);
         padding: 1rem;
     }
 

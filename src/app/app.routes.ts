@@ -168,6 +168,14 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/outlets/supermarket/supermarket.component').then(m => m.SupermarketComponent)
     },
     {
+        path: 'privacy-policy',
+        loadComponent: () => import('./pages/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent)
+    },
+    {
+        path: 'about-website',
+        loadComponent: () => import('./pages/about-website/about-website.component').then(m => m.AboutWebsiteComponent)
+    },
+    {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
     }

@@ -3,12 +3,51 @@
   --primary-bg: #f6d7a6;
   --max-container-width: 112rem;
   --font-family-primary: 'Noto Sans', sans-serif; /* To be removed later */
-  
+
+  /* Reds & Pinks */
+  --brand-primary-dark-red: #66001f;
+  --brand-primary-red: #e4231d;
+  --brand-secondary-red: #c43240;
+  --brand-light-red: #e45758;
+  --brand-light-red-alt: #e84b4c;
+  --brand-pink: #e44785;
+
+  /* Oranges & Yellows */
+  --brand-primary-orange: #f49936;
+  --brand-secondary-orange: #f49e13;
+  --brand-light-orange: #ee9455;
+  --brand-burnt-orange: #af2d16;
+
+  /* Blues */
+  --brand-primary-blue: #154faa;
+  --brand-bright-blue: #0b28bd;
+  --brand-dark-blue: #192347;
+  --brand-indigo: #2a2564;
+
+  /* Greens */
+  --brand-green: #33c363;
+
+  /* Purples */
+  --brand-purple: #8f176d;
+  --brand-dark-purple: #2e1e32;
+
+  /* Browns */
+  --brand-dark-brown: #331105;
+  --brand-very-dark-brown: #2c0806;
+
+  /* Grays & Neutrals */
+  --neutral-white: #ffffff;
+  --neutral-light-gray: #ded8d9;
+  --neutral-very-light-gray: #eaeae9;
+  --neutral-almost-white: #fafafb;
+  --neutral-off-white: #f5ffff;
+  --neutral-dark-slate: #263438;
+
   /* New Typography System */
   --font-heading: 'Montserrat', sans-serif;
   --font-subheading: 'Lora', serif;
   --font-body: 'Martel', serif;
-  
+
   /* Font Weights */
   --fw-light: 300;
   --fw-regular: 400;
@@ -16,7 +55,7 @@
   --fw-semibold: 600;
   --fw-bold: 700;
   --fw-extrabold: 800;
-  
+
   /* Font Sizes - Based on existing 62.5% base (1rem = 10px) */
   --fs-h1: 3.2rem; /* 32px */
   --fs-h2: 2.4rem; /* 24px */
@@ -27,12 +66,12 @@
   --fs-body: 1.6rem; /* 16px */
   --fs-small: 1.4rem; /* 14px */
   --fs-xsmall: 1.2rem; /* 12px */
-  
+
   /* Line Heights */
   --lh-heading: 1.2;
   --lh-subheading: 1.3;
   --lh-body: 1.6;
-  
+
   /* You can add more global variables here */
 }
 

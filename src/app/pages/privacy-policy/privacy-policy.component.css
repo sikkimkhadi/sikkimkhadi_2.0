@@ -1,0 +1,103 @@
+.privacy-policy {
+  min-height: 80vh;
+  background-color: #f5d096;
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: var(--max-container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  color: var(--brand-dark-brown);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.content {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section h2 {
+  font-family: var(--font-subheading);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  color: var(--brand-primary-orange);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--brand-secondary-orange);
+  padding-left: 1rem;
+}
+
+.section p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--brand-dark-brown);
+  margin-bottom: 1rem;
+}
+
+.section ul {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--brand-dark-brown);
+  padding-left: 2rem;
+}
+
+.section li {
+  margin-bottom: 0.5rem;
+}
+
+address {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--brand-dark-brown);
+  font-style: normal;
+  background: linear-gradient(135deg, var(--neutral-almost-white), var(--neutral-very-light-gray));
+  border: 2px solid var(--brand-light-orange);
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .page-header h1 {
+    font-size: var(--fs-h2);
+  }
+  
+  .section h2 {
+    font-size: var(--fs-h4);
+  }
+}
