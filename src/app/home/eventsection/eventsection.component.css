@@ -29,8 +29,9 @@
 
 /* Card title styling */
 .card .card-title {
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-family: var(--font-subheading);
+    font-size: var(--fs-h4);
+    font-weight: var(--fw-medium);
     color: #CD8614;
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -46,7 +47,8 @@
 
 /* Link styling within cards */
 .card a {
-    font-size: 1.6rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
     margin-bottom: 1rem;
     color: #000080;
     /* Navy blue color */
@@ -77,7 +79,7 @@
     left: 1rem;
     width: 0;
     /* Starts with no width */
-    height: 1px;
+    height: 0.5px;
     /* Thickness of underline */
     background-color: #000080;
     transition: width 0.3s ease;

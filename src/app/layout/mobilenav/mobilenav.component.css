@@ -73,12 +73,20 @@
     color: rgb(112, 73, 11);
     background-color: #f2c377;
     text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: 900;
+
+    /* font-size: 2rem; */
+    /* font-weight: 900; */
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     padding: 0 0 1rem 0;
+}
+
+.mobile__nav-header-title span {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-heading);
 }
 
 /* Icon Styles */
@@ -126,7 +134,11 @@
     text-decoration: none;
     color: rgb(112, 73, 11);
     margin: 5px 0;
-    font-size: 23px;
+    font-family: var(--font-body);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-subheading);
+    font-size: var(--fs-h3);
+    /* font-size: 23px; */
 }
 
 .mobile__nav-menu.active {

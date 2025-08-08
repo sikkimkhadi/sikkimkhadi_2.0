@@ -7,56 +7,63 @@
  * while keeping accessibility benefits of h1 tag
  */
 h1 {
-  /* Remove default margins and padding */
   margin: 0;
   padding: 0;
-  
-  /* Inherit text properties from parent */
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
 }
 
-/* Main container styles
- * Uses flexbox for centering content
- */
+/* Main container styles */
 .welcome {
-    padding: 2rem 1.5rem;
-    background-color: #f5d096;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.6rem;
+  padding: 2rem 1.5rem;
+  background-color: #f5d096;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--fs-body);
 }
 
-/* Header styles
- * Contains welcome text with golden background
- */
-.welcome .welcome-text {
-    background-color: rgb(205, 134, 20);
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 1rem 3rem;
-    margin-bottom: 1.5rem;
-    border-radius: 1.5rem;
-    display: inline;
+/* Header styles - Contains welcome text with golden background */
+.welcome-text {
+  background-color: rgb(205, 134, 20);
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 1.5rem;
+  display: inline-block;
 }
 
-/* Content container styles
- * Houses the main text and list
- */
-.welcome .welcome-contents {
-    padding: 1rem 2rem;
-    color: rgb(112, 73, 11);
+.welcome-text span {
+  font-family: var(--font-subheading);
+  line-height: var(--lh-subheading);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h4);
 }
 
-/* List item styles
- * Custom styling for bullet points
- */
-ol li {
-    margin-left: 8rem;
-    list-style-type: disc;
+/* Content container styles */
+.welcome-contents {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  padding: 1rem 2rem;
+  color: rgb(112, 73, 11);
+}
+
+/* List styles */
+.details ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.details ol li {
+  margin-left: 6rem;
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
 }
 
 /* ========================================
@@ -70,44 +77,64 @@ ol li {
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 1.6rem;
+        /* font-size: 1.6rem; */
     }
 
     /* Mobile header text adjustments */
-    .welcome .welcome-text { 
-        font-weight: 500;
-        font-size: 1.8rem;
-        padding: 2rem 4rem;
+    .welcome-text span {
+      font-family: var(--font-subheading);
+      line-height: var(--lh-subheading);
+      font-weight: var(--fw-semibold);
+    }
+
+    /* Specific targeting for mobile spans */
+    /* 1st span: "Welcome to" - smaller */
+    .welcome-text h1 span:nth-child(1) {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-regular);
+    }
+
+    /* 2nd span: "Sikkim Khadi" - bigger */
+    .welcome-text h1 span:nth-child(2) {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-bold);
+    }
+
+    /* 3rd span: "and" - smaller */
+    .welcome-text h1 span:nth-child(3) {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-regular);
+    }
+
+    /* 4th span: "Village Industries Board" - bigger */
+    .welcome-text h1 span:nth-child(4) {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-bold);
     }
 
     /* Mobile heading layout */
     .welcome .welcome-text h1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-  
-    /* Welcome text size adjustment */
-    .welcomeTo {
-        font-size: 1.2rem;
-    }
-  
+
     /* Mobile content adjustments */
     .welcome .welcome-contents {
-        font-size: 1.5rem;
+        font-size: var(--fs-h5);
         padding: 1rem 2rem;
         margin-bottom: 5px;
     }
 
     /* Mobile list adjustments */
     .details ol {
-        margin: 1rem auto 0 1rem;
-        font-size: 1.5rem;
+      margin: 1rem 0;
+      padding-left: 1rem;
     }
 
-    /* Mobile list item adjustments */
-    ol li {
-        margin-left: 0;
-        list-style-type: disc;
+    .details ol li {
+      margin-left: 1rem;
+      font-size: var(--fs-h5);
+      margin-bottom: 0.8rem;
     }
 }

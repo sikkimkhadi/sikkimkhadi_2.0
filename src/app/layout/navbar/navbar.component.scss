@@ -32,10 +32,16 @@
   background-color: #f2c377;
   text-align: center;
   text-transform: uppercase;
-  font-size: 3.2rem;
-  font-weight: 900;
+
   color: #70490b;
   padding: 0 0 1rem 0;
+}
+
+.header-title span {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
 }
 
 .navigation {
@@ -52,12 +58,14 @@
   justify-content: center;
   align-items: center;
   color: #70490b;
-  font-size: 1.6rem;
+  font-family: var(--font-subheading);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
   text-transform: uppercase;
   transition: color 0.3s ease, background-color 0.5s ease;
 
   &:hover,
-  &.active { 
+  &.active {
     color: white;
     background-color: #dc9016;
   }

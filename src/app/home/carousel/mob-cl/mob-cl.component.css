@@ -47,6 +47,10 @@
 * -------------------------------------------------- */
 .carousel-m h1 {
     bottom: 5rem;
+    font-family: var(--font-subheading);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+    line-height: var(--lh-subheading);
 }
 
 /* Tagline specific positioning and styling
@@ -55,6 +59,10 @@
 .carousel-m p {
     font-size: 1.2rem;
     bottom: 1rem;
+    font-family: var(--font-body);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h5);
+    line-height: var(--lh-body);
 }
 
 /* Slide animation and transition styles
