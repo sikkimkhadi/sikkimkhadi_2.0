@@ -277,8 +277,9 @@ h3 {
 
 /* Special styling for "About this Website" link */
 .additional-links a:first-child {
-    background: linear-gradient(135deg, var(--brand-primary-blue), var(--brand-bright-blue));
-    color: var(--neutral-white) !important;
+    background: linear-gradient(135deg, var(--neutral-very-light-gray), var(--neutral-almost-white));
+    /* background: linear-gradient(135deg, var(--brand-primary-blue), var(--brand-bright-blue)); */
+    color: var(--brand-primary-blue) !important;
     padding: 0.7rem 1.4rem;
     border-radius: 1.5rem;
     font-weight: var(--fw-semibold);
@@ -454,7 +455,8 @@ h3 {
 
     /* Ensure button text stays white on mobile */
     .additional-links a:first-child {
-        color: var(--neutral-white) !important;
+        /* color: var(--neutral-white) !important; */
+        color: var(--brand-primary-blue) !important;
     }
 
     .additional-links a:first-child:hover {

@@ -1,15 +1,59 @@
 <!-- Main carousel container -->
-<div class="carousel-m">
-  <!-- Iterate through slides using Angular 17's @for syntax -->
-  @for (slide of slides; track slide.id) {
-    <!-- Individual slide container with conditional active class -->
-    <div class="slide" [class.active]="currentSlide === slide.id">
-      <!-- Slide image -->
-      <img [src]="slide.image" [alt]="slide.title">
-      <!-- Slide title overlay -->
-      <h1>{{slide.title}}</h1>
-      <!-- Slide tagline overlay -->
-      <p>{{slide.tagline}}</p>
+<div class="carousel-m" 
+     (touchstart)="onTouchStart($event)" 
+     (touchend)="onTouchEnd($event)">
+  
+  <!-- Loading state -->
+  @if (isLoading) {
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Loading images...</p>
     </div>
+  } @else {
+    <!-- Carousel slides -->
+    @for (slide of slides; track slide.id; let i = $index) {
+      <div class="slide" [class.active]="i === currentIndex">
+        <img [src]="slide.url" [alt]="slide.title" class="slide-image" loading="lazy">
+        <div class="slide-info">
+          <h1>{{ slide.title }}</h1>
+          <p>{{ slide.description }}</p>
+        </div>
+      </div>
+    }
+
+    <!-- Touch controls - visible only when touched -->
+    @if (showControls) {
+      <!-- Previous arrow - top left -->
+      <button class="mobile-arrow prev-arrow" (click)="prevSlide()" aria-label="Previous slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Next arrow - top right -->
+      <button class="mobile-arrow next-arrow" (click)="nextSlide()" aria-label="Next slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    }
+
+    <!-- Circular progress timer - bottom right -->
+    <div class="mobile-timer-container">
+      <svg class="progress-ring" width="36" height="36">
+        <circle
+          class="progress-ring__circle"
+          stroke-width="2"
+          fill="transparent"
+          r="16"
+          cx="18"
+          cy="18"
+          [style.stroke-dashoffset]="strokeDashoffset"
+        />
+      </svg>
+      <span class="countdown">{{ countdown }}</span>
+    </div>
+
+
   }
 </div>

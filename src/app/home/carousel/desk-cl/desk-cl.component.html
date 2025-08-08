@@ -1,15 +1,82 @@
 <!-- Main carousel container -->
-<div class="carousel-d">
-  <!-- Iterate through slides using Angular 17's @for syntax -->
-  @for (slide of slides; track slide.id) {
-    <!-- Individual slide container with conditional active class -->
-    <div class="slide" [class.active]="currentSlide === slide.id">
-      <!-- Slide image with alt text for accessibility -->
-      <img [src]="slide.image" [alt]="slide.title">
-      <!-- Slide title overlay -->
-      <h1>{{slide.title}}</h1>
-      <!-- Slide tagline overlay -->
-      <p>{{slide.tagline}}</p>
+<div class="carousel-container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <!-- Loading state -->
+  @if (isLoading) {
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Loading images...</p>
+    </div>
+  } @else {
+    <!-- Carousel slides -->
+    @for (slide of slides; track slide.id; let i = $index) {
+      <div class="slide" [class.active]="i === currentIndex">
+        <img [src]="slide.url" [alt]="slide.title" class="slide-image" loading="lazy">
+        <div class="slide-info">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.description }}</p>
+        </div>
+        
+        <!-- Descriptive text overlay - top right, visible on hover -->
+        <div class="slide-description hover-control">
+          <h3>{{ slide.title }}</h3>
+          <p>{{ slide.description }}</p>
+          @if (slide.category) {
+            <span class="category-tag">{{ slide.category | titlecase }}</span>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Navigation arrows - visible only on hover -->
+    <button class="arrow prev hover-control" (click)="prevSlide()" aria-label="Previous slide">&#10094;</button>
+    <button class="arrow next hover-control" (click)="nextSlide()" aria-label="Next slide">&#10095;</button>
+
+    <!-- Controls container - commented out for now -->
+    <!-- 
+    <div class="controls-container hover-control">
+      <button class="control-button" (click)="togglePause()" [attr.aria-label]="isPaused ? 'Play slideshow' : 'Pause slideshow'">
+        @if (isPaused) {
+          <span class="icon play-icon">▶</span>
+        } @else {
+          <span class="icon pause-icon">⏸</span>
+        }
+      </button>
+    </div>
+    -->
+
+    <!-- Next image indicator - visible only on hover -->
+    <div class="next-image-text hover-control">
+      <span>Next image in ⟶</span>
+    </div>
+
+    <!-- Circular progress timer -->
+    <div class="circular-progress-container">
+      <svg class="progress-ring" width="40" height="40">
+        <circle
+          class="progress-ring__circle"
+          stroke-width="2"
+          fill="transparent"
+          r="18"
+          cx="20"
+          cy="20"
+          [style.stroke-dashoffset]="strokeDashoffset"
+        />
+      </svg>
+      <span class="countdown">{{ countdown }}</span>
+    </div>
+
+    <!-- Dot navigation -->
+    <div class="dots-container">
+      @for (slide of slides; track slide.id; let i = $index) {
+        <span 
+          class="dot"
+          [class.active]="i === currentIndex"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+          role="button"
+          tabindex="0">
+        </span>
+      }
     </div>
   }
 </div>

@@ -15,12 +15,39 @@
     max-width: 95%;          /* Prevents carousel from touching screen edges */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Optional: adds subtle shadow */
     border-radius: 8px;      /* Optional: rounds the corners */
+    touch-action: pan-y;     /* Allow vertical scrolling but handle horizontal touches */
+    user-select: none;       /* Prevent text selection during swipes */
+}
+
+/* Loading state styles */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #f49936;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Image styles
 * Ensures images cover the entire slide area uniformly
 * -------------------------------------------------- */
-.carousel-m img {
+.slide-image {
     width: 100%;
     height: 100%;
     object-fit: cover;     /* Maintains aspect ratio while filling container */
@@ -28,42 +55,42 @@
     border-radius: 4px;      /* Optional: rounds image corners */
 }
 
-/* Text overlay styles
-* Common styles for title and tagline overlays
-* -------------------------------------------------- */
-.carousel-m h1,
-.carousel-m p {
-    position: absolute;    /* Positions text over the image */
-    left: 1rem;
-    color: white;
-    background-color: rgba(112, 73, 11, 0.5);  /* Semi-transparent brown background */
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    z-index: 1;           /* Ensures text appears above the image */
+/* Slide info overlay */
+.slide-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  color: white;
+  padding: 1.5rem;
+  text-align: left;
 }
 
-/* Title specific positioning
-* Places the title above the tagline
-* -------------------------------------------------- */
-.carousel-m h1 {
-    bottom: 5rem;
-    font-family: var(--font-subheading);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-h3);
-    line-height: var(--lh-subheading);
+.slide-info h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: var(--font-subheading, 'Lora', serif);
+  background-color: rgba(112, 73, 11, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: block;
+  width: fit-content;
 }
 
-/* Tagline specific positioning and styling
-* Places the tagline at the bottom of the slide
-* -------------------------------------------------- */
-.carousel-m p {
-    font-size: 1.2rem;
-    bottom: 1rem;
-    font-family: var(--font-body);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-h5);
-    line-height: var(--lh-body);
+.slide-info p {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  font-family: var(--font-body, 'Martel', serif);
+  background-color: rgba(112, 73, 11, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: block;
+  width: fit-content;
 }
+
+
 
 /* Slide animation and transition styles
 * Controls how slides enter, exit, and transition
@@ -110,9 +137,146 @@
     transform: translateY(0);           /* Text moves to final position */
 }
 
+/* Mobile touch controls */
+.mobile-arrow {
+  position: absolute;
+  top: 20px;
+  background-color: rgba(244, 153, 54, 0.9);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-arrow:hover {
+  background-color: rgba(244, 153, 54, 1);
+  transform: scale(1.1);
+}
+
+.prev-arrow {
+  left: 20px;
+}
+
+.next-arrow {
+  right: 20px;
+}
+
+/* Mobile timer container */
+.mobile-timer-container {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.1s linear;
+  stroke-dasharray: 100.531; /* 2 * PI * 16 */
+  stroke: #f49936;
+  stroke-width: 2;
+}
+
+.countdown {
+  position: absolute;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  font-family: var(--font-body, 'Martel', serif);
+}
+
+/* Dot navigation */
+.dots-container {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+  background-color: #f49936;
+}
+
 /* Animation sequence timing
 * Controls the staggered animation of title and tagline
 * -------------------------------------------------- */
 .slide p {
     transition-delay: 0.6s;             /* Tagline appears after title */
+}
+
+/* Responsive adjustments for smaller mobile screens */
+@media (max-width: 480px) {
+  .carousel-m {
+    height: 35rem;
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+  
+  .slide-info {
+    padding: 1rem;
+  }
+  
+  .slide-info h1 {
+    font-size: 1.4rem;
+  }
+  
+  .slide-info p {
+    font-size: 0.9rem;
+  }
+  
+  .mobile-arrow {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+  }
+  
+  .prev-arrow {
+    left: 15px;
+  }
+  
+  .next-arrow {
+    right: 15px;
+  }
+  
+  .mobile-timer-container {
+    width: 32px;
+    height: 32px;
+    bottom: 12px;
+    right: 12px;
+  }
+  
+  .countdown {
+    font-size: 0.6rem;
+  }
 }

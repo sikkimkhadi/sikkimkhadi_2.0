@@ -1,19 +1,10 @@
-import { Component, PLATFORM_ID, inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, PLATFORM_ID, inject, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { isPlatformBrowser, CommonModule, TitleCasePipe } from '@angular/common';
+import { CloudinaryService, CarouselSlide } from '../../../services/cloudinary.service';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
-/**
- * Interface defining the structure of a carousel slide
- * @property id - Unique identifier for the slide
- * @property image - Path to the slide image
- * @property title - Main heading text for the slide
- * @property tagline - Subheading text for the slide
- */
-interface CarouselSlide {
-  id: number;
-  image: string;
-  title: string;
-  tagline: string;
-}
+
 
 /**
  * Desktop Carousel Component
@@ -24,79 +15,195 @@ interface CarouselSlide {
 @Component({
   selector: 'app-desk-cl',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, TitleCasePipe],
   templateUrl: './desk-cl.component.html',
   styleUrl: './desk-cl.component.css'
 })
-export class DeskClComponent {
+export class DeskClComponent implements OnInit, OnDestroy {
   // Inject PLATFORM_ID for SSR compatibility
   private platformId = inject(PLATFORM_ID);
   
-  // Track current active slide
-  currentSlide = 1;
+  // Carousel data and state
+  slides: CarouselSlide[] = [];
+  currentIndex = 0;
+  isPaused = false;
   
-  // Store interval reference for cleanup
+  // Timer management
   private intervalId: any;
+  slideIntervalSeconds = 10;
+  countdown: number = this.slideIntervalSeconds;
+  strokeDashoffset: number = 0;
+  
+  // Loading state
+  isLoading = true;
+  hasError = false;
+  
+  // Hover state for auto-pause
+  isHovered = false;
+  
+  // Scroll state for auto-pause
+  isScrollPaused = false;
 
-  // Carousel slide data with type safety
-  slides: CarouselSlide[] = [
-    {
-      id: 1,
-      image: '../../../../assets/carousel-desk/incense.jpg',
-      title: 'Organic Incense',
-      tagline: 'Traditional aromatic experience'
-    },
-    {
-      id: 2,
-      image: '../../../../assets/carousel-desk/members.jpg',
-      title: 'SKVIB Members',
-      tagline: 'Our Team'
-    },
-    {
-      id: 3,
-      image: '../../../../assets/carousel-desk/bhawan.jpg',
-      title: 'Khadi Bhawan',
-      tagline: 'Deorali, Gangtok'
-    },
-    {
-      id: 4,
-      image: '../../../../assets/carousel-desk/store.jpg',
-      title: 'Khadi Store',
-      tagline: 'Deorali Khadi Outlet'
-    },
-    {
-      id: 5,
-      image: '../../../../assets/carousel-desk/toiletories.jpg',
-      title: 'Khadi Toiletories',
-      tagline: 'Handmade Toiletries'
-    },
-    {
-      id: 6,
-      image: '../../../../assets/carousel-desk/products.jpg',
-      title: 'Khadi Products',
-      tagline: 'Our Collection'
-    }
-  ];
+  constructor(private cloudinaryService: CloudinaryService) {}
+
+  ngOnInit(): void {
+    this.fetchImages();
+  }
 
   /**
-   * Initialize carousel on component creation
-   * Starts automatic sliding if in browser environment
+   * Fetch images from Cloudinary service
    */
-  constructor() {
+  fetchImages(): void {
+    this.isLoading = true;
+    this.hasError = false;
+    
+    this.cloudinaryService.getImages().pipe(
+      catchError(error => {
+        console.error('Error fetching images:', error);
+        this.hasError = true;
+        return of({ slides: this.getFallbackSlides(), total: 1 });
+      })
+    ).subscribe(response => {
+      this.slides = response.slides;
+      this.isLoading = false;
+      
+      if (isPlatformBrowser(this.platformId) && this.slides.length > 0) {
+        this.startTimer();
+      }
+    });
+  }
+
+  /**
+   * Get fallback slides in case of error
+   */
+  getFallbackSlides(): CarouselSlide[] {
+    return [
+      {
+        id: 1,
+        url: '../../../../assets/carousel-desk/incense.jpg',
+        title: 'Sikkim Khadi',
+        description: 'Authentic handmade products from Sikkim'
+      }
+    ];
+  }
+
+  /**
+   * Navigate to previous slide
+   */
+  prevSlide(): void {
+    const isFirstSlide = this.currentIndex === 0;
+    const newIndex = isFirstSlide ? this.slides.length - 1 : this.currentIndex - 1;
+    this.currentIndex = newIndex;
+    this.resetTimer();
+  }
+
+  /**
+   * Navigate to next slide
+   */
+  nextSlide(): void {
+    const isLastSlide = this.currentIndex === this.slides.length - 1;
+    const newIndex = isLastSlide ? 0 : this.currentIndex + 1;
+    this.currentIndex = newIndex;
+    this.resetTimer();
+  }
+
+  /**
+   * Go to specific slide
+   */
+  goToSlide(slideIndex: number): void {
+    this.currentIndex = slideIndex;
+    this.resetTimer();
+  }
+
+  /**
+   * Toggle pause/play functionality
+   */
+  togglePause(): void {
+    this.isPaused = !this.isPaused;
+  }
+
+  /**
+   * Handle mouse enter - pause on hover
+   */
+  onMouseEnter(): void {
+    this.isHovered = true;
+    this.isPaused = true;
+  }
+
+  /**
+   * Handle mouse leave - resume on mouse leave
+   */
+  onMouseLeave(): void {
+    this.isHovered = false;
+    this.isPaused = false;
+  }
+
+  /**
+   * Handle scroll events - pause when scrolled away from carousel
+   */
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.startCarousel();
+      const scrollPosition = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const carouselElement = document.querySelector('.carousel-container');
+      
+      if (carouselElement) {
+        const carouselRect = carouselElement.getBoundingClientRect();
+        const carouselTop = carouselRect.top + scrollPosition;
+        const carouselBottom = carouselTop + carouselRect.height;
+        
+        // Check if carousel is visible in viewport
+        const isVisible = carouselTop < (scrollPosition + windowHeight) && carouselBottom > scrollPosition;
+        
+        this.isScrollPaused = !isVisible;
+      }
     }
   }
 
   /**
-   * Starts the automatic carousel rotation
-   * Changes slides every 5 seconds
-   * @private
+   * Start the automatic timer with visual progress
    */
-  private startCarousel() {
+  private startTimer(): void {
+    const totalTime = this.slideIntervalSeconds * 1000;
+    const interval = 100;
+    let elapsedTime = 0;
+    const circumference = 2 * Math.PI * 18;
+
     this.intervalId = setInterval(() => {
-      this.currentSlide = this.currentSlide === this.slides.length ? 1 : this.currentSlide + 1;
-    }, 5000);
+      if (!this.isPaused && !this.isHovered && !this.isScrollPaused) {
+        elapsedTime += interval;
+        const progress = elapsedTime / totalTime;
+        this.strokeDashoffset = circumference * progress;
+        this.countdown = Math.ceil((totalTime - elapsedTime) / 1000);
+
+        if (elapsedTime >= totalTime) {
+          this.nextSlide();
+          elapsedTime = 0;
+        }
+      }
+    }, interval);
+  }
+
+  /**
+   * Clear the timer
+   */
+  private clearTimer(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
+  /**
+   * Reset the timer
+   */
+  private resetTimer(): void {
+    this.clearTimer();
+    this.countdown = this.slideIntervalSeconds;
+    this.strokeDashoffset = 0;
+    if (isPlatformBrowser(this.platformId)) {
+      this.startTimer();
+    }
   }
 
   /**
