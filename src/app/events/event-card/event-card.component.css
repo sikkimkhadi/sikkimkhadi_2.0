@@ -110,7 +110,8 @@
     color: var(--brand-dark-purple);
     font-family: var(--font-subheading);
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    font-weight: var(--fw-medium);
     line-height: 1.6;
     text-align: justify;
     transition: color 0.3s ease;

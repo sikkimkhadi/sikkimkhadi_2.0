@@ -63,10 +63,11 @@
     height: 15rem;
 
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    padding: 1rem 1rem 0 1rem;
-    gap: 2rem;
+    justify-items: center;
+    padding: 1rem;
+    gap: 1rem;
 }
 
 .mobile__nav-header-title {
@@ -91,10 +92,13 @@
 
 /* Icon Styles */
 .logo-container {
-  display: block;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
+  width: 100%;
+  height: auto;
 }
 
 .logo-container:hover {
@@ -108,16 +112,19 @@
   height: auto;
 }
 
-.icon-sikkim > img {
+.logo-container:nth-child(1) img {
     width: 88px;
+    height: auto;
 }
 
-.sikkim-khadi-icon > img {
+.logo-container:nth-child(2) img {
     width: 72px;
+    height: auto;
 }
 
-.icon-khadiindia > img {
+.logo-container:nth-child(3) img {
     width: 112px;
+    height: auto;
 }
 
 /* Mobile Navigation Menu Styles */

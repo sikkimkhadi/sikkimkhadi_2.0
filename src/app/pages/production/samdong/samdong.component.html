@@ -1,19 +1,140 @@
-<div class="center_heading">
-  Samdong Woollen Center
+<div class="center-detail-container" *ngIf="centerDetail$ | async as center">
+  <!-- Floating Back Button -->
+  <div class="floating-back-btn" [class.visible]="showBackButton">
+    <a routerLink="/production" class="back-btn">
+      <span class="back-icon">←</span>
+      <span class="back-text">Back to Production</span>
+    </a>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-section" *ngIf="loading">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+    <p class="loading-text">Loading center details...</p>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section" *ngIf="!loading">
+    <div class="hero-background">
+      <img [src]="center.heroImage" [alt]="center.name" class="hero-image">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="breadcrumb">
+        <a routerLink="/production">Production Centers</a>
+        <span class="separator">›</span>
+        <span class="current">{{ center.name }}</span>
+      </div>
+      <h1 class="hero-title">{{ center.name }}</h1>
+      <p class="hero-location">
+        <span class="location-icon">📍</span>
+        {{ center.location }}, {{ center.district }}
+      </p>
+      <div class="hero-badge">
+        <span class="type-badge">{{ center.type }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section" *ngIf="!loading">
+    <div class="container">
+      <!-- Description -->
+      <div class="description-card">
+        <h2 class="section-title">About This Center</h2>
+        <p class="description-text">{{ center.longDescription || center.description }}</p>
+      </div>
+
+      <!-- Features & Products Grid -->
+      <div class="info-grid">
+        <!-- Features -->
+        <div class="info-card">
+          <h3 class="info-title">
+            <span class="info-icon">⚙️</span>
+            Features
+          </h3>
+          <div class="tag-list">
+            <span class="feature-tag" *ngFor="let feature of center.features">
+              {{ feature }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="info-card">
+          <h3 class="info-title">
+            <span class="info-icon">🧵</span>
+            Products
+          </h3>
+          <div class="tag-list">
+            <span class="product-tag" *ngFor="let product of center.products">
+              {{ product }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Training Programs -->
+        <div class="info-card" *ngIf="center.trainingPrograms && center.trainingPrograms.length > 0">
+          <h3 class="info-title">
+            <span class="info-icon">🎓</span>
+            Training Programs
+          </h3>
+          <div class="tag-list">
+            <span class="training-tag" *ngFor="let program of center.trainingPrograms">
+              {{ program }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Facilities -->
+        <div class="info-card">
+          <h3 class="info-title">
+            <span class="info-icon">🏭</span>
+            Facilities
+          </h3>
+          <div class="tag-list">
+            <span class="facility-tag" *ngFor="let facility of center.facilities">
+              {{ facility }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Section -->
+      <div class="gallery-section">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" 
+               *ngFor="let image of center.gallery; trackBy: trackByImageId"
+               [attr.data-category]="image.category">
+            <div class="image-container">
+              <img [src]="image.url" 
+                   [alt]="image.alt" 
+                   class="gallery-image"
+                   loading="lazy">
+              <div class="image-overlay">
+                <span class="category-badge" [class]="getCategoryBadge(image.category || 'general')">
+                  {{ image.category | titlecase }}
+                </span>
+              </div>
+            </div>
+            <div class="image-caption" *ngIf="image.caption">
+              {{ image.caption }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-<div class="tplace">
-  <div class="samdong">
-    <div class="centre" id="s1">
-      <img src="../../../../assets/production/samdong/img1.jpg" alt="">
-    </div>
-    <div class="centre" id="s2">
-      <img src="../../../../assets/production/samdong/img2.jpg" alt="">
-    </div>
-    <div class="centre" id="s3">
-      <img src="../../../../assets/production/samdong/img3.jpg" alt="">
-    </div>
-    <div class="centre" id="s4">
-      <img src="../../../../assets/production/samdong/img4.jpg" alt="">
-    </div>
+
+<!-- Error State -->
+<div class="error-section" *ngIf="!loading && !(centerDetail$ | async)">
+  <div class="error-content">
+    <h2>Center Not Found</h2>
+    <p>The requested production center could not be found.</p>
+    <a routerLink="/production" class="error-btn">Back to Production Centers</a>
   </div>
 </div>

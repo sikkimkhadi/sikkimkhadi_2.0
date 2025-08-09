@@ -1,76 +1,146 @@
-<div class="pageContainer">
-    <div class="acontents">
-    <section class="introduction">
-     <h1 class="acontents__heading">Introduction</h1>
-      <p class="introContent">
-      Sikkim Khadi &amp; Village Industries Board (SKVIB) is an autonomous body of Government of
-Sikkim under the Commerce &amp; Industries Department. While it was established in 1963, the
-Sikkim Khadi &amp; Village Industries Board Act of 1996 covers its functions and objectives which
-are as follows:
-      </p>
-      <ol>
-        <li>Social objective of generating employment to the rural artisans in the field of khadi and village industries</li>
-        <li>The economic objective of producing saleable Khadi &amp; village industries goods</li>
-        <li>The wider objective of creating self reliance amongst the people and building up of a
-strong rural community spirit</li>
-        <li>Implementation of government schemes targeting rural employment generation</li>
-        <li>Impart training and support in establishment of khadi institutions, societies and
-village industries units.</li>
-      </ol>
-    </section>
-    <section class="bdirectors">
-     <h1 class="acontents__heading">Board Directors</h1>
-     <p class="introContent">In exercise of the powers conferred by section 4 of the Sikkim Khadi and Village Industries Board Act 1996 and in supersession of Notification No. 108/Home/2014, the State Government hereby constitutes the Sikkim Khadi and Village Industries Board consisting of the following members namely:-</p>
-     <h2 class="sub-heading">A&#41; Non Official Members: </h2>
-     <ol>
-      <li>Smt. Chung Chung Bhutia, Chairperson Sikkim Khadi and Village Industries Board.</li>
-      <li>Dr. Kalpana Pradhan</li>
-      <li>Smt. Diki Lhamu Lepcha</li>
-      <li>Smt. Sonam Doma Lepcha</li>
-      <li>Shri Yanten Dong</li>
-     </ol>
-     <h2 class="sub-heading">B&#41; Official Members: </h2>
-     <ol>
-      <li>Director, Commerce and Industries, Government of Sikkim</li>
-      <li>Joint Secretary, Planning and Development Department, Government of Sikkim</li>
-      <li>Joint Secretary, Finance Department, Government of Sikkim</li>
-      <li>One representative from Khadi and Village Industries Commission, State Office, Gangtok</li>
-      <li>Chief Executive Officer, Sikkim Khadi and Village Industries Board.</li>
-     </ol>
-    </section>
-    <section class="bobjectives">
-     <h1 class="acontents__heading">Board Objectives</h1> 
-     <p class="introContent">Established in 1963, the Sikkim Khadi &amp; Village Industries Board Act of 1996 covers
-its functions and objectives which are as follows:</p>
-     <ol>
-      <li>Social objective of generating employment to the rural artisans in the field of
-khadi and village industries</li>
-      <li>The economic objective of producing saleable Khadi &amp; village industries
-goods</li>
-      <li>The wider objective of creating self reliance amongst the people and building
-up of a strong rural community spirit</li>
-      <li>Implementation of government schemes targeting rural employment
-generation</li>
-      <li>Impart training and support in establishment of khadi institutions, societies
-and village industries units.</li>
-     </ol>
-    </section>
-    <section class="skvibact">
-      <h1 class="acontents__heading">SKVIB ACT</h1> 
-      <div>
-        <div class="skvib__button">
-          <a 
-            href="../../../assets/pdf/SKVIB_ACT_1996.pdf" 
-            target="_blank"
-            aria-label="Download SKVIB Act 1996 PDF document"
-            class="skvib__button-link"
-          >
-            Click here to open SKVIB pdf
-          </a>
+<main class="about-container" *ngIf="aboutData$ | async as aboutData">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="established-year">Est. {{ aboutData.establishedYear }}</span>
+        <span class="act-year">Act {{ aboutData.actYear }}</span>
+      </div>
+      <h1 class="hero-title">About Sikkim Khadi & Village Industries Board</h1>
+      <p class="hero-subtitle">Empowering rural artisans and preserving traditional crafts since 1963</p>
+    </div>
+    <div class="hero-decoration">
+      <div class="floating-icon icon-1">🧵</div>
+      <div class="floating-icon icon-2">🏛️</div>
+      <div class="floating-icon icon-3">🤝</div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="introduction-section">
+    <div class="section-container">
+      <div class="intro-card">
+        <div class="card-header">
+          <h2 class="section-title">{{ aboutData.introduction.title }}</h2>
+          <div class="title-decoration"></div>
+        </div>
+        <div class="card-content">
+          <p class="intro-text">{{ aboutData.introduction.content }}</p>
+          <div class="intro-stats">
+            <div class="stat-item">
+              <span class="stat-number">{{ aboutData.establishedYear }}</span>
+              <span class="stat-label">Established</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">60+</span>
+              <span class="stat-label">Years of Service</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">{{ aboutData.objectives.length }}</span>
+              <span class="stat-label">Core Objectives</span>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
     </div>
-    <!-- contents ends -->
-  </div>
+  </section>
+
+  <!-- Objectives Section -->
+  <section class="objectives-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Our Core Objectives</h2>
+        <p class="section-subtitle">Driving rural development through traditional crafts and modern innovation</p>
+      </div>
+      <div class="objectives-grid" *ngIf="objectives$ | async as objectives">
+        <div class="objective-card" *ngFor="let objective of objectives; trackBy: trackByObjectiveId">
+          <div class="objective-icon">{{ objective.icon }}</div>
+          <div class="objective-content">
+            <h3 class="objective-title">{{ objective.title }}</h3>
+            <p class="objective-description">{{ objective.description }}</p>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Board Members Section -->
+  <section class="board-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Board of Directors</h2>
+        <p class="section-subtitle">Leadership committed to preserving heritage and fostering innovation</p>
+      </div>
+      
+      <!-- Non-Official Members -->
+      <div class="members-category" *ngIf="nonOfficialMembers$ | async as nonOfficialMembers">
+        <h3 class="category-title">
+          <span class="category-icon">👥</span>
+          Non-Official Members
+        </h3>
+        <div class="members-grid">
+          <div class="member-card" *ngFor="let member of nonOfficialMembers; trackBy: trackByMemberId">
+            <div class="member-avatar">
+              <span class="avatar-initial">{{ getInitials(member.name) }}</span>
+            </div>
+            <div class="member-info">
+              <h4 class="member-name">{{ member.name }}</h4>
+              <p class="member-position" *ngIf="member.position">{{ member.position }}</p>
+            </div>
+            <div class="member-badge">{{ member.category === 'non-official' ? 'Non-Official' : 'Official' }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Official Members -->
+      <div class="members-category" *ngIf="officialMembers$ | async as officialMembers">
+        <h3 class="category-title">
+          <span class="category-icon">🏛️</span>
+          Official Members
+        </h3>
+        <div class="members-grid">
+          <div class="member-card" *ngFor="let member of officialMembers; trackBy: trackByMemberId">
+            <div class="member-avatar">
+              <span class="avatar-initial">{{ getInitials(member.name) }}</span>
+            </div>
+            <div class="member-info">
+              <h4 class="member-name">{{ member.name }}</h4>
+              <p class="member-position" *ngIf="member.position">{{ member.position }}</p>
+            </div>
+            <div class="member-badge official">{{ member.category === 'non-official' ? 'Non-Official' : 'Official' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKVIB Act Section -->
+  <section class="act-section" *ngIf="skvibActInfo$ | async as actInfo">
+    <div class="section-container">
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">📜</div>
+          <div class="act-title-group">
+            <h2 class="act-title">{{ actInfo.title }}</h2>
+            <p class="act-description">{{ actInfo.description }}</p>
+          </div>
+        </div>
+        <div class="act-actions">
+          <button 
+            class="download-button"
+            (click)="downloadPdf(actInfo.pdfUrl)"
+            aria-label="Download SKVIB Act 1996 PDF document"
+          >
+            <span class="download-icon">📄</span>
+            <span class="download-text">{{ actInfo.downloadText }}</span>
+            <span class="download-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
  
