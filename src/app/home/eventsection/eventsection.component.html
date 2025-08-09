@@ -5,28 +5,28 @@
     <p class="section-subtitle">Explore the rich heritage of Sikkim's traditional crafts and modern initiatives</p>
   </div>
   
-  <div class="events-grid" *ngIf="eventImages$ | async as images; else loadingTemplate">
-    <article class="event-card" *ngFor="let image of images; let i = index">
-      <div class="card-image-container">
+  <div class="events-grid" *ngIf="eventCategories$ | async as categories; else loadingTemplate">
+    <article class="event-card" *ngFor="let category of categories; let i = index">
+      <div class="card-image-container" *ngIf="eventImages$ | async as images">
         <img 
-          [src]="image.url" 
-          [alt]="image.alt"
+          [src]="images[i].url || 'assets/events/placeholder.jpg'" 
+          [alt]="images[i].alt || category.title"
           class="card-image"
           loading="lazy"
         >
         <div class="image-overlay"></div>
-        <div class="card-badge">{{ getBadgeText(i) }}</div>
+        <div class="card-badge">{{ category.badge }}</div>
       </div>
       
       <div class="card-content">
-        <h3 class="card-title">{{ getCardTitle(i) }}</h3>
-        <p class="card-description">{{ getCardDescription(i) }}</p>
+        <h3 class="card-title">{{ category.title }}</h3>
+        <p class="card-description">{{ category.description }}</p>
         
         <div class="card-footer">
           <a 
-            [routerLink]="getRouterLink(i)" 
+            [routerLink]="category.route" 
             class="cta-button"
-            [attr.aria-label]="'Learn more about ' + getCardTitle(i)"
+            [attr.aria-label]="'Learn more about ' + category.title"
           >
             <span class="button-text">Explore More</span>
             <span class="button-icon" aria-hidden="true">→</span>

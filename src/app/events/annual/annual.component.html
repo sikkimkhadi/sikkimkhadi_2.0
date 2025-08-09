@@ -1,1 +1,88 @@
-<p>annual works!</p>
+<main class="events-container">
+  <!-- Floating Back Button -->
+  <div class="floating-back-button" [class.visible]="showFloatingButton()" (click)="navigateBack()">
+    <span class="back-icon">←</span>
+    <span class="button-text">Events</span>
+  </div>
+
+  <!-- Header Section -->
+  <section class="events-header">
+    <div class="header-content">
+      <h1 class="page-title">Annual Events</h1>
+      <p class="page-subtitle">Celebrate our grand annual festivals and cultural celebrations</p>
+    </div>
+  </section>
+
+  <!-- Events Grid -->
+  <section class="events-grid-section">
+    <div class="events-grid">
+      @if (events$ | async; as events) {
+        @if (events.length > 0) {
+          @for (event of events; track event.id) {
+            <app-event-card [event]="event" class="event-card-item" />
+          }
+        } @else {
+          <!-- Creative Empty State -->
+          <div class="empty-state">
+            <div class="empty-animation">
+              <svg class="celebration-icon" viewBox="0 0 200 200" width="120" height="120">
+                <defs>
+                  <linearGradient id="celebrationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--brand-primary-red)" />
+                    <stop offset="50%" stop-color="var(--brand-primary-orange)" />
+                    <stop offset="100%" stop-color="var(--brand-secondary-orange)" />
+                  </linearGradient>
+                  <linearGradient id="ribbonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--brand-bright-blue)" />
+                    <stop offset="100%" stop-color="var(--brand-primary-blue)" />
+                  </linearGradient>
+                </defs>
+                <!-- Trophy Base -->
+                <ellipse cx="100" cy="160" rx="30" ry="8" fill="var(--brand-dark-blue)" class="trophy-base" />
+                <rect x="90" y="140" width="20" height="20" fill="var(--brand-dark-blue)" class="trophy-stem" />
+                <!-- Trophy Cup -->
+                <path d="M70 100 Q70 80 100 80 Q130 80 130 100 L125 130 Q125 140 100 140 Q75 140 75 130 Z" fill="url(#celebrationGradient)" class="trophy-cup" />
+                <!-- Trophy Handles -->
+                <ellipse cx="65" cy="110" rx="8" ry="15" fill="none" stroke="var(--brand-primary-orange)" stroke-width="4" class="trophy-handle" />
+                <ellipse cx="135" cy="110" rx="8" ry="15" fill="none" stroke="var(--brand-primary-orange)" stroke-width="4" class="trophy-handle" />
+                <!-- Celebration Ribbons -->
+                <path d="M50 60 Q60 40 80 50 Q90 30 110 40" fill="none" stroke="url(#ribbonGradient)" stroke-width="6" stroke-linecap="round" class="ribbon ribbon-1" />
+                <path d="M150 60 Q140 40 120 50 Q110 30 90 40" fill="none" stroke="url(#ribbonGradient)" stroke-width="6" stroke-linecap="round" class="ribbon ribbon-2" />
+              </svg>
+              <div class="floating-elements">
+                <div class="floating-confetti confetti-1">🎉</div>
+                <div class="floating-confetti confetti-2">🎆</div>
+                <div class="floating-confetti confetti-3">🎇</div>
+                <div class="floating-confetti confetti-4">🎊</div>
+              </div>
+            </div>
+            <div class="empty-content">
+              <h3 class="empty-title">Grand Celebrations Await!</h3>
+              <p class="empty-message">We're planning spectacular annual festivals and cultural celebrations that will showcase the rich heritage of Sikkim. Please keep visiting to witness our grand events!</p>
+              <div class="empty-cta">
+                <button class="refresh-button" (click)="ngOnInit()">
+                  <span class="refresh-icon">🎆</span>
+                  <span>Check for Updates</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      } @else {
+        <!-- Loading State -->
+        <div class="loading-grid">
+          @for (item of [1,2,3]; track item) {
+            <div class="event-card-skeleton">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-title"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+</main>

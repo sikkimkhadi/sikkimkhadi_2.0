@@ -1,6 +1,6 @@
 <div class="sliding-navbar" [style.display]="showSlidingNav() ? 'flex' : 'none'">
-    <img src="../../../assets/navbar/skvib@0.33x.png" alt="Sikkim Govt. Logo">
-    <div class="sliding-hamburger" (click)="toggleMenu()">
+    <img src="../../../assets/navbar/skvib@0.33x.png" alt="Sikkim Govt. Logo" routerLink="/" [attr.aria-label]="'Navigate to home'">
+    <div class="sliding-hamburger" (click)="toggleMenu()" [attr.aria-label]="'Toggle navigation menu'">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
@@ -19,39 +19,39 @@
 
 
 
-    <nav class="mobile__nav-menu" [class.active]="isMenuOpen()">
-        <button class="close-button" (click)="toggleMenu()">
+    <nav class="mobile__nav-menu" [class.active]="isMenuOpen()" role="navigation" aria-label="Mobile navigation">
+        <button class="close-button" (click)="toggleMenu()" [attr.aria-label]="'Close navigation menu'">
             <img src="../../../assets/navbar/close.png" alt="mobile menu close button">
         </button>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            (click)="toggleMenu()">Home</a>
-        <a routerLink="/outlets" routerLinkActive="active" (click)="toggleMenu()">Outlets</a>
-        <a routerLink="/products" routerLinkActive="active" (click)="toggleMenu()">Products</a>
-        <a routerLink="/production" routerLinkActive="active" (click)="toggleMenu()">Production & Training</a>
-        <a routerLink="/pmegp" routerLinkActive="active" (click)="toggleMenu()">PMEGP</a>
-        <a routerLink="/beekeeping" routerLinkActive="active" (click)="toggleMenu()">Bee-Keeping</a>
-        <a routerLink="/about" routerLinkActive="active" (click)="toggleMenu()">About Us</a>
-        <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact Us</a>
+        @for (item of navigationItems$ | async; track item.route) {
+          <a 
+            [routerLink]="item.route" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="item.isExact ? {exact: true} : {exact: false}"
+            (click)="toggleMenu()"
+            [attr.aria-label]="'Navigate to ' + item.label">
+            {{ item.label }}
+          </a>
+        }
     </nav>
 </header>
 
 <div class="mobile__nav-header-logo">
-    <!-- Sikkim Government Logo -->
-    <div class="icon-sikkim">
-        <img src="assets/navbar/sikkim_govt_png@0.33x.png" alt="Sikkim Government Logo">
-    </div>
-    <!-- SKVIB Logo -->
-    <div class="sikkim-khadi-icon">
-        <img src="assets/navbar/skvib@0.33x.png" alt="Sikkim Khadi and Village Industries Board Logo">
-    </div>
-    <!-- Khadi India Logo -->
-    <div class="icon-khadiindia">
-        <img src="assets/navbar/khadi-india@0.33x.png" alt="Khadi India Logo">
-    </div>
+    @for (logo of logoItems$ | async; track logo.src) {
+      <div class="logo-container" routerLink="/" [attr.aria-label]="'Navigate to home - ' + logo.alt">
+        <img [src]="logo.src" [alt]="logo.alt">
+      </div>
+    }
 </div>
 
 <h1 class="mobile__nav-header-title">
-    <span>Sikkim Khadi</span>
-    <span>&nbsp;and&nbsp;</span>
-    <span>&nbsp;Village Industries Board</span>
+    @if (siteTitle$ | async; as title) {
+      <span>{{ title.split(' ').slice(0, 2).join(' ') }}</span>
+      <span>&nbsp;and&nbsp;</span>
+      <span>&nbsp;{{ title.split(' ').slice(2).join(' ') }}</span>
+    } @else {
+      <span>Sikkim Khadi</span>
+      <span>&nbsp;and&nbsp;</span>
+      <span>&nbsp;Village Industries Board</span>
+    }
 </h1>

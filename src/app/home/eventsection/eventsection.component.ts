@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { EventImageService, EventImage } from '../../services/event-image.service';
+import { EventsService } from '../../core/services/events.service';
+import { EventCategory } from '../../core/models/event.interface';
 
 @Component({
   selector: 'app-eventsection',
@@ -13,47 +15,35 @@ import { EventImageService, EventImage } from '../../services/event-image.servic
 })
 export class EventsectionComponent implements OnInit {
   eventImages$!: Observable<EventImage[]>;
+  eventCategories$!: Observable<EventCategory[]>;
 
-  private eventData = [
-    {
-      title: 'Our Latest Events',
-      description: 'Discover the newest happenings in Sikkim\'s traditional craft community and recent achievements.',
-      badge: 'Latest',
-      route: '/latest'
-    },
-    {
-      title: 'Upcoming Events',
-      description: 'Join us for exciting upcoming workshops, exhibitions, and cultural celebrations.',
-      badge: 'Coming Soon',
-      route: '/upcoming'
-    },
-    {
-      title: 'Annual Exhibition',
-      description: 'Experience our grand annual showcase of finest Khadi products and traditional craftsmanship.',
-      badge: 'Annual',
-      route: '/annual'
-    }
-  ];
-
-  constructor(private eventImageService: EventImageService) {}
+  constructor(
+    private eventImageService: EventImageService,
+    private eventsService: EventsService
+  ) {}
 
   ngOnInit(): void {
     this.eventImages$ = this.eventImageService.getEventImages();
+    this.eventCategories$ = this.eventsService.getEventCategories();
   }
 
   getBadgeText(index: number): string {
-    return this.eventData[index]?.badge || '';
+    // This will be handled by the template with async pipe
+    return '';
   }
 
   getCardTitle(index: number): string {
-    return this.eventData[index]?.title || '';
+    // This will be handled by the template with async pipe
+    return '';
   }
 
   getCardDescription(index: number): string {
-    return this.eventData[index]?.description || '';
+    // This will be handled by the template with async pipe
+    return '';
   }
 
   getRouterLink(index: number): string[] {
-    return [this.eventData[index]?.route || '/'];
+    // This will be handled by the template with async pipe
+    return ['/'];
   }
 }

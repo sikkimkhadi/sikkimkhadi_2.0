@@ -1,8 +1,14 @@
 <main class="pageContainer">
+    <!-- Floating Back Button -->
+    <div class="floating-back-button" [class.visible]="showFloatingButton()" (click)="navigateBack()">
+        <span class="back-icon">←</span>
+        <span class="button-text">Events</span>
+    </div>
+
     <nav class="breadcrumb" aria-label="breadcrumb">
         <ol>
             <li>
-                <a routerLink="/latest">latest events &nbsp;</a>
+                <a routerLink="/events/latest">latest events &nbsp;</a>
                 @if (!isLatestRoute()) {
                     <span>/&nbsp; {{ eventDate() }}</span>
                 }
@@ -12,8 +18,10 @@
 
     <article class="acontents">
         @if (isLatestRoute()) {
-        @for (event of events(); track event.id) {
-        <app-event-card [event]="event" (click)="router.navigate(['/latest', event.id])" />
+        @if (events$ | async; as events) {
+        @for (event of events; track event.id) {
+        <app-event-card [event]="event" (click)="router.navigate(['/events/latest', event.id])" />
+        }
         }
         }
 

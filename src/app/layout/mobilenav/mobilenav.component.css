@@ -90,11 +90,22 @@
 }
 
 /* Icon Styles */
-.icon-khadiindia,
-.icon-sikkim,
-.sikkim-khadi-icon {
-    display: block;
-    margin: auto;
+.logo-container {
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.logo-container img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .icon-sikkim > img {

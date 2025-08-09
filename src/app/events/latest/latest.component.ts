@@ -1,17 +1,13 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { EventCardComponent } from '../event-card/event-card.component';
-
-// Move interface to a separate file: src/app/models/event.interface.ts
-export interface Event {
-  id: string;
-  title: string;
-  date: string;
-  description: string;
-  imageUrl: string;
-}
+import { EventsService } from '../../core/services/events.service';
+import { Event } from '../../core/models/event.interface';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-latest',
@@ -19,47 +15,43 @@ export interface Event {
   styleUrls: ['./latest.component.css'],
   standalone: true,
   imports: [
+    CommonModule,
     RouterLink, 
     RouterOutlet, 
     EventCardComponent
   ]
 })
-export class LatestComponent {
-  // Static data should be moved to a separate service or constant file
-  events = signal<Event[]>([
-   
-    {
-      id: '14-08-2024',
-      title: 'Farewell to Our Esteemed Retirees',
-      date: '14th August 2024',
-      description: 'A heartfelt farewell honoring six retiring staff members with mementos and gifts at Khadi Bhawan Deorali.',
-      imageUrl: '../../../assets/events/farewell_14_08/thumbnail.jpg'
-    },
-    {
-      id: '12-09-2024',
-      title: 'SLBC Steering Committee Meeting & 80th State Level Banker’s Committee Meeting',
-      date: '12th September 2024',
-      description: 'Key stakeholders convened in Gangtok to discuss banking progress and initiatives for the June 2024 quarter',
-      imageUrl: '../../../assets/events/slbc_12_09/thumbnail.jpg'
-    },
-    {
-      id: '17-09-2024',
-      title: 'Bishwakarma Puja',
-      date: '17th September 2024',
-      description: 'Bishwakarma Puja was celebrated at Khadi Bhawan, Deorali.',
-      imageUrl: '../../../assets/events/bishwakarma_17_09/thumbnail.jpg'
-    },
-    {
-      id: '27-09-2024',
-      title: 'Empowering Farmers through Bee-Keeping and Entrepreneurship',
-      date: '27th September 2024',
-      description: 'A meeting in Duga, Rangpo discussed about bee-keeping and PMEGP, inspiring farmers towards self-entrepreneurship',
-      imageUrl: '../../../assets/events/duga_27_10/thumbnail.jpg'
-    },
-    
-  ]);
+export class LatestComponent implements OnInit {
+  events$!: Observable<Event[]>;
+  showFloatingButton = signal(false);
+  private inactivityTimer: any;
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    private eventsService: EventsService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
+
+  ngOnInit(): void {
+    this.events$ = this.eventsService.getLatestEvents();
+  }
+
+  @HostListener('window:scroll', [])
+  @HostListener('window:mousemove', [])
+  onUserActivity(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showFloatingButton.set(true);
+      
+      clearTimeout(this.inactivityTimer);
+      this.inactivityTimer = setTimeout(() => {
+        this.showFloatingButton.set(false);
+      }, 3000);
+    }
+  }
+
+  navigateBack(): void {
+    this.router.navigate(['/events']);
+  }
 
   // Private properties
   private routerEvents = toSignal(
@@ -71,7 +63,7 @@ export class LatestComponent {
 
   // Public computed properties
   isLatestRoute = computed(() => 
-    this.routerEvents() === '/latest'
+    this.routerEvents()?.endsWith('/events/latest') || this.routerEvents() === '/events/latest'
   );
 
   breadcrumbText = computed(() => {
@@ -79,12 +71,8 @@ export class LatestComponent {
     const segments = currentUrl.split('/');
     const eventDate = segments[segments.length - 1];
     
-    const event = eventDate !== 'latest' 
-      ? this.events().find(e => e.id === eventDate)
-      : null;
-
     return eventDate !== 'latest' 
-      ? `latest-events / ${event?.date || eventDate}` 
+      ? `latest-events / ${eventDate}` 
       : 'latest-events';
   });
 
@@ -93,7 +81,6 @@ export class LatestComponent {
     const segments = currentUrl.split('/');
     const eventDate = segments[segments.length - 1];
     
-    const event = this.events().find(e => e.id === eventDate);
-    return event?.date || eventDate;
+    return eventDate;
   });
 }

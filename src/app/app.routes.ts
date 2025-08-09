@@ -34,7 +34,11 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/contactus/contactus.component').then(m => m.ContactusComponent)
     },
     {
-        path: 'latest',
+        path: 'events',
+        loadComponent: () => import('./events/events.component').then(m => m.EventsComponent)
+    },
+    {
+        path: 'events/latest',
         loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent),
         children: [
             {
@@ -54,6 +58,14 @@ export const routes: Routes = [
                 loadComponent: () => import('./events/latest/event-14082024/event-14082024.component').then(m => m.Event14082024Component)
             }
         ]
+    },
+    {
+        path: 'events/upcoming',
+        loadComponent: () => import('./events/upcoming/upcoming.component').then(m => m.UpcomingComponent)
+    },
+    {
+        path: 'events/annual',
+        loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
     },
     // {
     //     path: 'upcoming',

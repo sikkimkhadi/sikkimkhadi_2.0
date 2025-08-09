@@ -1,1 +1,80 @@
-<p>upcoming works!</p>
+<main class="events-container">
+  <!-- Floating Back Button -->
+  <div class="floating-back-button" [class.visible]="showFloatingButton()" (click)="navigateBack()">
+    <span class="back-icon">←</span>
+    <span class="button-text">Events</span>
+  </div>
+
+  <!-- Header Section -->
+  <section class="events-header">
+    <div class="header-content">
+      <h1 class="page-title">Upcoming Events</h1>
+      <p class="page-subtitle">Join us for exciting upcoming workshops, exhibitions, and cultural celebrations</p>
+    </div>
+  </section>
+
+  <!-- Events Grid -->
+  <section class="events-grid-section">
+    <div class="events-grid">
+      @if (events$ | async; as events) {
+        @if (events.length > 0) {
+          @for (event of events; track event.id) {
+            <app-event-card [event]="event" class="event-card-item" />
+          }
+        } @else {
+          <!-- Creative Empty State -->
+          <div class="empty-state">
+            <div class="empty-animation">
+              <svg class="calendar-icon" viewBox="0 0 200 200" width="120" height="120">
+                <defs>
+                  <linearGradient id="calendarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--brand-primary-orange)" />
+                    <stop offset="50%" stop-color="var(--brand-secondary-orange)" />
+                    <stop offset="100%" stop-color="var(--brand-primary-red)" />
+                  </linearGradient>
+                </defs>
+                <rect x="40" y="60" width="120" height="100" rx="8" fill="url(#calendarGradient)" class="calendar-body" />
+                <rect x="50" y="40" width="8" height="30" rx="4" fill="var(--brand-dark-blue)" class="calendar-ring" />
+                <rect x="142" y="40" width="8" height="30" rx="4" fill="var(--brand-dark-blue)" class="calendar-ring" />
+                <rect x="40" y="80" width="120" height="20" fill="var(--brand-primary-blue)" class="calendar-header" />
+                <circle cx="70" cy="120" r="6" fill="var(--neutral-white)" class="calendar-dot dot-1" />
+                <circle cx="100" cy="120" r="6" fill="var(--neutral-white)" class="calendar-dot dot-2" />
+                <circle cx="130" cy="120" r="6" fill="var(--neutral-white)" class="calendar-dot dot-3" />
+                <circle cx="70" cy="140" r="6" fill="var(--brand-green)" class="calendar-dot dot-4" />
+              </svg>
+              <div class="floating-elements">
+                <div class="floating-star star-1">✨</div>
+                <div class="floating-star star-2">🌟</div>
+                <div class="floating-star star-3">⭐</div>
+              </div>
+            </div>
+            <div class="empty-content">
+              <h3 class="empty-title">Nothing Here Yet!</h3>
+              <p class="empty-message">We're cooking up some amazing events for you. Please keep visiting to discover exciting workshops, exhibitions, and cultural celebrations!</p>
+              <div class="empty-cta">
+                <button class="refresh-button" (click)="ngOnInit()">
+                  <span class="refresh-icon">🔄</span>
+                  <span>Check Again</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      } @else {
+        <!-- Loading State -->
+        <div class="loading-grid">
+          @for (item of [1,2,3]; track item) {
+            <div class="event-card-skeleton">
+              <div class="skeleton-image"></div>
+              <div class="skeleton-content">
+                <div class="skeleton-title"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+</main>
