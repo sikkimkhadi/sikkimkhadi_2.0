@@ -13,16 +13,12 @@
         <img [src]="slide.url" [alt]="slide.title" class="slide-image" loading="lazy">
         <div class="slide-info">
           <h2>{{ slide.title }}</h2>
-          <p>{{ slide.description }}</p>
         </div>
         
         <!-- Descriptive text overlay - top right, visible on hover -->
         <div class="slide-description hover-control">
           <h3>{{ slide.title }}</h3>
           <p>{{ slide.description }}</p>
-          @if (slide.category) {
-            <span class="category-tag">{{ slide.category | titlecase }}</span>
-          }
         </div>
       </div>
     }
