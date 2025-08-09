@@ -1,20 +1,170 @@
-<div class="outlets_l">
-    <section class="outlet_address">
-        <p>Address: </p>
-        <p>Khadi Emporium,</p>
-        <p>near Nagar Panchayat Office</p>
-    </section>
-    <div class="gyalshing">
-        <div class="location" id="gl1">
-            <img src="../../../../assets/outlets/gyalshing/images/img1.jpg" alt="">
-        </div>
+<!-- Modern Outlet Detail Section -->
+<section class="outlet-detail-section" *ngIf="outletDetail as outlet; else loadingTemplate">
+  <!-- Floating Back Button -->
+  <div class="floating-back-button" [class.visible]="showFloatingButton" (click)="navigateBack()">
+    <span class="material-symbols-outlined">arrow_back</span>
+    <span class="button-text">Outlets</span>
+  </div>
 
-        <div class="location" id="gl2">
-            <img src="../../../../assets/outlets/gyalshing/images/img2.jpg" alt="">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="outlet-header">
+        <h1 class="outlet-title">{{ outlet.name }}</h1>
+        <div class="location-info">
+          <span class="material-symbols-outlined">location_on</span>
+          <span>{{ outlet.location }}</span>
         </div>
-
-        <div class="location" id="gl3">
-            <img src="../../../../assets/outlets/gyalshing/images/img3.jpg" alt="">
+      </div>
+      
+      <!-- Hero Image -->
+      <div class="hero-image-container">
+        <img 
+          [src]="outlet.heroImage.url" 
+          [alt]="outlet.heroImage.alt"
+          class="hero-image"
+          [class.loaded]="heroImageLoaded"
+          (load)="onHeroImageLoad()"
+          (error)="onImageError('hero')"
+        >
+        <div class="image-overlay">
+          <p class="hero-caption">{{ outlet.heroImage.caption }}</p>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <!-- Outlet Information -->
+  <div class="outlet-info-section">
+    <div class="info-container">
+      <!-- Description -->
+      <div class="description-card">
+        <h2 class="section-heading">About This Outlet</h2>
+        <p class="outlet-description">{{ outlet.description }}</p>
+      </div>
+
+      <!-- Details Grid -->
+      <div class="details-grid">
+        <!-- Address Card -->
+        <div class="info-card address-card">
+          <h3 class="card-title">
+            <span class="material-symbols-outlined">home</span>
+            Address
+          </h3>
+          <div class="address-details">
+            <p>{{ outlet.fullAddress.line1 }}</p>
+            <p>{{ outlet.fullAddress.line2 }}</p>
+            <p *ngIf="outlet.fullAddress.line3">{{ outlet.fullAddress.line3 }}</p>
+            <p *ngIf="outlet.fullAddress.line4">{{ outlet.fullAddress.line4 }}</p>
+          </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="info-card contact-card">
+          <h3 class="card-title">
+            <span class="material-symbols-outlined">contact_phone</span>
+            Contact
+          </h3>
+          <div class="contact-details">
+            <p *ngIf="outlet.contact.phone">
+              <span class="material-symbols-outlined">call</span>
+              {{ outlet.contact.phone }}
+            </p>
+            <p *ngIf="outlet.contact.email">
+              <span class="material-symbols-outlined">email</span>
+              {{ outlet.contact.email }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Hours Card -->
+        <div class="info-card hours-card">
+          <h3 class="card-title">
+            <span class="material-symbols-outlined">schedule</span>
+            Opening Hours
+          </h3>
+          <div class="hours-details">
+            <p><strong>Weekdays:</strong> {{ outlet.openingHours.weekdays }}</p>
+            <p><strong>Weekends:</strong> {{ outlet.openingHours.weekends }}</p>
+            <p *ngIf="outlet.openingHours.holidays">{{ outlet.openingHours.holidays }}</p>
+          </div>
+        </div>
+
+        <!-- Features Card -->
+        <div class="info-card features-card">
+          <h3 class="card-title">
+            <span class="material-symbols-outlined">star</span>
+            Features
+          </h3>
+          <ul class="features-list">
+            <li *ngFor="let feature of outlet.features">
+              <span class="material-symbols-outlined">check_circle</span>
+              {{ feature }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Section -->
+  <div class="gallery-section" *ngIf="galleryImages.length > 0">
+    <div class="gallery-container">
+      <h2 class="section-heading">Outlet Gallery</h2>
+      <p class="gallery-subtitle">Explore our outlet through these images</p>
+      
+      <div class="gallery-grid">
+        <article 
+          class="gallery-item" 
+          *ngFor="let image of galleryImages; trackBy: trackByImageId; let i = index"
+          [style.animation-delay.ms]="i * 100"
+          appLazyLoad
+          (appear)="onImageAppear(image)"
+        >
+          <div class="gallery-image-container">
+            <img 
+              [src]="image.url" 
+              [alt]="image.alt"
+              class="gallery-image"
+              [class.loaded]="image.loaded"
+              (load)="onGalleryImageLoad(image)"
+              (error)="onImageError('gallery')"
+              loading="lazy"
+            >
+            
+            <!-- Loading Placeholder -->
+            <div class="image-placeholder" *ngIf="!image.loaded">
+              <div class="placeholder-shimmer"></div>
+            </div>
+            
+            <!-- Image Caption -->
+            <div class="image-caption" *ngIf="image.caption">
+              <p>{{ image.caption }}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specialties Section -->
+  <div class="specialties-section" *ngIf="outlet.specialties.length > 0">
+    <div class="specialties-container">
+      <h2 class="section-heading">Our Specialties</h2>
+      <div class="specialties-grid">
+        <div class="specialty-badge" *ngFor="let specialty of outlet.specialties">
+          <span class="material-symbols-outlined">local_offer</span>
+          {{ specialty }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Loading Template -->
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading outlet details...</p>
+  </div>
+</ng-template>
