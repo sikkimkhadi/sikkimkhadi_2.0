@@ -1,10 +1,8 @@
 <div class="center-detail-container" *ngIf="centerDetail$ | async as center">
   <!-- Floating Back Button -->
-  <div class="floating-back-btn" [class.visible]="showBackButton">
-    <a routerLink="/production" class="back-btn">
-      <span class="back-icon">←</span>
-      <span class="back-text">Back to Production</span>
-    </a>
+  <div class="floating-back-button" [class.visible]="showFloatingButton" (click)="navigateBack()">
+    <span class="material-symbols-outlined">arrow_back</span>
+    <span class="button-text">Back to Production</span>
   </div>
 
   <!-- Loading State -->

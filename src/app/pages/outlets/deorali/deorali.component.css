@@ -10,9 +10,9 @@
 /* Floating Back Button */
 .floating-back-button {
     position: fixed;
-    top: 50%;
+    bottom: 2rem;
     right: -120px;
-    transform: translateY(-50%);
+    transform: none;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@
     padding: 1rem 1.5rem 1rem 1rem;
     background: linear-gradient(135deg, var(--brand-primary-orange), var(--brand-secondary-orange));
     color: var(--neutral-white);
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 2rem;
     font-family: var(--font-body);
     font-size: var(--fs-small);
     font-weight: var(--fw-semibold);
@@ -34,14 +34,14 @@
 }
 
 .floating-back-button.visible {
-    right: 0;
+    right: 1rem;
     opacity: 1;
     visibility: visible;
 }
 
 .floating-back-button:hover {
-    right: 10px;
-    transform: translateY(-50%) scale(1.05);
+    right: 1rem;
+    transform: scale(1.05);
     box-shadow: -6px 6px 30px rgba(139, 69, 19, 0.4);
     background: linear-gradient(135deg, var(--brand-secondary-orange), var(--brand-primary-orange));
 }
@@ -531,6 +531,8 @@
     .floating-back-button .button-text {
         font-size: var(--fs-tiny);
     }
+
+
     
     .hero-section {
         padding: 2rem 1rem 1rem;

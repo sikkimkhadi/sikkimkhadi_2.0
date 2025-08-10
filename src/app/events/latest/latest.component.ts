@@ -1,4 +1,4 @@
-import { Component, computed, signal, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, HostListener, computed } from '@angular/core';
 import { Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -6,8 +6,7 @@ import { EventCardComponent } from '../event-card/event-card.component';
 import { EventsService } from '../../core/services/events.service';
 import { Event } from '../../core/models/event.interface';
 import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-latest',
@@ -21,10 +20,11 @@ import { isPlatformBrowser } from '@angular/common';
     EventCardComponent
   ]
 })
-export class LatestComponent implements OnInit {
+export class LatestComponent implements OnInit, OnDestroy {
   events$!: Observable<Event[]>;
-  showFloatingButton = signal(false);
-  private inactivityTimer: any;
+  showFloatingButton = false;
+  private scrollTimeout: any;
+  private mouseTimeout: any;
 
   constructor(
     public router: Router,
@@ -34,17 +34,52 @@ export class LatestComponent implements OnInit {
 
   ngOnInit(): void {
     this.events$ = this.eventsService.getLatestEvents();
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.showFloatingButton = true;
+      }, 1000);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+    if (this.mouseTimeout) {
+      clearTimeout(this.mouseTimeout);
+    }
   }
 
   @HostListener('window:scroll', [])
-  @HostListener('window:mousemove', [])
-  onUserActivity(): void {
+  onWindowScroll(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.showFloatingButton.set(true);
-      
-      clearTimeout(this.inactivityTimer);
-      this.inactivityTimer = setTimeout(() => {
-        this.showFloatingButton.set(false);
+      this.showFloatingButton = true;
+      clearTimeout(this.scrollTimeout);
+      this.scrollTimeout = setTimeout(() => {
+        this.showFloatingButton = false;
+      }, 3000);
+    }
+  }
+
+  @HostListener('window:mousemove', [])
+  onMouseMove(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showFloatingButton = true;
+      clearTimeout(this.mouseTimeout);
+      this.mouseTimeout = setTimeout(() => {
+        this.showFloatingButton = false;
+      }, 4000);
+    }
+  }
+
+  @HostListener('window:touchstart', [])
+  @HostListener('window:touchmove', [])
+  onTouchActivity(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showFloatingButton = true;
+      clearTimeout(this.mouseTimeout);
+      this.mouseTimeout = setTimeout(() => {
+        this.showFloatingButton = false;
       }, 3000);
     }
   }

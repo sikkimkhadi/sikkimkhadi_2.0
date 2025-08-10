@@ -107,7 +107,7 @@
     background: linear-gradient(135deg, var(--brand-secondary-red), var(--brand-primary-red));
 }
 
-.floating-back-button .back-icon {
+.floating-back-button .material-symbols-outlined {
     font-size: 1.4rem;
     transition: transform 0.3s ease;
     background: rgba(255, 255, 255, 0.2);
@@ -120,7 +120,7 @@
     justify-content: center;
 }
 
-.floating-back-button:hover .back-icon {
+.floating-back-button:hover .material-symbols-outlined {
     transform: translateX(-3px) rotate(-5deg);
     background: rgba(255, 255, 255, 0.3);
 }
@@ -142,6 +142,35 @@
 }
 
 @media (max-width: 768px) {
+    .floating-back-button {
+        top: auto;
+        bottom: 2rem;
+        right: -100px;
+        transform: none;
+        padding: 0.8rem 1.2rem 0.8rem 0.8rem;
+        border-radius: 2rem;
+        font-size: var(--fs-tiny);
+    }
+    
+    .floating-back-button.visible {
+        right: 1rem;
+    }
+    
+    .floating-back-button:hover {
+        right: 1rem;
+        transform: scale(1.05);
+    }
+    
+    .floating-back-button .material-symbols-outlined {
+        font-size: 1.2rem;
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+    
+    .floating-back-button .button-text {
+        font-size: var(--fs-tiny);
+    }
+
     .pageContainer {
         padding: 1rem;
         max-width: 100%;

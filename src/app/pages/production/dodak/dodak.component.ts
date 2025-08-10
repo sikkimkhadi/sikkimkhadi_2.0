@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { CommonModule, isPlatformBrowser, TitleCasePipe } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { ProductionService } from '../../../core/services/production.service';
 import { ProductionCenterDetail } from '../../../core/models/production.interface';
 
@@ -16,23 +17,37 @@ import { ProductionCenterDetail } from '../../../core/models/production.interfac
 export class DodakComponent implements OnInit, OnDestroy {
   centerDetail$!: Observable<ProductionCenterDetail | null>;
   loading = true;
-  showBackButton = false;
+  showFloatingButton = false;
   private destroy$ = new Subject<void>();
   private centerId = 'dodak';
+  private scrollTimeout: any;
+  private mouseTimeout: any;
 
   constructor(
     private productionService: ProductionService,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
     this.loadCenterDetail();
-    this.setupBackButtonVisibility();
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.showFloatingButton = true;
+      }, 1000);
+    }
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+    
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+    if (this.mouseTimeout) {
+      clearTimeout(this.mouseTimeout);
+    }
   }
 
   private loadCenterDetail(): void {
@@ -45,19 +60,41 @@ export class DodakComponent implements OnInit, OnDestroy {
     });
   }
 
-  private setupBackButtonVisibility(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const showButton = () => {
-        this.showBackButton = true;
-        setTimeout(() => {
-          this.showBackButton = false;
-        }, 5000);
-      };
+  navigateBack(): void {
+    this.router.navigate(['/production']);
+  }
 
-      document.addEventListener('scroll', showButton);
-      document.addEventListener('mousemove', showButton);
-      
-      showButton();
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showFloatingButton = true;
+      clearTimeout(this.scrollTimeout);
+      this.scrollTimeout = setTimeout(() => {
+        this.showFloatingButton = false;
+      }, 3000);
+    }
+  }
+
+  @HostListener('window:mousemove', [])
+  onMouseMove(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showFloatingButton = true;
+      clearTimeout(this.mouseTimeout);
+      this.mouseTimeout = setTimeout(() => {
+        this.showFloatingButton = false;
+      }, 4000);
+    }
+  }
+
+  @HostListener('window:touchstart', [])
+  @HostListener('window:touchmove', [])
+  onTouchActivity(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.showFloatingButton = true;
+      clearTimeout(this.mouseTimeout);
+      this.mouseTimeout = setTimeout(() => {
+        this.showFloatingButton = false;
+      }, 3000);
     }
   }
 
