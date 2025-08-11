@@ -25,11 +25,11 @@ export class EventsService {
       icon: 'clock'
     },
     {
-      id: 'annual',
-      title: 'Annual Exhibition',
-      description: 'Experience our grand annual showcase of finest Khadi products and traditional craftsmanship.',
-      badge: 'Annual',
-      route: '/events/annual',
+      id: 'exhibition',
+      title: 'Tiranga Weaves & Threads',
+      description: 'Experience the Har Ghar Tiranga campaign exhibition showcasing traditional tri-colour weaving.',
+      badge: 'Exhibition',
+      route: '/events/exhibition',
       icon: 'star'
     }
   ];

@@ -65,7 +65,11 @@ export const routes: Routes = [
     },
     {
         path: 'events/annual',
-        loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
+        loadComponent: () => import('./events/annual/annual.component').then(m => m.ExhibitionComponent)
+    },
+    {
+        path: 'events/exhibition',
+        loadComponent: () => import('./events/annual/annual.component').then(m => m.ExhibitionComponent)
     },
     // {
     //     path: 'upcoming',

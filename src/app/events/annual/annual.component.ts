@@ -2,31 +2,31 @@ import { Component, OnInit, HostListener, Inject, PLATFORM_ID, signal } from '@a
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { EventsService } from '../../core/services/events.service';
-import { Event } from '../../core/models/event.interface';
-import { EventCardComponent } from '../event-card/event-card.component';
+import { ExhibitionService, ExhibitionData, ExhibitionImage } from '../../core/services/exhibition.service';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-annual',
+  selector: 'app-exhibition',
   standalone: true,
-  imports: [CommonModule, RouterModule, EventCardComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './annual.component.html',
   styleUrl: './annual.component.css'
 })
-export class AnnualComponent implements OnInit {
-  events$!: Observable<Event[]>;
+export class ExhibitionComponent implements OnInit {
+  exhibitionData$!: Observable<ExhibitionData>;
+  exhibitionImages$!: Observable<ExhibitionImage[]>;
   showFloatingButton = signal(false);
   private inactivityTimer: any;
 
   constructor(
-    private eventsService: EventsService,
+    private exhibitionService: ExhibitionService,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
-    this.events$ = this.eventsService.getAnnualEvents();
+    this.exhibitionData$ = this.exhibitionService.getExhibitionData();
+    this.exhibitionImages$ = this.exhibitionService.getExhibitionImages();
   }
 
   @HostListener('window:scroll', [])

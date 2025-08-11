@@ -28,10 +28,10 @@ export class EventImageService {
       cloudinaryId: 'sikkim-khadi/events/upcoming-events-pic2'
     },
     {
-      id: 'annual-exhibition',
-      url: '../../../assets/events/pic5.jpg', 
-      alt: 'Annual Exhibition - Khadi Emporium storefront display',
-      cloudinaryId: 'sikkim-khadi/events/annual-exhibition-pic5'
+      id: 'tiranga-exhibition',
+      url: '../../../assets/exhibition/tiranga_weaves.jpg', 
+      alt: 'Tiranga Weaves & Threads Exhibition - A Celebration of Unity in Colours',
+      cloudinaryId: 'sikkim-khadi/exhibition/tiranga-weaves-banner'
     }
   ];
 
