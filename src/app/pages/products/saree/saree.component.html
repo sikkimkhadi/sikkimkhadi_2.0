@@ -1,41 +1,165 @@
-<div class="gallery">
-  <div class="saree">
-    <div class="product" id="saree1">
-      <img src="../../../../assets/products/saree/images/saree1.jpg" alt="">
-      <h1 class="productHeading">Saree</h1>
+<!-- Floating Back Button -->
+<button 
+  class="floating-back-button"
+  [class.visible]="backButtonVisible()"
+  [routerLink]="['/products']"
+  aria-label="Back to Products">
+  <span class="material-symbols-outlined">arrow_back</span>
+  <span class="button-text">Back</span>
+</button>
+
+@if (product$ | async; as product) {
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image-container">
+      <img 
+        [src]="product.heroImage" 
+        [alt]="product.name"
+        class="hero-image"
+        loading="eager">
+      <div class="hero-overlay"></div>
     </div>
-    <div class="product" id="saree2">
-      <img src="../../../../assets/products/saree/images/saree2.jpg" alt="">
+    
+    <div class="hero-content">
+      <nav class="breadcrumb">
+        <a [routerLink]="['/']">Home</a>
+        <span class="separator">›</span>
+        <a [routerLink]="['/products']">Products</a>
+        <span class="separator">›</span>
+        <span class="current">{{ product.name }}</span>
+      </nav>
+      
+      <div class="product-header">
+        <div class="product-icon">{{ product.icon }}</div>
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-category">{{ product.category }}</p>
+        @if (product.badge) {
+          <div class="product-badge">{{ product.badge }}</div>
+        }
+      </div>
     </div>
-    <div class="product" id="saree3">
-      <img src="../../../../assets/products/saree/images/saree3.jpg" alt="">
+  </section>
+
+  <!-- Product Details Section -->
+  <section class="product-details-section">
+    <div class="container">
+      <div class="details-grid">
+        <!-- Description Card -->
+        <div class="info-card description-card">
+          <h2 class="card-title">About This Product</h2>
+          <p class="product-description">{{ product.description }}</p>
+          <div class="availability-info">
+            <span class="availability-label">Availability:</span>
+            <span class="availability-value">{{ product.availability }}</span>
+          </div>
+        </div>
+
+        <!-- Features Card -->
+        <div class="info-card features-card">
+          <h2 class="card-title">Key Features</h2>
+          <ul class="features-list">
+            @for (feature of product.features; track trackByFeature($index, feature)) {
+              <li class="feature-item">
+                <span class="feature-icon">✓</span>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Benefits Card -->
+        <div class="info-card benefits-card">
+          <h2 class="card-title">Benefits</h2>
+          <ul class="benefits-list">
+            @for (benefit of product.benefits; track trackByBenefit($index, benefit)) {
+              <li class="benefit-item">
+                <span class="benefit-icon">★</span>
+                {{ benefit }}
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Usage Card -->
+        @if (product.usage && product.usage.length > 0) {
+          <div class="info-card usage-card">
+            <h2 class="card-title">Usage & Applications</h2>
+            <ul class="usage-list">
+              @for (use of product.usage; track use) {
+                <li class="usage-item">
+                  <span class="usage-icon">→</span>
+                  {{ use }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
     </div>
-    <div class="product" id="saree4">
-      <img src="../../../../assets/products/saree/images/saree4.jpg" alt="">
+  </section>
+
+  <!-- Gallery Section -->
+  @if (product.images && product.images.length > 0) {
+    <section class="gallery-section">
+      <div class="container">
+        <h2 class="section-title">Product Gallery</h2>
+        <p class="section-subtitle">Explore the beauty and craftsmanship</p>
+        
+        <div class="gallery-grid">
+          @for (image of product.images; track trackByImageId($index, image)) {
+            <div class="gallery-item" [attr.data-index]="$index">
+              <div class="image-container">
+                <img 
+                  [src]="image.src" 
+                  [alt]="image.alt"
+                  class="gallery-image"
+                  loading="lazy">
+              </div>
+              @if (image.caption) {
+                <p class="image-caption">{{ image.caption }}</p>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Interested in {{ product.name }}?</h2>
+        <p class="cta-description">Visit our outlets or contact us for more information about this authentic Sikkim product.</p>
+        <div class="cta-buttons">
+          <a [routerLink]="['/outlets']" class="cta-button primary">
+            Find Outlets
+            <span class="material-symbols-outlined">location_on</span>
+          </a>
+          <a [routerLink]="['/contact']" class="cta-button secondary">
+            Contact Us
+            <span class="material-symbols-outlined">phone</span>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="product" id="saree5">
-      <img src="../../../../assets/products/saree/images/saree5.jpg" alt="">
-    </div>
-    <div class="product" id="saree6">
-      <img src="../../../../assets/products/saree/images/saree6.jpg" alt="">
-    </div>
-    <div class="product" id="saree7">
-      <img src="../../../../assets/products/saree/images/saree7.jpg" alt="">
-    </div>
-    <div class="product" id="saree8">
-      <img src="../../../../assets/products/saree/images/saree8.jpg" alt="">
-    </div>
-    <div class="product" id="saree9">
-      <img src="../../../../assets/products/saree/images/saree9.jpg" alt="">
-    </div>
-    <div class="product" id="saree10">
-      <img src="../../../../assets/products/saree/images/saree10.jpg" alt="">
-    </div>
-    <div class="product" id="saree11">
-      <img src="../../../../assets/products/saree/images/saree11.jpg" alt="">
-    </div>
-    <div class="product" id="saree12">
-      <img src="../../../../assets/products/saree/images/saree12.jpg" alt="">
-    </div>
+  </section>
+
+} @else if (loading) {
+  <!-- Loading State -->
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading product details...</p>
   </div>
-</div>
+} @else if (error) {
+  <!-- Error State -->
+  <div class="error-container">
+    <div class="error-icon">⚠️</div>
+    <h2 class="error-title">Product Not Found</h2>
+    <p class="error-description">Sorry, we couldn't find the product you're looking for.</p>
+    <a [routerLink]="['/products']" class="error-button">
+      Back to Products
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+  </div>
+}

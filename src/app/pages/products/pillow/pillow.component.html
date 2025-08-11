@@ -1,12 +1,156 @@
-<div class="gallery">
-    <div class="pillow">
-        <div class="product" id="p1">
-            <img src="../../../../assets/products/pillow/images/img1.jpg" alt="">
-            <h1 class="productHeading">Pillow</h1>
+<!-- Loading State -->
+<div *ngIf="loading" class="loading-container">
+  <div class="loading-spinner"></div>
+  <p>Loading product details...</p>
+</div>
+
+<!-- Error State -->
+<div *ngIf="error && !loading" class="error-container">
+  <div class="error-content">
+    <span class="material-symbols-outlined">error</span>
+    <h2 class="error-title">Unable to Load Product</h2>
+    <p class="error-message">{{ error }}</p>
+    <button class="error-button" (click)="goBack()">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- Product Content -->
+<div *ngIf="product && !loading && !error">
+  <!-- Floating Back Button -->
+  <button 
+    class="floating-back-button" 
+    [class.visible]="showFloatingButton"
+    (click)="goBack()"
+    aria-label="Go back to products">
+    <span class="material-symbols-outlined">arrow_back</span>
+    <span class="button-text">Back</span>
+  </button>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image-container">
+      <img 
+        [src]="product.heroImage" 
+        [alt]="product.name"
+        class="hero-image"
+        (error)="onImageError($event)"
+        (load)="onImageLoad($event)">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a [routerLink]="['/']" class="breadcrumb-link">Home</a>
+          <span class="separator">›</span>
+          <a [routerLink]="['/products']" class="breadcrumb-link">Products</a>
+          <span class="separator">›</span>
+          <span class="current">{{ product.name }}</span>
+        </nav>
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-description">{{ product.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Section -->
+  <section class="product-details-section">
+    <div class="container">
+      <div class="product-details-grid">
+        <!-- Features Card -->
+        <div class="info-card features-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">checklist</span>
+            <h3>Key Features</h3>
+          </div>
+          <ul class="features-list">
+            <li *ngFor="let feature of product.features" class="feature-item">
+              <span class="feature-icon">✓</span>
+              {{ feature }}
+            </li>
+          </ul>
         </div>
 
-        <div class="product" id="p2">
-            <img src="../../../../assets/products/pillow/images/img2.jpg" alt="">
+        <!-- Benefits Card -->
+        <div class="info-card benefits-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">spa</span>
+            <h3>Benefits</h3>
+          </div>
+          <ul class="benefits-list">
+            <li *ngFor="let benefit of product.benefits" class="benefit-item">
+              <span class="benefit-icon">★</span>
+              {{ benefit }}
+            </li>
+          </ul>
         </div>
+
+        <!-- Usage Card -->
+        <div class="info-card usage-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">info</span>
+            <h3>Usage</h3>
+          </div>
+          <p class="usage-text">{{ product.usage }}</p>
+        </div>
+
+        <!-- Availability Card -->
+        <div class="info-card availability-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">storefront</span>
+            <h3>Availability</h3>
+          </div>
+          <p class="availability-text">{{ product.availability }}</p>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Product Gallery</h2>
+        <p class="section-subtitle">Discover our collection of handcrafted comfort</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" *ngFor="let image of product.images">
+          <img 
+            [src]="image.src" 
+            [alt]="image.alt"
+            class="gallery-image"
+            (error)="onImageError($event)"
+            (load)="onImageLoad($event)">
+          <div class="image-overlay">
+            <p class="image-caption">{{ image.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Experience Natural Comfort</h2>
+        <p class="cta-description">
+          Visit our outlets to feel the quality of our natural simul cotton pillows or get in touch for bulk orders and custom requirements.
+        </p>
+        <div class="cta-buttons">
+          <button class="cta-button primary" (click)="navigateToOutlets()">
+            <span class="material-symbols-outlined">store</span>
+            Find Our Outlets
+          </button>
+          <button class="cta-button secondary" (click)="navigateToContact()">
+            <span class="material-symbols-outlined">contact_mail</span>
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

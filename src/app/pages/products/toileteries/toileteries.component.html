@@ -1,14 +1,150 @@
-<div class="gallery">
-    <div class="toi">
-        <div class="product" id="t1">
-            <img src="../../../../assets/products/toileteries/images/img1.jpg" alt="">
-            <h1 class="productHeading">Toileteries</h1>
-        </div>
-        <div class="product" id="t2">
-            <img src="../../../../assets/products/toileteries/images/img2.jpg" alt="">
-        </div>
-        <div class="product" id="t3">
-            <img src="../../../../assets/products/toileteries/images/img3.jpg" alt="">
-        </div>
+<!-- Floating Back Button -->
+<button 
+  class="floating-back-button" 
+  [class.visible]="showFloatingButton()"
+  (click)="goBack()"
+  aria-label="Go back to products">
+  <span class="material-symbols-outlined">arrow_back</span>
+  <span class="button-text">Back</span>
+</button>
+
+@if (loading) {
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading product details...</p>
+  </div>
+} @else if (error) {
+  <div class="error-container">
+    <div class="error-content">
+      <span class="material-symbols-outlined">error</span>
+      <h2 class="error-title">Oops! Something went wrong</h2>
+      <p class="error-message">{{ error }}</p>
+      <button class="error-button" (click)="goBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Products
+      </button>
     </div>
-</div>
+  </div>
+} @else if (product) {
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image-container">
+      <img [src]="product.heroImage" [alt]="product.name" class="hero-image">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <nav class="breadcrumb">
+        <a [routerLink]="['/']">Home</a>
+        <span class="separator">›</span>
+        <a [routerLink]="['/products']">Products</a>
+        <span class="separator">›</span>
+        <span class="current">{{ product.name }}</span>
+      </nav>
+      <div class="product-header">
+        <div class="product-icon">{{ product.icon }}</div>
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-category">{{ product.category }}</p>
+        <div class="product-badge" *ngIf="product.badge">{{ product.badge }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Section -->
+  <section class="product-details-section">
+    <div class="container">
+      <div class="product-details-grid">
+        <!-- Description Card -->
+        <div class="info-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">description</span>
+            <h3>Description</h3>
+          </div>
+          <div class="card-content">
+            <p>{{ product.description }}</p>
+          </div>
+        </div>
+
+        <!-- Features Card -->
+        <div class="info-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">star</span>
+            <h3>Features</h3>
+          </div>
+          <div class="card-content">
+            <ul class="feature-list">
+              @for (feature of product.features; track $index) {
+                <li>{{ feature }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefits Card -->
+        <div class="info-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">favorite</span>
+            <h3>Benefits</h3>
+          </div>
+          <div class="card-content">
+            <ul class="benefit-list">
+              @for (benefit of product.benefits; track $index) {
+                <li>{{ benefit }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        <!-- Usage Card -->
+        <div class="info-card">
+          <div class="card-header">
+            <span class="material-symbols-outlined">info</span>
+            <h3>Usage</h3>
+          </div>
+          <div class="card-content">
+            <p>{{ product.usage }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Product Gallery</h2>
+        <p class="section-subtitle">Explore our range of natural and refreshing toiletry products.</p>
+      </div>
+      <div class="gallery-grid">
+        @for (image of product.images; track image.id) {
+          <div class="gallery-item">
+            <img [src]="image.src" [alt]="image.alt" class="gallery-image" loading="lazy">
+            <div class="image-overlay">
+              <p class="image-caption">{{ image.caption }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Interested in Our {{ product.name }}?</h2>
+        <p class="cta-description">Visit our outlets or get in touch with us to learn more about our premium {{ product.name.toLowerCase() }}.</p>
+        <div class="cta-buttons">
+          <button class="cta-button primary" (click)="navigateToOutlets()">
+            <span class="material-symbols-outlined">store</span>
+            Find Outlets
+          </button>
+          <button class="cta-button secondary" (click)="navigateToContact()">
+            <span class="material-symbols-outlined">contact_mail</span>
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+}

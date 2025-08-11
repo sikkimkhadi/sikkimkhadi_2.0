@@ -1,184 +1,120 @@
-<main>
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/saree.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Handwoven Sarees
-        </h2>
-        <a [routerLink]="['saree']" class="button">Find out more<span class="material-symbols-outlined">arrow_right_alt</span></a>
+@if (productsData$ | async; as data) {
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="floating-icons">
+        <span class="floating-icon" style="--delay: 0s;">🧵</span>
+        <span class="floating-icon" style="--delay: 1s;">🍯</span>
+        <span class="floating-icon" style="--delay: 2s;">🌿</span>
+        <span class="floating-icon" style="--delay: 3s;">🏠</span>
       </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/turmeric.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Local Organic Spices
-        </h2>
-        <a [routerLink]="['turmeric']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
+      <h1 class="hero-title">{{ data.heroTitle }}</h1>
+      <div class="hero-subtitle">
+        Discover authentic handcrafted products from the heart of Sikkim
       </div>
+      
+
     </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/temitea.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Temi Tea
-        </h2>
-        <a [routerLink]="['temitea']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
+  </section>
+
+  <!-- Categories Section -->
+  @if (categories$ | async; as categories) {
+    <section class="categories-section">
+      <div class="container">
+        <h2 class="section-title">Product Categories</h2>
+        <p class="section-subtitle">Explore our diverse range of authentic Sikkim products</p>
+        
+        <!-- Statistics -->
+        @if (stats$ | async; as stats) {
+          <div class="stats-grid">
+            @for (stat of stats; track trackByStatsLabel($index, stat)) {
+              <div class="stat-card" [attr.data-index]="$index">
+                <div class="stat-icon">{{ stat.icon }}</div>
+                <div class="stat-value">{{ stat.value }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
+                <div class="stat-description">{{ stat.description }}</div>
+              </div>
+            }
+          </div>
+        }
+        
+        <div class="categories-grid">
+          @for (category of categories; track trackByCategoryId($index, category)) {
+            <div class="category-card" [attr.data-index]="$index">
+              <div class="category-icon">{{ category.icon }}</div>
+              <h3 class="category-name">{{ category.name }}</h3>
+              <p class="category-description">{{ category.description }}</p>
+              <div class="category-products">
+                {{ category.products.length }} Products
+              </div>
+            </div>
+          }
+        </div>
       </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/toileteries.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Khadi Toileteries
-        </h2>
-        <a [routerLink]="['toileteries']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
+    </section>
+  }
+
+  <!-- Products Grid Section -->
+  @if (featuredProducts$ | async; as products) {
+    <section class="products-section" #productsSection>
+      <div class="container">
+        <h2 class="section-title">All Our Products</h2>
+        <p class="section-subtitle">Discover all 11 authentic Sikkim products - handcrafted with love, made with tradition</p>
+        
+        @if (!productsLoading) {
+          <div class="products-grid">
+            @for (product of products; track trackByProductId($index, product)) {
+              <div class="product-card" [attr.data-index]="$index">
+                <div class="product-image-container">
+                  <img 
+                    [src]="product.heroImage" 
+                    [alt]="product.name"
+                    class="product-image"
+                    loading="lazy">
+                  <div class="product-overlay"></div>
+                  @if (product.badge) {
+                    <div class="product-badge">{{ product.badge }}</div>
+                  }
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-category">{{ product.category }}</div>
+                  <h3 class="product-name">{{ product.name }}</h3>
+                  <p class="product-description">{{ product.shortDescription }}</p>
+                  
+                  <div class="product-features">
+                    @for (feature of product.features.slice(0, 2); track feature) {
+                      <span class="feature-tag">{{ feature }}</span>
+                    }
+                  </div>
+                  
+                  <div class="product-footer">
+                    <div class="product-availability">{{ product.availability }}</div>
+                    <a [routerLink]="[product.route]" class="product-button">
+                      Explore
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <!-- Loading skeleton -->
+          <div class="products-grid">
+            @for (item of [1,2,3,4]; track item) {
+              <div class="product-card skeleton">
+                <div class="skeleton-image"></div>
+                <div class="skeleton-content">
+                  <div class="skeleton-line short"></div>
+                  <div class="skeleton-line"></div>
+                  <div class="skeleton-line medium"></div>
+                </div>
+              </div>
+            }
+          </div>
+        }
       </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/honey.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Local Organic Honey
-        </h2>
-        <a [routerLink]="['honey']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/incense.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Organic Incense
-        </h2>
-        <a [routerLink]="['incense']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/pillow.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Simul Pillows
-        </h2>
-        <a [routerLink]="['pillow']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/quilt.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Khadi Quilts
-        </h2>
-        <a [routerLink]="['quilt']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/shawl.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Khadi Shawls
-        </h2>
-        <a [routerLink]="['shawl']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/duree.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2 style="text-align: center;">
-          Handwoven Duree <br>and<br> Asanis
-        </h2>
-        <a [routerLink]="['duree']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-    <!-- card starts -->
-    <div class = "card">
-      <img src="../../../assets/products/images/beebox.jpg" alt="">
-      <div class="overlay"></div>
-      <div class="card-content">
-        <h2>
-          Bee Keeping<br>Equipment
-        </h2>
-        <a [routerLink]="['beebox']" class="button">
-          Find out more 
-          <span class="material-symbols-outlined">
-            arrow_right_alt
-          </span>
-        </a>
-      </div>
-    </div>
-    <!-- card ends -->
-  </main>
+    </section>
+  }
+}

@@ -1,67 +1,147 @@
-<div class="gallery" >
-    <div class="beebox__beebox">
-      <h1>Bee-Box</h1>
-      <div class="layer1">
-        <img src="../../../../assets/products/beebox/images/13.jpg" alt="" id="b1">
-        <img src="../../../../assets/products/beebox/images/3.jpg" alt="" id="b2">
-        <img src="../../../../assets/products/beebox/images/5.jpg" alt="" id="b3">
-        <img src="../../../../assets/products/beebox/images/10.jpg" alt="" id="b4">
-        <img src="../../../../assets/products/beebox/images/7.jpg" alt="" id="b5">
-      </div>
-      
+  <!-- Floating Back Button -->
+  <button 
+    class="floating-back-button" 
+    [class.visible]="showFloatingButton"
+    (click)="goBack()"
+    aria-label="Go back to products">
+    <span class="material-symbols-outlined">arrow_back</span>
+    <span class="button-text">Back</span>
+  </button>
+
+  @if (loading) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Loading product details...</p>
     </div>
-    <div class="beebox">
-      <h1>Wax and Knife</h1>
-      <div class="layer2" id="p">
-        <img src="../../../../assets/products/beebox/images/1.jpg" alt="" id="d1">
-        <img src="../../../../assets/products/beebox/images/7.jpg" alt="" id="d2">
-        <img src="../../../../assets/products/beebox/images/9.jpg" alt="" id="d3">
-        <img src="../../../../assets/products/beebox/images/6.jpg" alt="" id="d4">
-        <img src="../../../../assets/products/beebox/images/6.jpg" alt="" id="d5">
-      </div>
-    </div>
-      
-    <div class="beebox">
-      <h1>Grafting Tools</h1>
-      <div class="layer1">
-        <img src="../../../../assets/products/beebox/images/14.jpg" alt="" id="b1">
-        <img src="../../../../assets/products/beebox/images/11.jpg" alt="" id="b2">
-        <img src="../../../../assets/products/beebox/images/12.jpg" alt="" id="b3">
-        <img src="../../../../assets/products/beebox/images/16.jpg" alt="" id="b4">
-        <img src="../../../../assets/products/beebox/images/12.jpg" alt="" id="b5">
+  } @else if (error) {
+    <div class="error-container">
+      <div class="error-content">
+        <span class="material-symbols-outlined">error</span>
+        <h2 class="error-title">Oops! Something went wrong</h2>
+        <p class="error-message">{{ error }}</p>
+        <button class="error-button" (click)="goBack()">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back to Products
+        </button>
       </div>
     </div>
-    
-    <div class="beebox">
-      <h1>Queen gate</h1>
-      <div class="layer2" id="p">
-        <img src="../../../../assets/products/beebox/images/4.jpg" alt="" id="d1">
-        <img src="../../../../assets/products/beebox/images/3.jpg" alt="" id="d2">
-        <img src="../../../../assets/products/beebox/images/3.jpg" alt="" id="d3">
-        <img src="../../../../assets/products/beebox/images/5.jpg" alt="" id="d4">
-        <img src="../../../../assets/products/beebox/images/15.jpg" alt="" id="d5">
+  } @else if (product) {
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-image-container">
+        <img [src]="product.heroImage" [alt]="product.name" class="hero-image">
+        <div class="hero-overlay"></div>
       </div>
-    </div>
-    
-    <div class="beebox__beebox">
-      <h1>Super chamber</h1>
-      <div class="layer1">
-        <img src="../../../../assets/products/beebox/images/4.jpg" alt="" id="b1">
-        <img src="../../../../assets/products/beebox/images/17.jpg" alt="" id="b2">
-        <img src="../../../../assets/products/beebox/images/18.jpg" alt="" id="b3">
-        <img src="../../../../assets/products/beebox/images/19.jpg" alt="" id="b4">
-        <img src="../../../../assets/products/beebox/images/21.jpg" alt="" id="b5">
+      <div class="hero-content">
+        <nav class="breadcrumb">
+          <a [routerLink]="['/']" class="breadcrumb-link">Home</a>
+          <span class="separator">›</span>
+          <a [routerLink]="['/products']" class="breadcrumb-link">Products</a>
+          <span class="separator">›</span>
+          <span class="current">{{ product.name }}</span>
+        </nav>
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-description">{{ product.shortDescription }}</p>
       </div>
-    </div> 
-    
-    <div class="beebox">
-      <h1>Brood chamber</h1>
-      <div class="layer2" id="p">
-        <img src="../../../../assets/products/beebox/images/4.jpg" alt="" id="d1">
-        <img src="../../../../assets/products/beebox/images/20.jpg" alt="" id="d2">
-        <img src="../../../../assets/products/beebox/images/15.jpg" alt="" id="d3">
-        <img src="../../../../assets/products/beebox/images/20.jpg" alt="" id="d4">
-        <img src="../../../../assets/products/beebox/images/5.jpg" alt="" id="d5">
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="product-details-section">
+      <div class="container">
+        <div class="product-details-grid">
+          <!-- Key Features Card -->
+          <div class="info-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined">list_alt</span>
+              <h3>Key Features</h3>
+            </div>
+            <div class="card-content">
+              <ul class="feature-list">
+                @for (feature of product.features; track feature) {
+                  <li>{{ feature }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <!-- Benefits Card -->
+          <div class="info-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined">health_and_safety</span>
+              <h3>Benefits</h3>
+            </div>
+            <div class="card-content">
+              <ul class="benefit-list">
+                @for (benefit of product.benefits; track benefit) {
+                  <li>{{ benefit }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <!-- Usage Card -->
+          <div class="info-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined">science</span>
+              <h3>Usage</h3>
+            </div>
+            <div class="card-content">
+              <p>{{ product.usage }}</p>
+            </div>
+          </div>
+
+          <!-- Availability Card -->
+          <div class="info-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined">event_available</span>
+              <h3>Availability</h3>
+            </div>
+            <div class="card-content">
+              <p>{{ product.availability }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Beekeeping Gallery</h2>
+          <p class="section-subtitle">Explore our range of beekeeping equipment and hives.</p>
+        </div>
+        <div class="gallery-grid">
+          @for (image of product.images; track image.id) {
+            <div class="gallery-item">
+              <div class="image-container">
+                <img [src]="image.src" [alt]="image.alt" class="gallery-image" loading="lazy">
+              </div>
+              <p class="image-caption">{{ image.caption }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Interested in Our {{ product.name }}?</h2>
+          <p class="cta-description">Visit our outlets or get in touch with us to learn more about our premium {{ product.name.toLowerCase() }}.</p>
+          <div class="cta-buttons">
+            <button class="cta-button primary" (click)="navigateToOutlets()">
+              <span class="material-symbols-outlined">store</span>
+              Find Outlets
+            </button>
+            <button class="cta-button secondary" (click)="navigateToContact()">
+              <span class="material-symbols-outlined">contact_mail</span>
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  }

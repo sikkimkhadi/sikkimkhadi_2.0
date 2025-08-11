@@ -18,56 +18,56 @@ export class ContactService {
   private contactData: ContactPerson[] = [
     {
       id: 1,
-      name: 'Smt. Chung Chung Bhutia',
+      name: 'Shri. Deepak Kumar Gurung',
       designation: 'Chairperson',
       department: 'Sikkim Khadi & Village Industries Board',
-      contact: '6296542761'
+      contact: '9733040950',
     },
     {
       id: 2,
-      name: 'Shri Gyurmie Yousal',
-      designation: 'Pr. Chief Executive Officer',
-      contact: '9434080499'
+      name: 'Shri. Dal Bahadur Thatal',
+      designation: 'Advisor',
+      contact: '7076861594',
     },
     {
       id: 3,
-      name: 'Smt. Meena Thapa',
-      designation: 'Deputy Executive Officer',
-      contact: '9800366557'
+      name: 'Shri Gyurmie Yousal',
+      designation: 'Pr. Chief Executive Officer',
+      contact: '9434080499',
     },
     {
       id: 4,
-      name: 'Smt. Babita Baraily',
-      designation: 'Assistant Executive Officer',
-      contact: '9434339096'
-    },
-    {
-      id: 5,
-      name: 'Smt. Dhaka Devi Sharma',
-      designation: 'Accounts Officer',
-      contact: '9647851861'
+      name: 'Smt. Meena Thapa',
+      designation: 'Deputy Executive Officer',
+      contact: '9800366557',
     },
     {
       id: 6,
-      name: 'Shri Karma Samten Bhutia',
-      designation: 'Officer',
-      specialization: 'PMEGP Related Queries',
-      contact: '9609585504'
+      name: 'Shri. Chewang Topden Bhutia',
+      designation: 'Assistant Executive Officer',
+      contact: '8918128518',
     },
     {
       id: 7,
-      name: 'Shri Gyalpo Tshering Bhutia',
+      name: 'Shri Karma Samten Bhutia',
       designation: 'Officer',
-      specialization: 'Bee-Keeping Related Queries',
-      contact: '7407387919'
+      contact: '9609585504',
+      specialization: 'PMEGP Related Queries',
     },
     {
       id: 8,
-      name: 'Smt. Babita Baraily',
+      name: 'Shri Gyalpo Tshering Bhutia',
+      designation: 'Officer',
+      contact: '7407387919',
+      specialization: 'Bee-Keeping Related Queries',
+    },
+    {
+      id: 9,
+      name: 'Shri. Chewang Topden Bhutia',
       designation: 'Assistant Executive Officer',
+      contact: '8918128518',
       specialization: 'Products Related Queries',
-      contact: '9434339096'
-    }
+    },
   ];
 
   constructor() { }

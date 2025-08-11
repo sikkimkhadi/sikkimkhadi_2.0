@@ -1,8 +1,10 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lora:wght@400;500;600&family=Martel:wght@300;400;600;700&display=swap');
+
 :root {
   /* Global variables */
   --primary-bg: #f6d7a6;
   --max-container-width: 112rem;
-  --font-family-primary: 'Noto Sans', sans-serif; /* To be removed later */
 
   /* Reds & Pinks */
   --brand-primary-dark-red: #66001f;
@@ -13,8 +15,8 @@
   --brand-pink: #e44785;
 
   /* Oranges & Yellows */
-  --brand-primary-orange: #f49936;
-  --brand-secondary-orange: #f49e13;
+  --brand-primary-orange: #ff8c42;
+  --brand-secondary-orange: #ff7b2e;
   --brand-light-orange: #ee9455;
   --brand-burnt-orange: #af2d16;
 
@@ -32,12 +34,14 @@
   --brand-dark-purple: #2e1e32;
 
   /* Browns */
-  --brand-dark-brown: #331105;
-  --brand-very-dark-brown: #2c0806;
+  --brand-dark-brown: #8b4513;
+  --brand-very-dark-brown: #5d2f0a;
 
   /* Grays & Neutrals */
   --neutral-white: #ffffff;
-  --neutral-light-gray: #ded8d9;
+  --neutral-light-gray: #f8f9fa;
+  --neutral-medium-gray: #6c757d;
+  --neutral-dark-gray: #343a40;
   --neutral-very-light-gray: #eaeae9;
   --neutral-almost-white: #fafafb;
   --neutral-off-white: #f5ffff;
@@ -86,7 +90,7 @@
 
 /* Base styles */
 html {
-  font-family: var(--font-family-primary);
+  font-family: var(--font-body);
   font-size: 62.5%; /* 10px = 1rem */
   -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
   -webkit-font-smoothing: antialiased;
