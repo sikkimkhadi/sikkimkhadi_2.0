@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactService, ContactPerson } from '../../services/contact.service';
+import { ContactService, ContactPerson } from '../../core/services/contact.service';
 
 @Component({
   selector: 'app-contactus',

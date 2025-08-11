@@ -101,3 +101,51 @@ address {
     font-size: var(--fs-h4);
   }
 }
+
+/* Navigation Tree Styles */
+.navigation-tree {
+  list-style: none;
+  padding-left: 0;
+}
+
+.navigation-tree li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.navigation-tree li::before, .navigation-tree li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.navigation-tree li::before {
+  border-left: 1px solid #ccc;
+  height: 100%;
+  top: 0;
+  width: 1px;
+}
+
+.navigation-tree li:last-child::before {
+  height: 1.2em;
+}
+
+.navigation-tree li::after {
+  border-top: 1px solid #ccc;
+  height: 1px;
+  top: 1.2em;
+  width: 15px;
+}
+
+.navigation-tree span {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.navigation-tree ul {
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 5px;
+}

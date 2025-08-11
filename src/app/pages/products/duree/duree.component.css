@@ -556,6 +556,9 @@
   }
 }
 
+.cta-button.primary {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: white;
   border-radius: 50px;
   font-family: var(--font-body);
   font-weight: 600;
@@ -563,11 +566,6 @@
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(139, 89, 42, 0.12);
-}
-
-.cta-button.primary {
-  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-  color: white;
 }
 
 .cta-button.secondary {

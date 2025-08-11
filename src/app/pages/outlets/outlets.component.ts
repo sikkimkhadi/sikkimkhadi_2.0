@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { OutletsService, Outlet } from '../../services/outlets.service';
+import { OutletsService, Outlet } from '../../core/services/outlets.service';
 import { LazyLoadDirective } from '../../directives/lazy-load.directive';
 
 interface OutletWithState extends Outlet {

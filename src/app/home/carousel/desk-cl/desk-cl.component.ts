@@ -1,6 +1,6 @@
 import { Component, PLATFORM_ID, inject, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { isPlatformBrowser, CommonModule, TitleCasePipe } from '@angular/common';
-import { CloudinaryService, CarouselSlide } from '../../../services/cloudinary.service';
+import { CloudinaryService, CarouselSlide } from '../../../core/services/cloudinary.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 

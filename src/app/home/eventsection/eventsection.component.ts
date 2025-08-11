@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { EventImageService, EventImage } from '../../services/event-image.service';
+import { EventImageService, EventImage } from '../../core/services/event-image.service';
 import { EventsService } from '../../core/services/events.service';
 import { EventCategory } from '../../core/models/event.interface';
 

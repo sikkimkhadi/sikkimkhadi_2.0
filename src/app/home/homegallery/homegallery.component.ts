@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { GalleryService, GalleryItem } from '../../services/gallery.service';
-import { StatsService, SiteStats } from '../../services/stats.service';
+import { GalleryService, GalleryItem } from '../../core/services/gallery.service';
+import { StatsService, SiteStats } from '../../core/services/stats.service';
 import { LazyLoadDirective } from '../../directives/lazy-load.directive';
 
 interface GalleryItemWithState extends GalleryItem {
