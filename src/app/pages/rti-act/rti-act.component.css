@@ -14,49 +14,91 @@
   }
   
   
-  .pmegp__header_text {
+  .pmegp__header_text p:first-child {
     padding: 1rem;
     text-align: center;
     color: #000080;
     font-weight: 900;
-    font-size: 2.4rem;
+    font-size: 3.2rem;
     text-transform: uppercase;
+    font-family: var(--font-heading);
   }
   
-  .pmegp__header_text :nth-child(2), 
-  .pmegp__header_text :nth-child(3) {
+  .pmegp__header_text p:nth-child(2) {
+    padding: 0.5rem;
+    text-align: center;
+    color: #000080;
+    text-transform: capitalize;
+    font-size: 2.4rem;
+    font-family: var(--font-subheading);
+    font-weight: 600;
+  }
+  
+  .pmegp__header_text p:nth-child(3) {
+    padding: 0.5rem;
+    text-align: center;
+    color: #000080;
     text-transform: capitalize;
     font-size: 2rem;
+    font-family: var(--font-subheading);
+    font-weight: 600;
   }
   
-  .pmegp__header_text :nth-child(4), 
-  .pmegp__header_text :nth-child(5) {
+  .pmegp__header_text p:nth-child(4) {
+    padding: 0.5rem;
+    text-align: center;
+    color: #000080;
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.6rem;
+    font-family: var(--font-body);
   }
   
   .RTI_section_para {
     border-top: 1px solid #000080;
-    padding-top: 1rem;
+    padding-top: 2rem;
     color: rgb(112, 73, 11);
     font-weight: 500;
+    font-size: 1.8rem;
+    font-family: var(--font-body);
+    line-height: 1.6;
   }
   
   .dignitaries {
-    padding-top: 1rem;
-    padding-left: 1.5rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
   }
   
-  .dignitaries p:nth-child(1) {
+  .dignitaries p:first-child {
+    font-size: 2.2rem;
     font-weight: 700;
-    font-size: 1.8rem;
+    color: #000080;
+    font-family: var(--font-subheading);
+    margin-bottom: 0.5rem;
   }
   
-  .dignitaries p:nth-child(2), 
-  .dignitaries p:nth-child(3), 
-  .dignitaries p:nth-child(4), 
-  .dignitaries p:nth-child(5) {
-    padding-left: 2.6rem;
+  .dignitaries p:nth-child(2) {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #8B4513;
+    font-family: var(--font-subheading);
+    margin-bottom: 0.3rem;
+  }
+
+  .dignitaries p:nth-child(3),
+  .dignitaries p:nth-child(4) {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #70490b;
+    font-family: var(--font-body);
+    margin-bottom: 0.2rem;
+  }
+
+  .dignitaries p:last-child {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000080;
+    font-family: var(--font-body);
   }
   

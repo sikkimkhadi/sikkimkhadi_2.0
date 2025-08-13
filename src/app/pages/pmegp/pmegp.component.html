@@ -1,378 +1,250 @@
-<div class="pageContainer">
-  <div class="acontents">
-    <div class="pmegp__header">
-      <div class="amm_icon">
-        <img src="../../../assets/pmegp/amm.png" alt="">
+@if (pmegpData$ | async; as pmegpData) {
+  <!-- Hero Section -->
+  <section class="hero-section">
+      <div class="hero-overlay">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-logo">
+              <img src="/assets/pmegp/amm.png" alt="Azadi Ka Amrit Mahotsav" class="azadi-logo">
+            </div>
+            <h1 class="hero-title">{{ pmegpData.title }}</h1>
+            <p class="hero-subtitle">{{ pmegpData.subtitle }}</p>
+            <p class="hero-description">{{ pmegpData.description }}</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="pmegp__header_text">
-      <p>Prime Minister's Employment <br> Generation Programme</p>
-    </div>
-    <!-- pictures carousel -->
-    @if (isLargeScreen | async) {
-    <!-- Desktop/Tablet carousel -->
-    <app-pmegp-cl-desk />
-    } @else {
-    <!-- Mobile carousel -->
-    <app-pmegp-cl-mob />
-    }
+    </section>
 
-    <div class="pmegp__attach__table__header">
-      <p class="pmepg_table_title"><span>A glance at</span><span>PMEGP performance</span><span>by SKVIB</span></p>
-    </div>
-    <div class="pmegp__attach__table">
-      <div class="box left">
-        <p>Year</p>
+  <!-- Statistics Section -->
+  @if (pmegpData$ | async; as data) {
+    <section class="statistics-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">{{ data.totalProjects }}</div>
+            <div class="stat-label">Total Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{ data.totalSanctioned }}</div>
+            <div class="stat-label">Projects Sanctioned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">₹{{ data.totalValue }}</div>
+            <div class="stat-label">Total Value (Lakhs)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">₹{{ data.totalSubsidy }}</div>
+            <div class="stat-label">Total Subsidy (Lakhs)</div>
+          </div>
+        </div>
       </div>
-      <div class="box">
-        <p>Projects received</p>
-      </div>
-      <div class="box">
-        <p>Project sanctioned</p>
-      </div>
-      <div class="box">
-        <p>Total value of projects (Rs. In Lakhs)</p>
-      </div>
-      <div class="box">
-        <p>Total subsidy amount( Rs. in Lakhs)</p>
-      </div>
-      <div class="box left"><b>2019-20 </b></div>
-      <div class="box">37</div>
-      <div class="box">20</div>
-      <div class="box">135.77</div>
-      <div class="box">47.52</div>
-      <div class="box left"><b>2020-21</b></div>
-      <div class="box">86</div>
-      <div class="box">32</div>
-      <div class="box">275.92</div>
-      <div class="box">96.57</div>
-      <div class="box left"><b>2021-22</b></div>
-      <div class="box">83</div>
-      <div class="box">49</div>
-      <div class="box">381.97</div>
-      <div class="box">133.69</div>
-      <div class="box left"><b>2022-23</b></div>
-      <div class="box">319</div>
-      <div class="box">142</div>
-      <div class="box">992.71</div>
-      <div class="box">347.45</div>
-      <div class="box left btm"><b>2023-24</b></div>
-      <div class="box btm">856</div>
-      <div class="box btm">476</div>
-      <div class="box btm">4853.8</div>
-      <div class="box btm">1698.83</div>
-    </div>
-    <!-- RESPONSIVE MOBILE TABLE STARTS HERE -->
-    <div class="pmegp__attach__table__mobile">
-      <!-- table row starts -->
-      <div class="table__mobile">
-        <div class="box_m year bd__left ">
-          <p>Year</p>
-        </div>
-        <div class="box_m year bd__left "><b>2019-2020</b></div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Projects received</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">37</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Project sanctioned</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">20</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total value of projects <br> (Rs.in Lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">135.77</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total subsidy amount <br> (Rs.in lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">47.52</div>
-      </div>
-      <!-- table row ends -->
-      <!-- table row starts -->
-      <div class="table__mobile">
-        <div class="box_m year bd__left ">
-          <p>Year</p>
-        </div>
-        <div class="box_m year bd__left "><b>2020-2021</b></div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Projects received</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">86</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Project sanctioned</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">32</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total value of projects <br> (Rs.in Lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">275.92</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total subsidy amount <br> (Rs.in lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">96.57</div>
-      </div>
-      <!-- table row ends -->
-      <!-- table row starts -->
-      <div class="table__mobile">
-        <div class="box_m year bd__left ">
-          <p>Year</p>
-        </div>
-        <div class="box_m year bd__left "><b>2021-2022</b></div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Projects received</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">83</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Project sanctioned</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">49</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total value of projects <br> (Rs.in Lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">381.97</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total subsidy amount <br> (Rs.in lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">133.69</div>
-      </div>
-      <!-- table row ends -->
-      <!-- table row starts -->
-      <div class="table__mobile">
-        <div class="box_m year bd__left ">
-          <p>Year</p>
-        </div>
-        <div class="box_m year bd__left "><b>2022-2023</b></div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Projects received</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">319</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Project sanctioned</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">142</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total value of projects <br> (Rs.in Lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">992.71</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total subsidy amount <br> (Rs.in lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">347.45</div>
-      </div>
-      <!-- table row ends -->
-      <!-- table row starts -->
-      <div class="table__mobile">
-        <div class="box_m year bd__left ">
-          <p>Year</p>
-        </div>
-        <div class="box_m year bd__left "><b>2023-2024</b></div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Projects received</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">856</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Project sanctioned</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">476</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total value of projects <br> (Rs.in Lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">4853.8</div>
-        <div class="box_m bd__left bd__bottom">
-          <p>Total subsidy amount <br> (Rs.in lakhs)</p>
-        </div>
-        <div class="box_m bd__left bd__right bd__bottom">1698.83</div>
-      </div>
-      <!-- table row ends -->
+    </section>
+  }
 
+  <!-- Carousel Section -->
+  <section class="carousel-section">
+    <div class="container">
+      <h2 class="section-title">PMEGP in Action</h2>
+      <p class="section-subtitle">Empowering entrepreneurs across Sikkim</p>
+      <div class="carousel-wrapper">
+        @if (isLargeScreen | async) {
+          <!-- Desktop/Tablet carousel -->
+          <app-pmegp-cl-desk />
+        } @else {
+          <!-- Mobile carousel -->
+          <app-pmegp-cl-mob />
+        }
+      </div>
     </div>
-    <!-- RESPONSIVE MOBILE TABLE ENDS HERE -->
+  </section>
+
+  <!-- Performance Table Section -->
+  @if (performanceData$ | async; as performanceData) {
+    <section class="performance-section">
+      <div class="container">
+        <h2 class="section-title">PMEGP Performance by SKVIB</h2>
+        <p class="section-subtitle">A comprehensive overview of our achievements</p>
+        
+        <!-- Desktop Table -->
+        <div class="table-container desktop-table">
+          <table class="performance-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Projects Received</th>
+                <th>Projects Sanctioned</th>
+                <th>Total Value (₹ Lakhs)</th>
+                <th>Total Subsidy (₹ Lakhs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (data of performanceData; track trackByYear($index, data)) {
+                <tr>
+                  <td class="year-cell">{{ data.year }}</td>
+                  <td>{{ data.projectsReceived }}</td>
+                  <td>{{ data.projectsSanctioned }}</td>
+                  <td>{{ data.totalValue }}</td>
+                  <td>{{ data.totalSubsidy }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Mobile Cards -->
+        <div class="mobile-cards">
+          @for (data of performanceData; track trackByYear($index, data)) {
+            <div class="performance-card">
+              <div class="card-header">
+                <h3>{{ data.year }}</h3>
+              </div>
+              <div class="card-content">
+                <div class="metric">
+                  <span class="metric-label">Projects Received</span>
+                  <span class="metric-value">{{ data.projectsReceived }}</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Projects Sanctioned</span>
+                  <span class="metric-value">{{ data.projectsSanctioned }}</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Total Value</span>
+                  <span class="metric-value">₹{{ data.totalValue }} Lakhs</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Total Subsidy</span>
+                  <span class="metric-value">₹{{ data.totalSubsidy }} Lakhs</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Objectives Section -->
+  @if (objectives$ | async; as objectives) {
+    <section class="objectives-section">
+      <div class="container">
+        <h2 class="section-title">Objectives of the Scheme</h2>
+        <p class="section-subtitle">Our mission to empower entrepreneurs</p>
+        
+        <div class="objectives-grid">
+          @for (objective of objectives; track trackByObjectiveId($index, objective)) {
+            <div class="objective-card">
+              <div class="objective-number">{{ objective.id }}</div>
+              <h3 class="objective-title">{{ objective.title }}</h3>
+              <p class="objective-description">{{ objective.description }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
 
 
-    <div class="pmegp__contents">
-      <section class="pmegp_intro">
-        <h1>1. Introduction</h1>
-        <p>Government of India has introduced a credit linked subsidy programme called Prime Minister's Employment
-          Generation Programme (PMEGP). The essence of the programme is generation of employment opportunities through
-          support in establishment of micro enterprises, which will be tiny hubs of employment. These micro enterprises
-          can be in the form of small factories, production units, trade, shops and service sectors in rural as well as
-          urban areas. PMEGP is a central sector scheme and a flagship programme of the Government of India.
-          In Sikkim the scheme is being implemented through the Sikkim Khadi and Village Industries Boards (SKVIB),
-          Deorali, Khadi & Village Industries Commission (KVIC) State Office and the District Industries Centres (DIC)
-          under the Commerce & Industries Department Government subsidy under the scheme will be routed to the
-          identified Banks for eventual distributions the beneficiaries/entrepreneurs in their bank accounts.
-        </p>
-      </section>
-      <section class="pmegp_obj">
-        <h1>2. Objectives of the Scheme</h1>
-        <ol>
-          <li> To generate employment opportunities in rural as well as urban areas of the country through setting up of
-            new self-employment ventures/projects/micro enterprises. By providing support to one unemployed youth to
-            become an entrepreneur, he/she will turn into an employer, providing jobs to many.</li>
-          <li> To bring together widely dispersed rural and urban unemployed youth and give them self-employment
-            opportunities to the extent possible, at their place so as to help arrest migration of rural youth to urban
-            areas.</li>
-          <li> To increase the wage earning capacity of workers and contribute to increase in the growth rate of rural
-            and urban employment.</li>
-        </ol>
-      </section>
-      <section class="pmegp_nature">
-        <h1>3. Nature of Assitance</h1>
-        <p> Assistance in the form of subsidy on the total project cost is given at the following rates:</p>
-        <div class="pmegp_nature_table">
-          <p class="bd_right"><b>Categories of <br> beneficiaries under <br>PMEGP</b></p>
-          <p class="bd_right"><b>Beneficiary's <br> contribution</b></p>
-          <p class="bd_right"><b>Rate of Subsidy <br>(of project cost)</b></p>
-          <p></p>
-          <p class="bd_right bd_top">Area (location of project/ unit)</p>
-          <p class="bd_right bd_top"></p>
-          <p class="bd_right bd_top">URBAN</p>
-          <p class="bd_top">RURAL</p>
-          <p class="bd_right bd_top">All Categories including SC/ST, OBC, General, Women etc.</p>
-          <p class="bd_right bd_top">05%</p>
-          <p class="bd_right bd_top">25%</p>
-          <p class="bd_top">35%</p>
+  }
+
+  <!-- Content Sections -->
+  @if (sections$ | async; as sections) {
+    <section class="content-sections">
+      <div class="container">
+        @for (section of sections; track trackBySectionId($index, section)) {
+          <div class="content-section">
+            <h2 class="content-title">{{ section.title }}</h2>
+            
+            @for (contentItem of section.content; track $index) {
+              @if (contentItem.type === 'paragraph') {
+                <p class="content-text" [innerHTML]="contentItem.text"></p>
+              } @else if (contentItem.type === 'list') {
+                @if (contentItem.text) {
+                  <p class="content-intro">{{ contentItem.text }}</p>
+                }
+                <ul class="content-list">
+                  @for (item of contentItem.items; track item) {
+                    <li>{{ item }}</li>
+                  }
+                </ul>
+              } @else if (contentItem.type === 'ordered-list') {
+                @if (contentItem.text) {
+                  <p class="content-intro">{{ contentItem.text }}</p>
+                }
+                <ol class="content-ordered-list">
+                  @for (item of contentItem.items; track item) {
+                    <li>{{ item }}</li>
+                  }
+                </ol>
+              } @else if (contentItem.type === 'table' && contentItem.tableHeaders && contentItem.tableRows) {
+                <div class="content-table-wrapper">
+                  <table class="content-table">
+                    <thead>
+                      <tr>
+                        <th rowspan="2">{{ contentItem.tableHeaders[0] }}</th>
+                        <th rowspan="2">{{ contentItem.tableHeaders[1] }}</th>
+                        <th [attr.colspan]="2">{{ contentItem.tableHeaders[2] }}</th>
+                      </tr>
+                      <tr>
+                        <!-- Empty cells for URBAN and RURAL will be filled by subheader row -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (row of contentItem.tableRows; track row) {
+                        <tr [class.subheader-row]="row.isHeaderRow">
+                          <td [class.table-subheader]="row.isHeaderRow">{{ row.category }}</td>
+                          <td [class.table-subheader]="row.isHeaderRow">{{ row.beneficiaryContribution }}</td>
+                          <td [class.table-subheader]="row.isHeaderRow">{{ row.rateOfSubsidy?.urban }}</td>
+                          <td [class.table-subheader]="row.isHeaderRow">{{ row.rateOfSubsidy?.rural }}</td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              }
+            }
+          </div>
+        }
+      </div>
+    </section>
+  }
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Start Your Enterprise?</h2>
+        <p class="cta-description">Join the PMEGP program and turn your business ideas into reality with government support.</p>
+        <div class="cta-buttons">
+          <a [routerLink]="['/contact']" class="cta-button primary">
+            Apply Now
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <a [routerLink]="['/outlets']" class="cta-button secondary">
+            Visit Outlets
+            <span class="material-symbols-outlined">location_on</span>
+          </a>
         </div>
-      </section>
-      <section class="pmegp_cost">
-        <h1>4. Ceiling Limit of Project Cost</h1>
-        <ol>
-          <li>
-            The maximum cost of the project/unit admissible under manufacturing Sector is Rs. 50.00 lakhs.</li>
-          <li> The maximum cost of the project/unit admissible under Business/Service Sector is Rs. 20.00 lakhs.</li>
-          <li> The balance amount of the total project cost (excluding beneficiarie's own contribution) will be provided
-            by Banks as term loan.</li>
-          <li> Normal rate of interest will be charged on the loan component and the repayment period will range from 3
-            to 7 years.</li>
-          <li> If the total project cost exceeds Rs. 50 lakhs or Rs. 20 lakhs for Manufacturing and Service/Business
-            sector respectively, the balance amount may be provided by Banks without any Government subsidy.</li>
-        </ol>
-      </section>
-      <section class="pmegp_eligibility">
-        <h1>5. Eligibility conditions of Beneficiaries</h1>
-        <ol>
-          <li> Any individual, above 18 years of age</li>
-          <li> There will be no income ceiling for assistance for setting up projects under PMEGP.</li>
-          <li> For setting up of project costing above Rs.10 lakh in the manufacturing sector and above Rs. 5 lakh in
-            the business/service sector, the beneficiaries should possess at least VIII standard pass educational
-            qualification.</li>
-          <li> Assistance under the Scheme is available only for new projects sanctioned specifically under the PMEGP.
-          </li>
-          <li> Self Help Groups (including those belonging to BPL provided that they have not availed benefits under any
-            other Scheme) are also eligible for assistance under PMEGP.</li>
-          <li> Institutions registered under Societies Registration Act, 1860</li>
-          <li> Production Co-operative Societies</li>
-          <li> Charitable Trusts</li>
-        </ol>
-      </section>
-      <section class="pmegp_other">
-        <h1>6. Other eligibility conditions</h1>
-        <ol>
-          <li> Cost of the land should not be included in the Project cost. Cost of the ready built as well as long
-            lease or rental Work-shed/Workshop can be included in the project cost subject to restricting such cost of
-            ready built as well as long lease or rental workshed/ workshop to be included in the project cost calculated
-            for a maximum period of 3 years only.</li>
-          <li> PMEGP is applicable to all new viable micro enterprises, including Village Industries projects except
-            activities indicated in the negative list of Village Industries. Existing/old units are not eligible.</li>
-          <li> Only one person from one family is eligible for obtaining financial assistance for setting up of projects
-            under PMEGP. The "family" includes self and spouse</li>
-        </ol>
-      </section>
-      <section class="pmegp_docs">
-        <h1>7. List of Documents required to be submitted:</h1>
-        <ol>
-          <li> Detailed Project Report in duplicate</li>
-          <li> Copy of Aadhar Card</li>
-          <li> Copy of Certificate of Identification</li>
-          <li> Copy of SC/ST/OBC/Special Category certificate</li>
-          <li> Educational certificate and Training certificates (if any)</li>
-          <li> Copy of Trade License, if required</li>
-          <li> Population/Rural Area Certificate</li>
-          <li> N.O.C from landlord/house owner (if applicable)</li>
-          <li> 2 copies of Passport size photos</li>
-          <li> Pan card</li>
-        </ol>
-      </section>
-      <section class="pmegp_howto">
-        <h1>8. How to apply</h1>
-        <p> The applicants are to submit their application <b> online at <a
-              href="https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp" target="_blank"><span
-                class="link-d">https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp</span><span
-                class="link-m">Click here</span></a></b> and take the printout of the application and submit the same to
-          the Sikkim Khadi & Village Industries Board (SKVIB) Deorali along with Detailed Project Report and other
-          required documents as detailed above. Applicants who have difficulty in filling up the form online may visit
-          SKVIB office at Deorali for assistance. <br>
-          There will be two separate online application forms for individuals and institutional applicants available on
-          the portal.
-        </p>
-        <ul>
-          <li> Applicants will be provided with User ID and Password at the time of initial registration (application
-            filing) for their use in tracking the status of their application.</li>
-          <li> Applicant will be provided with application ID on final submission.</li>
-          <li>Applicant's Aadhaar number would be preferred and in case applications are
-            being filed by institutions, the authorized person should furnish his Aadhaar number. In case no Aadhaar
-            number is available, Pan Card of the individual/ Enterprise or operational Bank account number of the
-            institution may be furnished.</li>
-          <li> The one page online application form has the provision for saving data entered at any stage.</li>
-          <li> Guidelines for filling up of each and every column is provided alongside the application form.</li>
-          <li> A list of FAQs about the scheme as well online filing of application is also provided. A short video
-            showing the online filing of applications will also be provided.</li>
-          <li> There is a provision to upload the Photo and documents which are necessary for screening the application,
-            before submitting the application. These documents will include the following: a. SC/ST/OBC/Special Category
-            Certificate, wherever required. b. Rural Area certificate. c. Project Report. d. Education/ EDP/Skill
-            Development training certificate.</li>
-          <li> After filing the application and uploading the required documents on the portal, the applicant will click
-            SUBMIT button and the application will be finally submitted. The entire set of documents and application
-            form will be electronically forwarded to SKVIB.</li>
-        </ul>
-      </section>
-      <section class="pmegp__indentification">
-        <h1>9. Identification of Beneficiaries</h1>
-        <ul>
-          <li> SKVIB on receiving the application online and hard copy of the same alongwith with DPR (Detailed Project
-            Report) and other required documents as detailed above, will scrutinize the application and the documents.
-            Thereafter an interaction with the applicant, either in person or telephonically will be conducted to carry
-            out required corrections, if any, followed by an appraisal of the application. The application is then
-            forwarded on-line to the concerned bank for taking credit decisions.</li>
-        </ul>
-      </section>
-      <section class="entrepreneurship">
-        <h1>10. Entrepreneurship Development Programme (EDP)</h1>
-        <p> Applicants whose loan applications are sanctioned by the bank are required to undergo Entrepreneurship
-          Development Programme (EDP), which is a short training spanning 5 to 10 days. The objective of EDP is to
-          provide orientation and awareness pertaining to various managerial and operational functions like finance,
-          production, marketing, enterprise management, banking formalities, bookkeeping, etc. EDP will be mandatory for
-          all the PMEGP beneficiaries. However, the beneficiaries who have undergone EDP earlier of duration not less
-          than two weeks through KVIC/KVIB or reputed training centers will be exempted from undergoing fresh EDP. EDP
-          is conducted in both offline and online mode.</p>
-      </section>
-      <section class="pmegp_verification">
-        <h1>11. Physical verification of PMEPG Units</h1>
-        <p> 100% physical verification of the actual establishment and working status of each of the units, set up under
-          PMEGP, including those set up through KVIBs and DICs, will be done after 3 years of project implementation,
-          through the agencies of State Government and/or, if necessary by outsourcing the work to professional
-          institutes having expertise in this area. Each unit/enterprise should be found functional/open at the time of
-          inspection. Otherwise the subsidy amount will be recalled back from the bank.</p>
-      </section>
-      <section>
-        <h1>12. Negative of Activities</h1>
-        <p> The following list of activities will not be permitted under PMEGP for setting up of micro
-          enterprises/projects/units.</p>
-        <ol>
-          <li> Any industry/ business connected with Meat (slaughtered), i.e. processing, canning and/or serving items
-            made of it as food, production/manufacturing or sale of intoxicant items like Beedi/Pan/ Cigar/Cigarette
-            etc., any Hotel or Dhaba or sales outlet serving liquor, preparation/producing tobacco as raw materials.
-          </li>
-          <li> Any industry/business connected with cultivation of crops/plantation like Tea, Coffee, Rubber etc.
-            sericulture (Cocoon rearing), Horticulture, Floriculture. However value addition under these will be allowed
-            under PMEGP</li>
-          <li> Manufacturing of Polythene carry bags of less than 70 microns thickness and manufacture of carry bags or
-            containers made of recycled plastic for storing, carrying, dispensing or packaging of food stuff and any
-            other item which causes environmental problems.</li>
-        </ol>
-      </section>
+      </div>
     </div>
+  </section>
+}
+
+<!-- Loading State -->
+@if (loading()) {
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading PMEGP information...</p>
   </div>
-  <!-- contents ends -->
-</div>
-<!-- pageContainer ends -->
+}
+
+<!-- Error State -->
+@if (error()) {
+  <div class="error-container">
+    <div class="error-icon">⚠️</div>
+    <h2 class="error-title">Failed to Load</h2>
+    <p class="error-description">{{ error() }}</p>
+    <button class="error-button" (click)="loadPMEGPData()">
+      Try Again
+      <span class="material-symbols-outlined">refresh</span>
+    </button>
+  </div>
+}

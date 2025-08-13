@@ -179,6 +179,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.4s ease-in-out;
 }
 
 .progress-ring {
@@ -186,10 +187,12 @@
 }
 
 .progress-ring__circle {
-  transition: stroke-dashoffset 0.1s linear;
+  transition: stroke-dashoffset 0.1s linear, stroke 0.4s ease-in-out, opacity 0.4s ease-in-out;
   stroke-dasharray: 100.531; /* 2 * PI * 16 */
-  stroke: #f49936;
   stroke-width: 2;
+  /* Default state: barely visible grey */
+  stroke: var(--neutral-very-light-gray, #eaeae9);
+  opacity: 0.3; /* Made more transparent */
 }
 
 .countdown {
@@ -199,6 +202,21 @@
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   font-family: var(--font-body, 'Martel', serif);
+  /* Default state: hidden */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Hover state for the timer */
+.carousel-m:hover .progress-ring__circle {
+  /* Hover state: clearly visible purple */
+  stroke: var(--brand-purple, #8f176d);
+  opacity: 1;
+}
+
+.carousel-m:hover .countdown {
+  /* Hover state: visible */
+  opacity: 1;
 }
 
 /* Dot navigation */
