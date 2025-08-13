@@ -18,11 +18,11 @@ export class EventsService {
     },
     {
       id: 'upcoming',
-      title: 'Upcoming Events',
-      description: 'Join us for exciting upcoming workshops, exhibitions, and cultural celebrations.',
-      badge: 'Coming Soon',
+      title: 'National Flag Hosting',
+      description: 'Celebrating the Har Ghar Tiranga campaign with a patriotic flag hoisting ceremony at Khadi Bhawan, showcasing unity and national pride.',
+      badge: 'Patriotic Event',
       route: '/events/upcoming',
-      icon: 'clock'
+      icon: 'flag'
     },
     {
       id: 'exhibition',

@@ -23,9 +23,9 @@ export class EventImageService {
     },
     {
       id: 'upcoming-events', 
-      url: '../../../assets/events/pic2.jpg',
-      alt: 'Upcoming Events - Modern loom setup for textile production',
-      cloudinaryId: 'sikkim-khadi/events/upcoming-events-pic2'
+      url: '../../../assets/events/flag_hosting/thumbnail.jpg',
+      alt: 'National Flag Hosting - Har Ghar Tiranga ceremony at Khadi Bhawan',
+      cloudinaryId: 'sikkim-khadi/events/flag-hosting-thumbnail'
     },
     {
       id: 'tiranga-exhibition',

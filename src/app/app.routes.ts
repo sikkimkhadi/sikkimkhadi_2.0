@@ -61,7 +61,7 @@ export const routes: Routes = [
     },
     {
         path: 'events/upcoming',
-        loadComponent: () => import('./events/upcoming/upcoming.component').then(m => m.UpcomingComponent)
+        loadComponent: () => import('./events/upcoming/upcoming.component').then(m => m.FlagHostingComponent)
     },
     {
         path: 'events/annual',

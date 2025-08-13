@@ -2,31 +2,32 @@ import { Component, OnInit, HostListener, Inject, PLATFORM_ID, signal } from '@a
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { EventsService } from '../../core/services/events.service';
-import { Event } from '../../core/models/event.interface';
-import { EventCardComponent } from '../event-card/event-card.component';
+import { FlagHostingService, FlagHostingData, FlagHostingImage } from '../../core/services/flag-hosting.service';
+
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-upcoming',
+  selector: 'app-flag-hosting',
   standalone: true,
-  imports: [CommonModule, RouterModule, EventCardComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './upcoming.component.html',
-  styleUrl: './upcoming.component.css'
+  styleUrls: ['./upcoming.component.css']
 })
-export class UpcomingComponent implements OnInit {
-  events$!: Observable<Event[]>;
+export class FlagHostingComponent implements OnInit {
+  flagHostingData$!: Observable<FlagHostingData>;
+  flagHostingImages$!: Observable<FlagHostingImage[]>;
   showFloatingButton = signal(false);
   private inactivityTimer: any;
 
   constructor(
-    private eventsService: EventsService,
+    private flagHostingService: FlagHostingService,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
-    this.events$ = this.eventsService.getUpcomingEvents();
+    this.flagHostingData$ = this.flagHostingService.getFlagHostingData();
+    this.flagHostingImages$ = this.flagHostingService.getFlagHostingImages();
   }
 
   @HostListener('window:scroll', [])
@@ -44,5 +45,9 @@ export class UpcomingComponent implements OnInit {
 
   navigateBack(): void {
     this.router.navigate(['/events']);
+  }
+
+  trackByImageId(index: number, image: FlagHostingImage): string {
+    return image.id;
   }
 }

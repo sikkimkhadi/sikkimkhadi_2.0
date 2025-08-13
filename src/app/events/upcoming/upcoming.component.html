@@ -1,80 +1,161 @@
-<main class="events-container">
-  <!-- Floating Back Button -->
-  <div class="floating-back-button" [class.visible]="showFloatingButton()" (click)="navigateBack()">
-    <span class="back-icon">←</span>
-    <span class="button-text">Events</span>
-  </div>
-
-  <!-- Header Section -->
-  <section class="events-header">
-    <div class="header-content">
-      <h1 class="page-title">Upcoming Events</h1>
-      <p class="page-subtitle">Join us for exciting upcoming workshops, exhibitions, and cultural celebrations</p>
+<!-- National Flag Hosting Ceremony -->
+<div class="flag-hosting-container" *ngIf="flagHostingData$ | async as data; else loadingTemplate">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+      <div class="floating-icons">
+        <span class="floating-icon icon-1">🇮🇳</span>
+        <span class="floating-icon icon-2">🏛️</span>
+        <span class="floating-icon icon-3">✨</span>
+        <span class="floating-icon icon-4">🎌</span>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="breadcrumb">
+        <a routerLink="/events" class="breadcrumb-link">Events</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">National Flag Hosting</span>
+      </div>
+      
+      <h1 class="hero-title">{{ data.title }}</h1>
+      <p class="hero-subtitle">{{ data.subtitle }}</p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">{{ data.stats.date }}</span>
+          <span class="stat-label">Event Date</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ data.stats.participants }}+</span>
+          <span class="stat-label">Participants</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ data.stats.location }}</span>
+          <span class="stat-label">Venue</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Events Grid -->
-  <section class="events-grid-section">
-    <div class="events-grid">
-      @if (events$ | async; as events) {
-        @if (events.length > 0) {
-          @for (event of events; track event.id) {
-            <app-event-card [event]="event" class="event-card-item" />
-          }
-        } @else {
-          <!-- Creative Empty State -->
-          <div class="empty-state">
-            <div class="empty-animation">
-              <svg class="calendar-icon" viewBox="0 0 200 200" width="120" height="120">
-                <defs>
-                  <linearGradient id="calendarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="var(--brand-primary-orange)" />
-                    <stop offset="50%" stop-color="var(--brand-secondary-orange)" />
-                    <stop offset="100%" stop-color="var(--brand-primary-red)" />
-                  </linearGradient>
-                </defs>
-                <rect x="40" y="60" width="120" height="100" rx="8" fill="url(#calendarGradient)" class="calendar-body" />
-                <rect x="50" y="40" width="8" height="30" rx="4" fill="var(--brand-dark-blue)" class="calendar-ring" />
-                <rect x="142" y="40" width="8" height="30" rx="4" fill="var(--brand-dark-blue)" class="calendar-ring" />
-                <rect x="40" y="80" width="120" height="20" fill="var(--brand-primary-blue)" class="calendar-header" />
-                <circle cx="70" cy="120" r="6" fill="var(--neutral-white)" class="calendar-dot dot-1" />
-                <circle cx="100" cy="120" r="6" fill="var(--neutral-white)" class="calendar-dot dot-2" />
-                <circle cx="130" cy="120" r="6" fill="var(--neutral-white)" class="calendar-dot dot-3" />
-                <circle cx="70" cy="140" r="6" fill="var(--brand-green)" class="calendar-dot dot-4" />
-              </svg>
-              <div class="floating-elements">
-                <div class="floating-star star-1">✨</div>
-                <div class="floating-star star-2">🌟</div>
-                <div class="floating-star star-3">⭐</div>
+  <!-- Official Description Section -->
+  <section class="official-text-section">
+    <div class="section-container">
+      <div class="official-text-card">
+        <div class="card-header">
+          <h2 class="section-title">About the Ceremony</h2>
+          <div class="title-decoration"></div>
+        </div>
+        <div class="official-text-content">
+          <p class="official-description">{{ data.description }}</p>
+          
+          <div class="event-details-grid">
+            <div class="detail-card">
+              <div class="detail-icon">📅</div>
+              <div class="detail-content">
+                <h4 class="detail-title">Event Date</h4>
+                <p class="detail-text">{{ data.date }}</p>
               </div>
             </div>
-            <div class="empty-content">
-              <h3 class="empty-title">Nothing Here Yet!</h3>
-              <p class="empty-message">We're cooking up some amazing events for you. Please keep visiting to discover exciting workshops, exhibitions, and cultural celebrations!</p>
-              <div class="empty-cta">
-                <button class="refresh-button" (click)="ngOnInit()">
-                  <span class="refresh-icon">🔄</span>
-                  <span>Check Again</span>
-                </button>
+            <div class="detail-card">
+              <div class="detail-icon">📍</div>
+              <div class="detail-content">
+                <h4 class="detail-title">Location</h4>
+                <p class="detail-text">{{ data.location }}</p>
+              </div>
+            </div>
+            <div class="detail-card">
+              <div class="detail-icon">🏛️</div>
+              <div class="detail-content">
+                <h4 class="detail-title">Organized by</h4>
+                <p class="detail-text">{{ data.organizedBy }}</p>
               </div>
             </div>
           </div>
-        }
-      } @else {
-        <!-- Loading State -->
-        <div class="loading-grid">
-          @for (item of [1,2,3]; track item) {
-            <div class="event-card-skeleton">
-              <div class="skeleton-image"></div>
-              <div class="skeleton-content">
-                <div class="skeleton-title"></div>
-                <div class="skeleton-text"></div>
-                <div class="skeleton-text short"></div>
-              </div>
-            </div>
-          }
         </div>
-      }
+      </div>
     </div>
   </section>
-</main>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" *ngIf="flagHostingImages$ | async as images">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Event Gallery</h2>
+        <div class="title-decoration"></div>
+        <p class="section-subtitle">Moments of pride, unity, and patriotism from the ceremony</p>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item" *ngFor="let image of images; trackBy: trackByImageId">
+          <div class="image-container">
+            <img 
+              [src]="image.url" 
+              [alt]="image.title"
+              class="gallery-image"
+              loading="lazy"
+            >
+            <div class="image-overlay">
+              <div class="image-badge">{{ image.category }}</div>
+              <div class="image-content">
+                <h3 class="image-title">{{ image.title }}</h3>
+                <p class="image-caption">{{ image.caption }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-content">
+        <h2 class="cta-title">Celebrating Our National Pride</h2>
+        <p class="cta-description">
+          Join us in future patriotic celebrations and witness the spirit of unity that binds our nation together.
+        </p>
+        <div class="cta-buttons">
+          <a routerLink="/events" class="cta-button primary">
+            <span class="button-text">View All Events</span>
+            <span class="button-icon">→</span>
+          </a>
+          <a routerLink="/about" class="cta-button secondary">
+            <span class="button-text">About SKVIB</span>
+            <span class="button-icon">🏛️</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Loading Template -->
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <div class="loading-skeleton">
+      <div class="skeleton-hero"></div>
+      <div class="skeleton-content">
+        <div class="skeleton-title"></div>
+        <div class="skeleton-text"></div>
+        <div class="skeleton-text"></div>
+      </div>
+      <div class="skeleton-gallery">
+        <div class="skeleton-image" *ngFor="let item of [1,2,3,4,5,6]"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Floating Back Button -->
+<button 
+  class="floating-back-button"
+  [class.visible]="showFloatingButton()"
+  (click)="navigateBack()"
+  aria-label="Go back to events page"
+>
+  <span class="back-icon">←</span>
+  <span class="back-text">Back to Events</span>
+</button>
