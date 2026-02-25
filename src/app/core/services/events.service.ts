@@ -6,7 +6,7 @@ import { Event, EventCategory } from '../models/event.interface';
   providedIn: 'root'
 })
 export class EventsService {
-  
+
   private readonly eventCategories: EventCategory[] = [
     {
       id: 'latest',
@@ -17,6 +17,14 @@ export class EventsService {
       icon: 'calendar'
     },
     {
+      id: 'pmegp-workshop',
+      title: 'State Level PMEGP Workshop',
+      description: 'Discover insights from the KVIC state-level workshop on generating self-employment through the PMEGP scheme in Gangtok.',
+      badge: 'Workshop',
+      route: '/events/latest/17-02-2026',
+      icon: 'event'
+    },
+    {
       id: 'upcoming',
       title: 'National Flag Hosting',
       description: 'Celebrating the Har Ghar Tiranga campaign with a patriotic flag hoisting ceremony at Khadi Bhawan, showcasing unity and national pride.',
@@ -24,17 +32,22 @@ export class EventsService {
       route: '/events/upcoming',
       icon: 'flag'
     },
-    {
-      id: 'exhibition',
-      title: 'Tiranga Weaves & Threads',
-      description: 'Experience the Har Ghar Tiranga campaign exhibition showcasing traditional tri-colour weaving.',
-      badge: 'Exhibition',
-      route: '/events/exhibition',
-      icon: 'star'
-    }
   ];
 
   private readonly latestEvents: Event[] = [
+    {
+      id: '17-02-2026',
+      title: 'One Day State Level Workshop on PMEGP',
+      date: '17th February 2026',
+      description: 'A comprehensive state-level workshop organized by KVIC in Gangtok to guide prospective entrepreneurs through the Prime Minister\'s Employment Generation Programme (PMEGP).',
+      imageUrl: 'assets/events/PMEGP_Workshop/thumbnail.jpg',
+      category: 'latest',
+      fullDescription: 'On 17th February 2026, the State Office of the Khadi and Village Industries Commission (KVIC), under the Ministry of Micro, Small and Medium Enterprises, Government of India, organized a comprehensive One Day State Level Workshop on the Prime Minister\'s Employment Generation Programme (PMEGP). The event was hosted at the Paryatan Bhawan, Tourism Department in Tadong, Gangtok. The workshop was designed to raise awareness and provide actionable guidance on the PMEGP scheme, bringing together officials and prospective entrepreneurs to discuss strategies for generating employment opportunities.',
+      location: 'Paryatan Bhawan, Tourism Department, Tadong, Gangtok',
+      time: '10:00 A.M. Onwards',
+      organizer: 'State Office, Khadi and Village Industries Commission (Ministry of MSME, Govt. of India)',
+      tags: ['PMEGP', 'workshop', 'entrepreneurship', 'KVIC', 'employment']
+    },
     {
       id: '27-09-2024',
       title: 'Empowering Farmers through Bee-Keeping and Entrepreneurship',
@@ -162,7 +175,7 @@ export class EventsService {
    */
   searchEvents(query: string): Observable<Event[]> {
     const allEvents = [...this.latestEvents, ...this.upcomingEvents, ...this.annualEvents];
-    const filteredEvents = allEvents.filter(event => 
+    const filteredEvents = allEvents.filter(event =>
       event.title.toLowerCase().includes(query.toLowerCase()) ||
       event.description.toLowerCase().includes(query.toLowerCase()) ||
       event.tags?.some(tag => tag.toLowerCase().includes(query.toLowerCase()))

@@ -1,0 +1,24 @@
+1. Event date: 17-02-2026
+2. Event title: One Day State Level Workshop on PMEGP
+3. Date display string: 17th February, 2026
+4. Location, Time, Organizer:
+
+Location: Paryatan Bhawan, Tourism Department, Tadong, Gangtok
+
+Time: 10:00 A.M. Onwards
+
+Organizer: State Office, Khadi and Village Industries Commission (Ministry of MSME, Govt. of India)
+
+5. Body text:
+On 17th February 2026, the State Office of the Khadi and Village Industries Commission (KVIC), under the Ministry of Micro, Small and Medium Enterprises, Government of India, organized a comprehensive One Day State Level Workshop on the Prime Minister's Employment Generation Programme (PMEGP). The event was hosted at the Paryatan Bhawan, Tourism Department in Tadong, Gangtok.
+
+The workshop was designed to raise awareness and provide actionable guidance on the PMEGP scheme. It brought together officials and prospective entrepreneurs to discuss strategies for generating employment opportunities in both rural and urban areas through the establishment of new self-employment ventures and micro-enterprises.
+
+6. Short description: A comprehensive state-level workshop organized by KVIC in Gangtok to guide prospective entrepreneurs through the Prime Minister's Employment Generation Programme (PMEGP).
+7. Short title & description:
+
+Short Title: State Level PMEGP Workshop
+
+Short Description: Discover insights from the KVIC state-level workshop on generating self-employment through the PMEGP scheme in Gangtok.
+
+8. Badge text: Workshop

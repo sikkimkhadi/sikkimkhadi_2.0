@@ -22,16 +22,16 @@ export class EventImageService {
       cloudinaryId: 'sikkim-khadi/events/latest-events-pic4'
     },
     {
-      id: 'upcoming-events', 
+      id: 'pmegp-workshop',
+      url: '../../../assets/events/PMEGP_Workshop/home_card.jpg',
+      alt: 'State Level PMEGP Workshop - KVIC workshop at Paryatan Bhawan, Gangtok',
+      cloudinaryId: 'sikkim-khadi/events/pmegp-workshop-home-card'
+    },
+    {
+      id: 'upcoming-events',
       url: '../../../assets/events/flag_hosting/thumbnail.jpg',
       alt: 'National Flag Hosting - Har Ghar Tiranga ceremony at Khadi Bhawan',
       cloudinaryId: 'sikkim-khadi/events/flag-hosting-thumbnail'
-    },
-    {
-      id: 'tiranga-exhibition',
-      url: '../../../assets/exhibition/tiranga_weaves.jpg', 
-      alt: 'Tiranga Weaves & Threads Exhibition - A Celebration of Unity in Colours',
-      cloudinaryId: 'sikkim-khadi/exhibition/tiranga-weaves-banner'
     }
   ];
 

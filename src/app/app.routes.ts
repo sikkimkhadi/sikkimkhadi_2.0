@@ -20,7 +20,7 @@ export const routes: Routes = [
     {
         path: 'pmegp',
         loadComponent: () => import('./pages/pmegp/pmegp.component').then(m => m.PmegpComponent)
-    },  
+    },
     {
         path: 'beekeeping',
         loadComponent: () => import('./pages/beekeeping/beekeeping.component').then(m => m.BeekeepingComponent)
@@ -41,6 +41,10 @@ export const routes: Routes = [
         path: 'events/latest',
         loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent),
         children: [
+            {
+                path: '17-02-2026',
+                loadComponent: () => import('./events/latest/event-17022026/event-17022026.component').then(m => m.Event17022026Component)
+            },
             {
                 path: '12-09-2024',
                 loadComponent: () => import('./events/latest/event-12092024/event-12092024.component').then(m => m.Event12092024Component)
@@ -122,19 +126,19 @@ export const routes: Routes = [
     {
         path: 'products/saree',
         loadComponent: () => import('./pages/products/saree/saree.component').then(m => m.SareeComponent)
-    },  
+    },
     {
         path: 'products/turmeric',
         loadComponent: () => import('./pages/products/turmeric/turmeric.component').then(m => m.TurmericComponent)
-    },  
+    },
     {
         path: 'products/temitea',
         loadComponent: () => import('./pages/products/temitea/temitea.component').then(m => m.TemiteaComponent)
-    },   
+    },
     {
         path: 'products/shawl',
         loadComponent: () => import('./pages/products/shawl/shawl.component').then(m => m.ShawlComponent)
-    },   
+    },
     {
         path: 'products/toileteries',
         loadComponent: () => import('./pages/products/toileteries/toileteries.component').then(m => m.ToileteriesComponent)
@@ -145,7 +149,7 @@ export const routes: Routes = [
     },
     {
         path: 'products/duree',
-        loadComponent: () => import('./pages/products/duree/duree.component').then(m => m.DureeComponent)   
+        loadComponent: () => import('./pages/products/duree/duree.component').then(m => m.DureeComponent)
     },
     {
         path: 'products/incense',
