@@ -1,0 +1,497 @@
+[
+  {
+    "sl": 1,
+    "name": "Shri Gyurmie Yousal",
+    "designation": "Pr. Chief Executive Officer",
+    "duties": "Head of the department",
+    "power": "Administrative and Financial approval. Excercises the power of Appellate Authority under RTI Act, 2005.",
+    "basicPay": "₹1,57,100",
+    "contactNo": "9434080499"
+  },
+  {
+    "sl": 2,
+    "name": "Smt. Meena Thapa",
+    "designation": "Dy. Executive Officer",
+    "duties": "Accounts related work, Deals with work related to PMEGP, Any other work assigned by higher authority.",
+    "power": "Report matters to Pr. CEO",
+    "basicPay": "₹92,500",
+    "contactNo": "9800366557"
+  },
+  {
+    "sl": 3,
+    "name": "Shri Chewang Topden Bhutia",
+    "designation": "Asstt. Executive Officer",
+    "duties": "Administrative Matters, Sales, Purchase & Production related work of Khadi Goods",
+    "power": "Report matters to Pr. CEO",
+    "basicPay": "₹68,100",
+    "contactNo": "8918128518"
+  },
+  {
+    "sl": 4,
+    "name": "Shri Chewang Namgyal Bhutia",
+    "designation": "Office Superintendent",
+    "duties": "Administrative related work",
+    "power": "Office administrative works",
+    "basicPay": "₹51,000",
+    "contactNo": "9932826056"
+  },
+  {
+    "sl": 5,
+    "name": "Shri Pema Tshering Lepcha",
+    "designation": "Head Assistant",
+    "duties": "Administrative related work",
+    "power": "Looks after personal files, ensures proper list/details of employees & supervises the adm. section.",
+    "basicPay": "₹50,900",
+    "contactNo": "7432042882"
+  },
+  {
+    "sl": 6,
+    "name": "Smt. Pinkey Pradhan",
+    "designation": "Computer Operator",
+    "duties": "Account related work",
+    "power": "Typing of accounts related letters, maintaining GPF pass book, preparation of salary monthly bill.",
+    "basicPay": "₹53,000",
+    "contactNo": "9832347892"
+  },
+  {
+    "sl": 7,
+    "name": "Smt. Kala Darjee",
+    "designation": "Jr. Instructor",
+    "duties": "Incharge of Gom Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹53,000",
+    "contactNo": "9002474466"
+  },
+  {
+    "sl": 8,
+    "name": "Shri Krishna Kumar Rai",
+    "designation": "Jr. Instructor",
+    "duties": "Incharge of centre store, readymade unit and Dodak Khadi Centre",
+    "power": "Looks after internal sales, outside purchase of Khadi goods, production of pillows and quilts.",
+    "basicPay": "₹43,400",
+    "contactNo": "9475506151"
+  },
+  {
+    "sl": 9,
+    "name": "Smt. Santu Maya Gurung",
+    "designation": "Production Assistant",
+    "duties": "Incharge of Mendogaon Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹40,600",
+    "contactNo": "8001866586"
+  },
+  {
+    "sl": 10,
+    "name": "Smt. Karma Doma Bhutia",
+    "designation": "Jr. Bhandar Incharge",
+    "duties": "Incharge of Supermarket Outlet",
+    "power": "Looks after sales of Khadi goods",
+    "basicPay": "₹51,500",
+    "contactNo": "7076586360"
+  },
+  {
+    "sl": 11,
+    "name": "Smt. Kabita Rai",
+    "designation": "Jr. Instructor",
+    "duties": "Incharge of Namchi Outlet",
+    "power": "Looks after sales of Khadi goods",
+    "basicPay": "₹43,100",
+    "contactNo": "9749048701"
+  },
+  {
+    "sl": 12,
+    "name": "Smt. Jhumki Lhamu Bhutia",
+    "designation": "Jr. Instructor",
+    "duties": "Incharge of Jorethang Outlet",
+    "power": "Looks after sales of Khadi goods",
+    "basicPay": "₹43,100",
+    "contactNo": "9832954533"
+  },
+  {
+    "sl": 13,
+    "name": "Smt. Jyoti Sharma",
+    "designation": "Sales Assistant / Cashier",
+    "duties": "Presently assigned as Cashier",
+    "power": "Maintains cash book, cash voucher; preparation of cheques on monthly basis; maintains bank statement.",
+    "basicPay": "₹36,200",
+    "contactNo": "9002723086"
+  },
+  {
+    "sl": 14,
+    "name": "Smt. Kala Devi Subba",
+    "designation": "Jr. Instructor",
+    "duties": "Work at Namchi Outlet",
+    "power": "Looks after sales of Khadi goods",
+    "basicPay": "₹43,100",
+    "contactNo": "8293355826"
+  },
+  {
+    "sl": 15,
+    "name": "Shri Jeewan Rai",
+    "designation": "Jr. Instructor",
+    "duties": "Account related work",
+    "power": "Processes electricity bills, house rent, wages; maintains GPF and CPF files.",
+    "basicPay": "₹43,100",
+    "contactNo": "9434357084"
+  },
+  {
+    "sl": 16,
+    "name": "Shri Gyalpo Tsh. Bhutia",
+    "designation": "Printing Master / Caretaker",
+    "duties": "Presently assigned as caretaker",
+    "power": "Looks after Khadi surroundings",
+    "basicPay": "₹36,500",
+    "contactNo": "7407387919"
+  },
+  {
+    "sl": 17,
+    "name": "Smt. Durga Sharma",
+    "designation": "Instructor",
+    "duties": "Works in NOC Section",
+    "power": "Checks due loan, issues NOC for public.",
+    "basicPay": "₹50,000",
+    "contactNo": "9474527569"
+  },
+  {
+    "sl": 18,
+    "name": "Shri Surendra Pal",
+    "designation": "Instructor",
+    "duties": "Presently assigned with accounts related works",
+    "power": "Processes accounts files, GST monthly filing, books of A/C to CA for balance sheet, salary entries.",
+    "basicPay": "₹48,500",
+    "contactNo": "9593889106"
+  },
+  {
+    "sl": 19,
+    "name": "Shri Rinchen Wangdi Bhutia",
+    "designation": "Driver",
+    "duties": "Driving of Official Vehicle",
+    "power": "Attached to Pr. Chief Executive Officer",
+    "basicPay": "₹53,000",
+    "contactNo": "9476109079"
+  },
+  {
+    "sl": 20,
+    "name": "Smt. Punya Mata Sharma",
+    "designation": "Office Attendant",
+    "duties": "Assist officers and staffs",
+    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "basicPay": "₹36,200",
+    "contactNo": "9434934059"
+  },
+  {
+    "sl": 21,
+    "name": "Shri Damber Bdr. Basnett",
+    "designation": "Chowkidar",
+    "duties": "Chowkidar of Tarku Khadi Centre",
+    "power": "Reports to AEO",
+    "basicPay": "₹40,600",
+    "contactNo": "7718121449"
+  },
+  {
+    "sl": 22,
+    "name": "Shri Krishna Kumar Gautam",
+    "designation": "Chowkidar",
+    "duties": "Presently Incharge of Raley Khesey Khadi Centre",
+    "power": "Imparts Bee-Keeping Training",
+    "basicPay": "₹22,800",
+    "contactNo": "7679970205"
+  },
+  {
+    "sl": 23,
+    "name": "Smt. Chaphigu Bhutia",
+    "designation": "Sales Assistant",
+    "duties": "Incharge of Gyalshing Khadi Bhandar",
+    "power": "Looks after sales of Khadi goods",
+    "basicPay": "₹22,800",
+    "contactNo": "8597361940"
+  },
+  {
+    "sl": 24,
+    "name": "Shri Rajiv Gurung",
+    "designation": "Office Attendant",
+    "duties": "Assist officers and staffs",
+    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "basicPay": "₹22,100",
+    "contactNo": "9339026020"
+  },
+  {
+    "sl": 25,
+    "name": "Smt. Puja Bhandari",
+    "designation": "Office Attendant",
+    "duties": "Presently looking after official website and Sales Records",
+    "power": "Incharge of website; evaluates monthly sales and maintains records; any other work assigned by higher authority.",
+    "basicPay": "₹19,700",
+    "contactNo": "8768500048"
+  },
+  {
+    "sl": 26,
+    "name": "Smt. Sumitra Rangang",
+    "designation": "Production Assistant",
+    "duties": "Works as Artisan in Dodak Khadi Centre",
+    "power": "Production of Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "9733400172"
+  },
+  {
+    "sl": 27,
+    "name": "Miss Anuka Rai",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "9609874931"
+  },
+  {
+    "sl": 28,
+    "name": "Smt. Khush Kumari Subba",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "8617444813"
+  },
+  {
+    "sl": 29,
+    "name": "Smt. Purna Maya Rai",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "8001768684"
+  },
+  {
+    "sl": 30,
+    "name": "Miss Sabina Rai",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "9832521543"
+  },
+  {
+    "sl": 31,
+    "name": "Smt. Songmith Lepcha",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "8918468340"
+  },
+  {
+    "sl": 32,
+    "name": "Smt. Anuka Rai",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹16,200",
+    "contactNo": "9749179827"
+  },
+  {
+    "sl": 33,
+    "name": "Miss Manjari Sharma",
+    "designation": "Sales Assistant",
+    "duties": "Attached to Advisor Office",
+    "power": "Reports to Advisor, Pr. CEO",
+    "basicPay": "₹16,200",
+    "contactNo": "7811923819"
+  },
+  {
+    "sl": 34,
+    "name": "Miss Khidem Tsh. Bhutia",
+    "designation": "Production Assistant",
+    "duties": "Incharge of Turuk Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹16,200",
+    "contactNo": "9733321124"
+  },
+  {
+    "sl": 35,
+    "name": "Smt. Mina Kumari Gurung",
+    "designation": "Production Assistant",
+    "duties": "Incharge of Samdong Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹16,200",
+    "contactNo": "7550903812"
+  },
+  {
+    "sl": 36,
+    "name": "Shri Karma Samten Bhutia",
+    "designation": "Office Assistant",
+    "duties": "All PMEGP Scheme related work",
+    "power": "Fills application forms, checks documents, imparts PMEGP training; assists DEO, Pr. CEO.",
+    "basicPay": "₹19,300",
+    "contactNo": "9609585504"
+  },
+  {
+    "sl": 37,
+    "name": "Smt. Sanjita Rai",
+    "designation": "Office Assistant",
+    "duties": "Assist Incharge of Gom Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹19,300",
+    "contactNo": "7584046294"
+  },
+  {
+    "sl": 38,
+    "name": "Shri Phurba Tsh. Bhutia",
+    "designation": "Driver",
+    "duties": "Driving of Official Vehicle",
+    "power": "Attached to Khadi Vehicle (Utility Pick-up)",
+    "basicPay": "₹16,200",
+    "contactNo": "9382208075"
+  },
+  {
+    "sl": 39,
+    "name": "Shri Pema Norbu Gurung",
+    "designation": "Chowkidar",
+    "duties": "Assist Incharge of Mendogaon Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹15,200",
+    "contactNo": "7019204959"
+  },
+  {
+    "sl": 40,
+    "name": "Ms. Damber Kumari Sharma",
+    "designation": "L.D.C",
+    "duties": "Administrative matters",
+    "power": "Issue and dispatch works, typing work assigned by higher authority.",
+    "basicPay": "₹22,400",
+    "contactNo": "7602703213"
+  },
+  {
+    "sl": 41,
+    "name": "Smt. Chandra Kala Chettri",
+    "designation": "Office Attendant",
+    "duties": "Attached to Advisor Office",
+    "power": "Reports to Advisor, Pr. CEO",
+    "basicPay": "₹32,100",
+    "contactNo": "9564878437"
+  },
+  {
+    "sl": 42,
+    "name": "Smt. Sethi Bhutia",
+    "designation": "Office Attendant",
+    "duties": "Work as Help Desk Staff",
+    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "basicPay": "₹15,200",
+    "contactNo": "9733227076"
+  },
+  {
+    "sl": 43,
+    "name": "Shri Prabash Chettri",
+    "designation": "Driver",
+    "duties": "Driving of Official Vehicle",
+    "power": "Attached to Chairperson",
+    "basicPay": "₹16,200",
+    "contactNo": "9734236317"
+  },
+  {
+    "sl": 44,
+    "name": "Smt. Pemkit Lepcha",
+    "designation": "Safai Karamchari",
+    "duties": "Sanitation work",
+    "power": "Maintains the Hygiene of Board",
+    "basicPay": "₹9,300 (M.R.)",
+    "contactNo": "9800037757"
+  },
+  {
+    "sl": 45,
+    "name": "Smt. Renuka Gurung",
+    "designation": "Artisan",
+    "duties": "Assist Incharge of Mendogaon Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹15,200",
+    "contactNo": "6295245452"
+  },
+  {
+    "sl": 46,
+    "name": "Miss Khidem Bhutia",
+    "designation": "Artisan",
+    "duties": "Incharge of Tarku Khadi Centre",
+    "power": "Looks after production of Khadi goods",
+    "basicPay": "₹9,300 (M.R.)",
+    "contactNo": "9883441993"
+  },
+  {
+    "sl": 47,
+    "name": "Smt. Tshering Yangjum Bhutia",
+    "designation": "Sales Assistant",
+    "duties": "Sales Khadi Products",
+    "power": "Prepares monthly reports, Sales Khadi Goods",
+    "basicPay": "₹9,300 (M.R.)",
+    "contactNo": "8371079209"
+  },
+  {
+    "sl": 48,
+    "name": "Smt. Gyatri Chettri",
+    "designation": "Office Attendant",
+    "duties": "Assist officers and staffs",
+    "power": "Performs Dak duties; assists Pr. CEO, DEO, AEO, OS.",
+    "basicPay": "₹9,300 (M.R.)",
+    "contactNo": "8145038616"
+  },
+  {
+    "sl": 49,
+    "name": "Smt. Dizey Lepcha",
+    "designation": "Office Attendant",
+    "duties": "Attached to Chairperson; Assists Officers and Staffs",
+    "power": "Reports to Chairperson, Pr. CEO, DEO, AEO, OS",
+    "basicPay": "₹9,300 (M.R.)",
+    "contactNo": "9083403381"
+  },
+  {
+    "sl": 50,
+    "name": "Shri Dilli Gurung",
+    "designation": "Driver",
+    "duties": "Driving of Official Vehicle",
+    "power": "Attached to AEO",
+    "basicPay": "₹10,385 (M.R.)",
+    "contactNo": "9339056733"
+  },
+  {
+    "sl": 51,
+    "name": "Shri Nindup Sherpa",
+    "designation": "Driver",
+    "duties": "Driving of Official Vehicle",
+    "power": "Attached to DEO",
+    "basicPay": "₹10,385 (M.R.)",
+    "contactNo": "8116030257"
+  },
+  {
+    "sl": 52,
+    "name": "Shri Tshering Dorjee Lama",
+    "designation": "Office Assistant",
+    "duties": "Administrative matters; attached to Chairperson",
+    "power": "Maintenance of office stock register, typing work, typing of supply orders.",
+    "basicPay": "₹10,385 (M.R.)",
+    "contactNo": "9064471007"
+  },
+  {
+    "sl": 53,
+    "name": "Shri Tashi Lepcha",
+    "designation": "Driver",
+    "duties": "Driving of Official Vehicle",
+    "power": "Attached to Advisor",
+    "basicPay": "₹10,385 (M.R.)",
+    "contactNo": "7479392171"
+  },
+  {
+    "sl": 54,
+    "name": "Shri Rahuel Subba",
+    "designation": "Home Guard",
+    "duties": "Opening and closing of Head Office; looks after cleanliness of Bhawan and surroundings.",
+    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "basicPay": "₹9,300 (M.R.)",
+    "contactNo": "7679392171"
+  },
+  {
+    "sl": 55,
+    "name": "Shri Anand Pandey",
+    "designation": "Inspector",
+    "duties": "Work as instructed by higher officers",
+    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "basicPay": "₹7,500",
+    "contactNo": "8348541121"
+  }
+]

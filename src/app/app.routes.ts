@@ -84,9 +84,14 @@ export const routes: Routes = [
     //     loadComponent: () => import('./events/annual/annual.component').then(m => m.AnnualComponent)
     // },
     {
+        path: 'developer',
+        loadComponent: () => import('./tejinfomedia/tejinfomedia.component').then(m => m.TejInfomediaComponent)
+    },
+    {
         path: 'rti',
         loadComponent: () => import('./pages/rti-act/rti-act.component').then(m => m.RTIActComponent)
     },
+
     {
         path: 'turuk',
         loadComponent: () => import('./pages/production/turuk/turuk.component').then(m => m.TurukComponent)

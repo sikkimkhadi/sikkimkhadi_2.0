@@ -1,37 +1,263 @@
-<div class="pageContainer">
-    <div class="acontents">
-      <div class="pmegp__header">
-      </div>
-      <div class="pmegp__header_text">
-        <p>Sikkim Khadi &#38; Village Industries Board</p>
-        <p>Khadi Bhavan,</p>
-        <p>Deorali - 737102, Gangtok, Sikkim</p>
-        <p>Phone: 03592-281810, 281221, Fax: 03592-281221, E-mail: sikkimkhadi&#64;gmail.com</p>
-      </div>
-      <section class="RTI_section_para">
-        <p>Regarding all matters under RTI Act 2005 section 4(1) pertaining to Sikkim Khadi &#38; Village Industries Board (SKVIB) the following officers have been designated as follows:-</p>
-        <div class="dignitaries">
-          <p> 01. Shri Gyurmie Yousal </p>
-          <p> Pr. Chief Executive Officer </p>
-          <p> Sikkim Khadi &#38; V. I. Board </p>
-          <p>1ST Appellate Authority</p>
-          <p>Mobile No. 9434080499</p>
-        </div>
-        <div class="dignitaries">
-          <p> 02. Smt. Meena Thapa</p>
-          <p>Dy. Executive Officer</p>
-          <p>Sikkim Khadi and V. I. Board</p>
-          <p>State Public Information Officer</p>
-          <p>Mobile No. 9800366557</p>
-        </div>
-        <div class="dignitaries">
-          <p> 03. Smt. Babita Baraily</p>
-          <p>Asstt. Executive Officer</p>
-          <p>Sikkim Khadi and V. I. Board</p>
-          <p>Asstt. State Public Information Officer</p>
-          <p>Mobile No. 9434339096</p>
-        </div>
-      </section>
+<div class="rti-page">
 
+  <!-- PAGE HEADER -->
+  <header class="rti-header">
+    <div class="rti-header__inner">
+      <div class="rti-header__org">
+        <h1 class="rti-header__title">Sikkim Khadi &amp; Village Industries Board</h1>
+        <p class="rti-header__subtitle">Khadi Bhavan, Deorali – 737102, Gangtok, Sikkim</p>
+        <p class="rti-header__contact">
+          Ph: 03592-281810 / 281221 &nbsp;|&nbsp; Fax: 03592-281221 &nbsp;|&nbsp;
+          <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi&#64;gmail.com</a>
+        </p>
+      </div>
+      <div class="rti-header__badge">
+        <span class="badge-text">RTI</span>
+        <span class="badge-sub">Act 2005</span>
+      </div>
     </div>
-   
+
+    <div class="rti-header__banner">
+      <h2>Proactive Disclosure under Section 4(1)(b)</h2>
+      <p>Right to Information Act, 2005 — 17 Mandatory Manuals</p>
+    </div>
+
+    <div class="rti-header__actions">
+      <a class="btn btn--download" href="assets/pdf/rti-proactive-disclosure.pdf" target="_blank" download>
+        <span class="btn-icon">⬇</span> Download Full RTI Document (PDF)
+      </a>
+    </div>
+  </header>
+
+  <!-- SEARCH & CONTROLS -->
+  <div class="rti-controls">
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search manuals, employees, designations, duties…"
+        [ngModel]="searchQuery()"
+        (ngModelChange)="onSearch($event)"
+        aria-label="Search RTI content"
+      />
+      @if (searchQuery()) {
+        <button class="search-clear" (click)="onSearch('')" aria-label="Clear search">✕</button>
+      }
+    </div>
+    <div class="accordion-controls">
+      <button class="btn btn--outline" (click)="expandAll()">Expand All</button>
+      <button class="btn btn--outline" (click)="collapseAll()">Collapse All</button>
+    </div>
+  </div>
+
+  <!-- SEARCH RESULT COUNT -->
+  @if (searchQuery()) {
+    <div class="search-info">
+      Showing <strong>{{ filteredManuals().length }}</strong> manual(s) and
+      <strong>{{ filteredEmployees().length }}</strong> employee(s) matching
+      "<em>{{ searchQuery() }}</em>"
+    </div>
+  }
+
+  <!-- ACCORDION — 17 MANUALS -->
+  <main class="rti-accordion">
+
+    @for (manual of filteredManuals(); track manual.id) {
+      <section class="accordion-item" [class.accordion-item--active]="isActive(manual.id)">
+
+        <!-- ACCORDION HEADER -->
+        <button
+          class="accordion-header"
+          (click)="toggleManual(manual.id)"
+          [attr.aria-expanded]="isActive(manual.id)"
+          [attr.aria-controls]="'manual-body-' + manual.id">
+          <span class="accordion-num">{{ manual.id | number:'2.0' }}</span>
+          <div class="accordion-title-group">
+            <span class="accordion-short-title">{{ manual.shortTitle }}</span>
+            <span class="accordion-full-title">{{ manual.title }}</span>
+          </div>
+          <span class="accordion-chevron" [class.rotated]="isActive(manual.id)">▼</span>
+        </button>
+
+        <!-- ACCORDION BODY -->
+        @if (isActive(manual.id)) {
+          <div class="accordion-body" [id]="'manual-body-' + manual.id" role="region">
+
+            <!-- STATIC CONTENT -->
+            @if (manual.type === 'static') {
+              <div class="rti-prose" [innerHTML]="manual.content"></div>
+            }
+
+            <!-- MANUAL 2: POWERS & DUTIES TABLE -->
+            @if (manual.type === 'employee-duties') {
+              <p class="table-intro">{{ manual.content }}</p>
+              @if (filteredEmployees().length > 0) {
+                <div class="table-responsive">
+                  <table class="rti-table">
+                    <thead>
+                      <tr>
+                        <th>Sl.</th>
+                        <th>Name of Employee</th>
+                        <th>Designation</th>
+                        <th>Duties Allotted</th>
+                        <th>Power</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (emp of filteredEmployees(); track emp.sl) {
+                        <tr>
+                          <td class="text-center">{{ emp.sl }}</td>
+                          <td class="emp-name">{{ emp.name }}</td>
+                          <td>{{ emp.designation }}</td>
+                          <td>{{ emp.duties }}</td>
+                          <td>{{ emp.power }}</td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              } @else {
+                <p class="no-results">No employees match your search query.</p>
+              }
+            }
+
+            <!-- MANUAL 9: CONTACT DIRECTORY TABLE -->
+            @if (manual.type === 'employee-contact') {
+              <p class="table-intro">{{ manual.content }}</p>
+              @if (filteredEmployees().length > 0) {
+                <div class="table-responsive">
+                  <table class="rti-table">
+                    <thead>
+                      <tr>
+                        <th>Sl.</th>
+                        <th>Name of Employee</th>
+                        <th>Designation</th>
+                        <th>Contact No.</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (emp of filteredEmployees(); track emp.sl) {
+                        <tr>
+                          <td class="text-center">{{ emp.sl }}</td>
+                          <td class="emp-name">{{ emp.name }}</td>
+                          <td>{{ emp.designation }}</td>
+                          <td>
+                            <a class="contact-link" [href]="'tel:+91' + emp.contactNo">
+                              {{ emp.contactNo }}
+                            </a>
+                          </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              } @else {
+                <p class="no-results">No employees match your search query.</p>
+              }
+            }
+
+            <!-- MANUAL 10: MONTHLY REMUNERATION TABLE -->
+            @if (manual.type === 'employee-pay') {
+              <p class="table-intro">{{ manual.content }}</p>
+              @if (filteredEmployees().length > 0) {
+                <div class="table-responsive">
+                  <table class="rti-table">
+                    <thead>
+                      <tr>
+                        <th>Sl.</th>
+                        <th>Name of Employee</th>
+                        <th>Designation</th>
+                        <th>Basic Pay (₹)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (emp of filteredEmployees(); track emp.sl) {
+                        <tr>
+                          <td class="text-center">{{ emp.sl }}</td>
+                          <td class="emp-name">{{ emp.name }}</td>
+                          <td>{{ emp.designation }}</td>
+                          <td class="pay-cell">{{ emp.basicPay }}</td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+                <p class="table-note">
+                  <strong>Note:</strong> Figures marked "(M.R.)" denote Monthly Remuneration for contract/casual staff.
+                  Total remuneration includes applicable allowances as per Government of Sikkim rules.
+                </p>
+              } @else {
+                <p class="no-results">No employees match your search query.</p>
+              }
+            }
+
+            <!-- MANUAL 16: PIOs -->
+            @if (manual.type === 'pio') {
+              <p class="table-intro">The following officers have been designated under the RTI Act, 2005 for Sikkim Khadi &amp; Village Industries Board:</p>
+              <div class="pio-cards">
+
+                <div class="pio-card pio-card--appellate">
+                  <div class="pio-card__badge">1st Appellate Authority</div>
+                  <div class="pio-card__content">
+                    <h3 class="pio-card__name">Shri Gyurmie Yousal</h3>
+                    <p class="pio-card__desig">Principal Chief Executive Officer</p>
+                    <p class="pio-card__org">Sikkim Khadi &amp; Village Industries Board</p>
+                    <a class="pio-card__phone" href="tel:+919434080499">📞 9434080499</a>
+                  </div>
+                </div>
+
+                <div class="pio-card pio-card--spio">
+                  <div class="pio-card__badge">State Public Information Officer (SPIO)</div>
+                  <div class="pio-card__content">
+                    <h3 class="pio-card__name">Smt. Meena Thapa</h3>
+                    <p class="pio-card__desig">Deputy Executive Officer</p>
+                    <p class="pio-card__org">Sikkim Khadi &amp; Village Industries Board</p>
+                    <a class="pio-card__phone" href="tel:+919800366557">📞 9800366557</a>
+                  </div>
+                </div>
+
+                <div class="pio-card pio-card--aspio">
+                  <div class="pio-card__badge">Asst. State Public Information Officer (ASPIO)</div>
+                  <div class="pio-card__content">
+                    <h3 class="pio-card__name">Shri Chewang Topden Bhutia</h3>
+                    <p class="pio-card__desig">Assistant Executive Officer</p>
+                    <p class="pio-card__org">Sikkim Khadi &amp; Village Industries Board</p>
+                    <a class="pio-card__phone" href="tel:+918918128518">📞 8918128518</a>
+                  </div>
+                </div>
+
+              </div>
+              <p class="pio-note">
+                All RTI applications are received at the Head Office — Khadi Bhavan, Deorali – 737102, Gangtok, Sikkim.
+                Applications may also be submitted via email to
+                <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi&#64;gmail.com</a>.
+              </p>
+            }
+
+          </div>
+        }
+      </section>
+    }
+
+    <!-- NO RESULTS FOR MANUAL SEARCH -->
+    @if (searchQuery() && filteredManuals().length === 0) {
+      <div class="no-results-block">
+        <p>No manuals or employees match "<strong>{{ searchQuery() }}</strong>".</p>
+        <button class="btn btn--outline" (click)="onSearch('')">Clear Search</button>
+      </div>
+    }
+
+  </main>
+
+  <!-- FOOTER NOTE -->
+  <footer class="rti-footer">
+    <p>
+      This Proactive Disclosure has been prepared under Section 4(1)(b) of the Right to Information Act, 2005.
+      Last updated: March 2025 &nbsp;|&nbsp;
+      For RTI queries, contact the SPIO at
+      <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi&#64;gmail.com</a>
+    </p>
+  </footer>
+
+</div>
