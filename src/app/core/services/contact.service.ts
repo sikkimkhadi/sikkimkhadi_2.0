@@ -31,9 +31,9 @@ export class ContactService {
     },
     {
       id: 3,
-      name: 'Shri Gyurmie Yousal',
-      designation: 'Pr. Chief Executive Officer',
-      contact: '9434080499',
+      name: 'Shri Dorjee Sherpa',
+      designation: 'Chief Executive Officer',
+      contact: '9647857686',
     },
     {
       id: 4,

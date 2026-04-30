@@ -1,19 +1,19 @@
 [
   {
     "sl": 1,
-    "name": "Shri Gyurmie Yousal",
-    "designation": "Pr. Chief Executive Officer",
+    "name": "Shri Dorjee Sherpa",
+    "designation": "Chief Executive Officer",
     "duties": "Head of the department",
     "power": "Administrative and Financial approval. Excercises the power of Appellate Authority under RTI Act, 2005.",
     "basicPay": "₹1,57,100",
-    "contactNo": "9434080499"
+    "contactNo": "9647857686"
   },
   {
     "sl": 2,
     "name": "Smt. Meena Thapa",
     "designation": "Dy. Executive Officer",
     "duties": "Accounts related work, Deals with work related to PMEGP, Any other work assigned by higher authority.",
-    "power": "Report matters to Pr. CEO",
+    "power": "Report matters to CEO",
     "basicPay": "₹92,500",
     "contactNo": "9800366557"
   },
@@ -22,7 +22,7 @@
     "name": "Shri Chewang Topden Bhutia",
     "designation": "Asstt. Executive Officer",
     "duties": "Administrative Matters, Sales, Purchase & Production related work of Khadi Goods",
-    "power": "Report matters to Pr. CEO",
+    "power": "Report matters to CEO",
     "basicPay": "₹68,100",
     "contactNo": "8918128518"
   },
@@ -166,7 +166,7 @@
     "name": "Shri Rinchen Wangdi Bhutia",
     "designation": "Driver",
     "duties": "Driving of Official Vehicle",
-    "power": "Attached to Pr. Chief Executive Officer",
+    "power": "Attached to Chief Executive Officer",
     "basicPay": "₹53,000",
     "contactNo": "9476109079"
   },
@@ -175,7 +175,7 @@
     "name": "Smt. Punya Mata Sharma",
     "designation": "Office Attendant",
     "duties": "Assist officers and staffs",
-    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "power": "Reports to CEO, DEO, AEO, OS",
     "basicPay": "₹36,200",
     "contactNo": "9434934059"
   },
@@ -211,7 +211,7 @@
     "name": "Shri Rajiv Gurung",
     "designation": "Office Attendant",
     "duties": "Assist officers and staffs",
-    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "power": "Reports to CEO, DEO, AEO, OS",
     "basicPay": "₹22,100",
     "contactNo": "9339026020"
   },
@@ -292,7 +292,7 @@
     "name": "Miss Manjari Sharma",
     "designation": "Sales Assistant",
     "duties": "Attached to Advisor Office",
-    "power": "Reports to Advisor, Pr. CEO",
+    "power": "Reports to Advisor, CEO",
     "basicPay": "₹16,200",
     "contactNo": "7811923819"
   },
@@ -319,7 +319,7 @@
     "name": "Shri Karma Samten Bhutia",
     "designation": "Office Assistant",
     "duties": "All PMEGP Scheme related work",
-    "power": "Fills application forms, checks documents, imparts PMEGP training; assists DEO, Pr. CEO.",
+    "power": "Fills application forms, checks documents, imparts PMEGP training; assists DEO, CEO.",
     "basicPay": "₹19,300",
     "contactNo": "9609585504"
   },
@@ -364,7 +364,7 @@
     "name": "Smt. Chandra Kala Chettri",
     "designation": "Office Attendant",
     "duties": "Attached to Advisor Office",
-    "power": "Reports to Advisor, Pr. CEO",
+    "power": "Reports to Advisor, CEO",
     "basicPay": "₹32,100",
     "contactNo": "9564878437"
   },
@@ -373,7 +373,7 @@
     "name": "Smt. Sethi Bhutia",
     "designation": "Office Attendant",
     "duties": "Work as Help Desk Staff",
-    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "power": "Reports to CEO, DEO, AEO, OS",
     "basicPay": "₹15,200",
     "contactNo": "9733227076"
   },
@@ -427,7 +427,7 @@
     "name": "Smt. Gyatri Chettri",
     "designation": "Office Attendant",
     "duties": "Assist officers and staffs",
-    "power": "Performs Dak duties; assists Pr. CEO, DEO, AEO, OS.",
+    "power": "Performs Dak duties; assists CEO, DEO, AEO, OS.",
     "basicPay": "₹9,300 (M.R.)",
     "contactNo": "8145038616"
   },
@@ -436,7 +436,7 @@
     "name": "Smt. Dizey Lepcha",
     "designation": "Office Attendant",
     "duties": "Attached to Chairperson; Assists Officers and Staffs",
-    "power": "Reports to Chairperson, Pr. CEO, DEO, AEO, OS",
+    "power": "Reports to Chairperson, CEO, DEO, AEO, OS",
     "basicPay": "₹9,300 (M.R.)",
     "contactNo": "9083403381"
   },
@@ -481,7 +481,7 @@
     "name": "Shri Rahuel Subba",
     "designation": "Home Guard",
     "duties": "Opening and closing of Head Office; looks after cleanliness of Bhawan and surroundings.",
-    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "power": "Reports to CEO, DEO, AEO, OS",
     "basicPay": "₹9,300 (M.R.)",
     "contactNo": "7679392171"
   },
@@ -490,7 +490,7 @@
     "name": "Shri Anand Pandey",
     "designation": "Inspector",
     "duties": "Work as instructed by higher officers",
-    "power": "Reports to Pr. CEO, DEO, AEO, OS",
+    "power": "Reports to CEO, DEO, AEO, OS",
     "basicPay": "₹7,500",
     "contactNo": "8348541121"
   }

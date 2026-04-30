@@ -15,7 +15,7 @@
 .rti-header {
   background: linear-gradient(135deg, #000080 0%, #192347 50%, #2a2564 100%);
   color: #fff;
-  padding: 3rem 2rem 2rem;
+  padding: 2.5rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -32,9 +32,11 @@
   max-width: 100rem;
   margin: 0 auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: left;
 }
 
 .rti-header__title {
@@ -94,33 +96,26 @@
 }
 
 .rti-header__banner {
-  max-width: 100rem;
-  margin: 2rem auto 0;
-  padding: 1.5rem 2rem;
+  flex: 1;
+  padding: 1.4rem 1.8rem;
   background: rgba(255, 255, 255, 0.07);
   border-left: 4px solid #FFD700;
   border-radius: 0 6px 6px 0;
 }
 
-.rti-header__banner h2 {
+.rti-header__banner h1 {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.3rem;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .rti-header__banner p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #c5b8a0;
-}
-
-.rti-header__actions {
-  max-width: 100rem;
-  margin: 2rem auto 0;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 /* ----------- BUTTONS ----------- */
@@ -743,26 +738,27 @@
 
 @media (max-width: 768px) {
   .rti-header {
-    padding: 2rem 1.5rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .rti-header__inner {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
   }
 
   .rti-header__badge {
     width: 6rem;
     height: 6rem;
-    align-self: flex-end;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
   }
 
-  .rti-header__title {
-    padding-right: 7rem;
+  .rti-header__banner {
+    border-left: none;
+    border-top: 4px solid #FFD700;
+    border-radius: 0 0 6px 6px;
+    text-align: center;
+    padding: 1.2rem;
   }
 
   .badge-text { font-size: 1.8rem; }

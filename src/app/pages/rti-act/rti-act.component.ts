@@ -68,7 +68,7 @@ export class RTIActComponent implements OnInit {
           <span class="chain-arrow">→</span>
           <span class="chain-node">DEO (Dy. Executive Officer)</span>
           <span class="chain-arrow">→</span>
-          <span class="chain-node highlight">Pr. CEO (Principal Chief Executive Officer)</span>
+          <span class="chain-node highlight">CEO (Chief Executive Officer)</span>
         </div>
 
         <h4>Contact Details</h4>
@@ -91,11 +91,11 @@ export class RTIActComponent implements OnInit {
       title: 'Manual 3 — Procedure Followed in Decision-Making Process',
       type: 'static',
       content: `
-        <p>All administrative decisions at SKVIB follow a structured approval chain from the initiating staff member up through the Principal CEO. The decision-making process is transparent and documented at each stage:</p>
+        <p>All administrative decisions at SKVIB follow a structured approval chain from the initiating staff member up through the Chief Executive Officer. The decision-making process is transparent and documented at each stage:</p>
         <ul>
           <li>Proposals are initiated at the staff/officer level and put up in file form.</li>
-          <li>Files move through the hierarchy: Office Assistant → OS → AEO → DEO → Pr. CEO.</li>
-          <li>Financial decisions require the approval of the Principal CEO.</li>
+          <li>Files move through the hierarchy: Office Assistant → OS → AEO → DEO → CEO.</li>
+          <li>Financial decisions require the approval of the Chief Executive Officer.</li>
           <li>Decisions are communicated via official orders/letters.</li>
           <li>All decisions are recorded and maintained in official registers at the Head Office.</li>
         </ul>
@@ -291,7 +291,7 @@ export class RTIActComponent implements OnInit {
           <li>Grievances may be submitted in writing to the SPIO at the Head Office, Deorali, Gangtok.</li>
           <li>Email grievances may be sent to <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi@gmail.com</a>.</li>
           <li>All grievances are acknowledged within 2 working days and resolved within 30 days.</li>
-          <li>Appeals against SPIO decisions lie with the Appellate Authority (Pr. CEO) within 90 days of the original order.</li>
+          <li>Appeals against SPIO decisions lie with the Appellate Authority (CEO) within 90 days of the original order.</li>
           <li>Second appeals lie before the State Information Commission, Sikkim.</li>
         </ul>
         <h4>RTI Application Procedure</h4>
