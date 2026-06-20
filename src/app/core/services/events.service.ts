@@ -36,6 +36,19 @@ export class EventsService {
 
   private readonly latestEvents: Event[] = [
     {
+      id: '29-05-2026',
+      title: 'Honourable Union Minister of Culture & Tourism Visited Dodak Khadi Woollen Centre',
+      date: '29th May 2026',
+      description: 'Shri Gajendra Singh Shekhawat, Honourable Union Minister of Culture & Tourism, Government of India, visited the Dodak Khadi Woollen Centre in Soreng District.',
+      imageUrl: 'assets/events/dodak_visit_29_05/thumbnail.jpg',
+      category: 'latest',
+      fullDescription: 'On 29th May 2026, Shri Gajendra Singh Shekhawat Ji, Honourable Union Minister of Culture & Tourism, Government of India, visited the Dodak Khadi Woollen Centre in Soreng District. The Sikkim Khadi & Village Industries Board (SKVIB) delegation, led by Chief Executive Officer Shri Dorjee Sherpa, along with Assistant Executive Officer Shri Chewang Topden Bhutia and Office Superintendent Shri Chewang Namgyal Bhutia, welcomed the Honourable Minister and represented the Board during the visit. The visit was attended by several distinguished guests, including local MLAs, government officials, chairpersons, and local panchayats.',
+      location: 'Dodak Khadi Woollen Centre, Soreng District',
+      time: 'Day Time',
+      organizer: 'Sikkim Khadi & Village Industries Board (SKVIB)',
+      tags: ['Visit', 'Union Minister', 'Dodak Centre', 'SKVIB', 'Soreng District']
+    },
+    {
       id: '17-02-2026',
       title: 'One Day State Level Workshop on PMEGP',
       date: '17th February 2026',
@@ -114,7 +127,38 @@ export class EventsService {
    * Get all event categories for navigation
    */
   getEventCategories(): Observable<EventCategory[]> {
-    return of(this.eventCategories);
+    const sortedLatest = [...this.latestEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    const latest = sortedLatest[0];
+    const secondLatest = sortedLatest[1];
+
+    const categories: EventCategory[] = [
+      {
+        id: 'latest',
+        title: 'Our Latest Events',
+        description: 'Discover the newest happenings in Sikkim\'s traditional craft community and recent achievements.',
+        badge: 'Latest',
+        route: '/events/latest',
+        icon: 'calendar'
+      },
+      {
+        id: latest.id,
+        title: latest.title,
+        description: latest.description,
+        badge: latest.tags && latest.tags.length > 0 ? latest.tags[0].toUpperCase() : 'LATEST EVENT',
+        route: `/events/latest/${latest.id}`,
+        icon: 'event'
+      },
+      {
+        id: secondLatest.id,
+        title: secondLatest.title,
+        description: secondLatest.description,
+        badge: secondLatest.tags && secondLatest.tags.length > 0 ? secondLatest.tags[0].toUpperCase() : 'EVENT',
+        route: `/events/latest/${secondLatest.id}`,
+        icon: 'event'
+      }
+    ];
+
+    return of(categories);
   }
 
   /**

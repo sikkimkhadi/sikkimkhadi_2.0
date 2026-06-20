@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
+import { EventsService } from './events.service';
 
 export interface EventImage {
   id: string;
@@ -13,6 +14,7 @@ export interface EventImage {
   providedIn: 'root'
 })
 export class EventImageService {
+  private eventsService = inject(EventsService);
   // Simulate current local images as if they were from Cloudinary
   private mockCloudinaryImages: EventImage[] = [
     {
@@ -42,9 +44,33 @@ export class EventImageService {
    * In production, this would make actual HTTP requests to Cloudinary API
    */
   getEventImages(): Observable<EventImage[]> {
-    // Simulate network delay
-    return of(this.mockCloudinaryImages).pipe(
-      delay(300) // 300ms delay to simulate API call
+    return this.eventsService.getLatestEvents().pipe(
+      delay(300),
+      map(events => {
+        const latest = events[0];
+        const secondLatest = events[1] || events[0];
+
+        return [
+          {
+            id: 'latest-events',
+            url: '../../../assets/events/pic4.jpg',
+            alt: 'Our Latest Events - Traditional Khadi weaving demonstration',
+            cloudinaryId: 'sikkim-khadi/events/latest-events-pic4'
+          },
+          {
+            id: latest.id,
+            url: latest.imageUrl.startsWith('assets') ? '../../../' + latest.imageUrl : latest.imageUrl,
+            alt: latest.title,
+            cloudinaryId: 'sikkim-khadi/events/' + latest.id
+          },
+          {
+            id: secondLatest.id,
+            url: secondLatest.imageUrl.startsWith('assets') ? '../../../' + secondLatest.imageUrl : secondLatest.imageUrl,
+            alt: secondLatest.title,
+            cloudinaryId: 'sikkim-khadi/events/' + secondLatest.id
+          }
+        ];
+      })
     );
   }
 
