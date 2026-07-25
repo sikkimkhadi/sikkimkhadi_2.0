@@ -1,5 +1,6 @@
 import { Component, PLATFORM_ID, inject, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { CloudinaryService, CarouselSlide } from '../../../core/services/cloudinary.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -14,7 +15,7 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-mob-cl',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './mob-cl.component.html',
   styleUrl: './mob-cl.component.css'
 })

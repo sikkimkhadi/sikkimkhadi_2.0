@@ -20,6 +20,17 @@ export class GalleryService {
   // Mock gallery data simulating Cloudinary images
   private mockGalleryItems: GalleryItem[] = [
     {
+      id: 'national-flag',
+      title: 'Indian National Flag',
+      category: 'products',
+      imageUrl: '../../../assets/mainGallery/national_flag_thumb.jpg',
+      route: ['/national-flag'],
+      size: 'large',
+      alt: 'Authentic Khadi Indian National Flag',
+      cloudinaryId: 'sikkim-khadi/products/national-flag-thumb',
+      description: 'Authentic Khadi National Flags available in official sizes and weaves'
+    },
+    {
       id: 'silk-saris',
       title: 'Handwoven Silk Saris',
       category: 'products',

@@ -1,0 +1,155 @@
+<div class="national-flag-page">
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-image-wrapper">
+        <img [src]="heroImage" alt="Authentic Khadi Indian National Flag" class="hero-img" loading="eager" />
+        <span class="badge-tag">BIS Specifications</span>
+      </div>
+      <div class="hero-content">
+        <span class="sub-heading">Sikkim Khadi & Village Industries Board</span>
+        <h1 class="page-title">Authentic Khadi Indian National Flags</h1>
+        <p class="intro-text">
+          Fly the tricolor with pride. Sikkim Khadi offers authentic, hand-spun cotton National Flags, meticulously crafted to honor our nation. Whether you need a small flag for your vehicle or a large hoist for institutional display, our flags are available in both thin and thick premium Khadi cotton to suit your requirements.
+        </p>
+        <div class="hero-actions">
+          <a href="#order-section" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Place an Order
+          </a>
+          <a href="#pricing-section" class="btn-secondary">View Sizes & Rates &darr;</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Flag Gallery & Quality Showcase</h2>
+        <p class="section-lead">Explore our range of hand-crafted tricolor flags available in various sizes and premium weaves.</p>
+      </div>
+      <div class="gallery-grid">
+        @for (img of galleryImages; track $index) {
+          <div class="gallery-card">
+            <div class="img-frame">
+              <img [src]="img.url" [alt]="img.caption" loading="lazy" />
+            </div>
+            <div class="caption-overlay">
+              <p class="img-caption">{{ img.caption }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Table Section -->
+  <section id="pricing-section" class="pricing-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Official Sizes & Rates</h2>
+        <p class="section-lead">Standard dimensions, fabric specifications, and approved pricing for Khadi National Flags.</p>
+      </div>
+      
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="rates-table" aria-label="Khadi Indian National Flags Sizes and Rates">
+            <thead>
+              <tr>
+                <th scope="col">Flag Size</th>
+                <th scope="col">Material / Fabric Type</th>
+                <th scope="col" class="text-right">Price (INR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of pricingData; track $index) {
+                <tr [class.highlight]="item.popular">
+                  <td class="size-cell font-weight-bold">
+                    <span class="flag-mini-icon">🇮🇳</span>
+                    {{ item.size }}
+                    @if (item.popular) {
+                      <span class="popular-badge">Popular</span>
+                    }
+                  </td>
+                  <td>
+                    <span class="material-badge" [class.thick]="item.material.includes('Thick')">
+                      {{ item.material }}
+                    </span>
+                  </td>
+                  <td class="price-cell text-right">{{ item.price }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order & Action Section -->
+  <section id="order-section" class="order-section">
+    <div class="container">
+      <div class="order-card">
+        <div class="order-instructions-box">
+          <div class="instructions-header">
+            <span class="icon-phone">📱</span>
+            <div>
+              <h2>How to Order</h2>
+              <p class="sub-text">Direct orders via phone call with authorized officials</p>
+            </div>
+          </div>
+          <div class="instructions-body">
+            <p class="order-prompt">When calling, please specify:</p>
+            <ol class="specs-list">
+              <li>
+                <span class="step-num">1</span>
+                <div>
+                  <strong>The size</strong> of the flag required.
+                </div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Your preferred material</strong> (Thin Cotton or Thick Cotton).
+                </div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div>
+                  <strong>The quantity</strong> required.
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="contacts-grid-wrapper">
+          <h3 class="contacts-title">Authorized Ordering Officials</h3>
+          <p class="contacts-sub">Tap any button below to call our officials directly and place your order.</p>
+          <div class="officials-grid">
+            @for (official of officials; track official.phone) {
+              <div class="official-card">
+                <div class="official-details">
+                  <span class="official-name">{{ official.name }}</span>
+                  @if (official.designation) {
+                    <span class="official-desig">{{ official.designation }}</span>
+                  }
+                </div>
+                <a [href]="official.telLink" class="call-cta-btn" [attr.aria-label]="'Call ' + official.name + ' at ' + official.phone">
+                  <svg class="phone-svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                  <span>{{ official.phone }}</span>
+                </a>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

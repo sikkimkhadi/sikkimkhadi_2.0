@@ -17,6 +17,11 @@
         <div class="slide-info">
           <h1>{{ slide.title }}</h1>
           <p>{{ slide.description }}</p>
+          @if (slide.ctaText && slide.ctaLink) {
+            <a [routerLink]="slide.ctaLink" class="carousel-cta-btn">
+              {{ slide.ctaText }} &rarr;
+            </a>
+          }
         </div>
       </div>
     }

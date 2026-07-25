@@ -1,5 +1,6 @@
 import { Component, PLATFORM_ID, inject, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { isPlatformBrowser, CommonModule, TitleCasePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { CloudinaryService, CarouselSlide } from '../../../core/services/cloudinary.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -15,7 +16,7 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-desk-cl',
   standalone: true,
-  imports: [CommonModule, TitleCasePipe],
+  imports: [CommonModule, TitleCasePipe, RouterLink],
   templateUrl: './desk-cl.component.html',
   styleUrl: './desk-cl.component.css'
 })

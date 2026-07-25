@@ -201,6 +201,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/about-website/about-website.component').then(m => m.AboutWebsiteComponent)
     },
     {
+        path: 'national-flag',
+        loadComponent: () => import('./pages/national-flag/national-flag.component').then(m => m.NationalFlagComponent)
+    },
+    {
         path: '**',
         loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
     }
