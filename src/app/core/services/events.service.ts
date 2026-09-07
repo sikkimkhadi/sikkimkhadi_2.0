@@ -36,6 +36,19 @@ export class EventsService {
 
   private readonly latestEvents: Event[] = [
     {
+      id: '01-08-2026',
+      title: 'Farewell Programme for Ex-Principal Chief Executive Officer and Smt. Kabita Rai',
+      date: '1st August 2026',
+      description: 'A farewell programme was organized in honour of our Ex-Principal Chief Executive Officer and Smt. Kabita Rai, Ex-Jr. Instructor at Bustee Resort, Ranka, felicitating them with traditional khadas, mementos, and gifts.',
+      imageUrl: 'assets/events/farewell_01-08-2026/thumbnail.jpg',
+      category: 'latest',
+      fullDescription: 'A farewell programme was organized in honour of our Ex-Principal Chief Executive Officer and Smt. Kabita Rai, Ex-Jr. Instructor. The event was held on 1st August 2026 at Bustee Resort, Ranka. During the ceremony, the retiring staff were felicitated with traditional khadas, mementos, and gifts in appreciation of their dedicated service and contributions to the Board.',
+      location: 'Bustee Resort, Ranka',
+      time: 'Day Time',
+      organizer: 'Sikkim Khadi and Village Industries Board (SKVIB)',
+      tags: ['Farewell', 'Retirement', 'Appreciation', 'SKVIB', 'Ranka']
+    },
+    {
       id: '29-05-2026',
       title: 'Honourable Union Minister of Culture & Tourism Visited Dodak Khadi Woollen Centre',
       date: '29th May 2026',
@@ -124,10 +137,19 @@ export class EventsService {
   ];
 
   /**
+   * Helper to parse dates with ordinal suffixes (e.g. 1st, 2nd, 29th)
+   */
+  private parseEventDate(dateStr: string): number {
+    const cleanDate = dateStr.replace(/(\d+)(st|nd|rd|th)/i, '$1');
+    const parsed = new Date(cleanDate).getTime();
+    return isNaN(parsed) ? 0 : parsed;
+  }
+
+  /**
    * Get all event categories for navigation
    */
   getEventCategories(): Observable<EventCategory[]> {
-    const sortedLatest = [...this.latestEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    const sortedLatest = [...this.latestEvents].sort((a, b) => this.parseEventDate(b.date) - this.parseEventDate(a.date));
     const latest = sortedLatest[0];
     const secondLatest = sortedLatest[1];
 
@@ -167,11 +189,11 @@ export class EventsService {
   getEventsByCategory(category: 'latest' | 'upcoming' | 'annual'): Observable<Event[]> {
     switch (category) {
       case 'latest':
-        return of(this.latestEvents.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()));
+        return of([...this.latestEvents].sort((a, b) => this.parseEventDate(b.date) - this.parseEventDate(a.date)));
       case 'upcoming':
-        return of(this.upcomingEvents.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()));
+        return of([...this.upcomingEvents].sort((a, b) => this.parseEventDate(a.date) - this.parseEventDate(b.date)));
       case 'annual':
-        return of(this.annualEvents.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()));
+        return of([...this.annualEvents].sort((a, b) => this.parseEventDate(b.date) - this.parseEventDate(a.date)));
       default:
         return of([]);
     }
