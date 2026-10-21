@@ -38,7 +38,7 @@ export class ContactService {
     {
       id: 4,
       name: 'Smt. Meena Thapa',
-      designation: 'Deputy Executive Officer',
+      designation: 'Joint Director / Executive Officer',
       contact: '9800366557',
     },
     {
@@ -49,16 +49,23 @@ export class ContactService {
     },
     {
       id: 7,
-      name: 'Shri Karma Samten Bhutia',
-      designation: 'Officer',
-      contact: '9609585504',
+      name: 'PMEGP Queries',
+      designation: 'Namchi, Soreng & Gyalshing Districts',
+      contact: '9593889106',
+      specialization: 'PMEGP Related Queries',
+    },
+    {
+      id: 10,
+      name: 'PMEGP Queries',
+      designation: 'Gangtok, Mangan & Pakyong Districts',
+      contact: '8391941008',
       specialization: 'PMEGP Related Queries',
     },
     {
       id: 8,
       name: 'Shri Gyalpo Tshering Bhutia',
       designation: 'Officer',
-      contact: '7407387919',
+      contact: '7679970205',
       specialization: 'Bee-Keeping Related Queries',
     },
     {
