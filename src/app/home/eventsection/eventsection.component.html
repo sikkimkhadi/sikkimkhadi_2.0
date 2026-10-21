@@ -1,52 +1,26 @@
-<!-- Events Section -->
-<section class="events-section">
-  <div class="section-header">
-    <h2 class="section-title">Discover Our Events</h2>
-    <p class="section-subtitle">Explore the rich heritage of Sikkim's traditional crafts and modern initiatives</p>
+<section class="news" aria-labelledby="news-heading">
+  <div class="news__head">
+    <h2 id="news-heading">News and events</h2>
+    <a class="news__all" routerLink="/events/latest">All events</a>
   </div>
-  
-  <div class="events-grid" *ngIf="eventCategories$ | async as categories; else loadingTemplate">
-    <article class="event-card" *ngFor="let category of categories; let i = index">
-      <div class="card-image-container" *ngIf="eventImages$ | async as images">
-        <img 
-          [src]="images[i].url || 'assets/events/placeholder.jpg'" 
-          [alt]="images[i].alt || category.title"
-          class="card-image"
-          loading="lazy"
-        >
-        <div class="image-overlay"></div>
-        <div class="card-badge">{{ category.badge }}</div>
-      </div>
-      
-      <div class="card-content">
-        <h3 class="card-title">{{ category.title }}</h3>
-        <p class="card-description">{{ category.description }}</p>
-        
-        <div class="card-footer">
-          <a 
-            [routerLink]="category.route" 
-            class="cta-button"
-            [attr.aria-label]="'Learn more about ' + category.title"
-          >
-            <span class="button-text">Explore More</span>
-            <span class="button-icon" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </article>
-  </div>
-  
-  <!-- Loading Template -->
-  <ng-template #loadingTemplate>
-    <div class="events-grid loading">
-      <div class="event-card skeleton" *ngFor="let item of [1,2,3]">
-        <div class="card-image-container skeleton-image"></div>
-        <div class="card-content">
-          <div class="skeleton-title"></div>
-          <div class="skeleton-text"></div>
-          <div class="skeleton-button"></div>
-        </div>
-      </div>
-    </div>
-  </ng-template>
+
+  @if (eventCategories$ | async; as categories) {
+    @if (eventImages$ | async; as images) {
+      <ul class="news__grid">
+        @for (category of categories; track category.id; let i = $index) {
+          <li>
+            <a class="story" [routerLink]="category.route">
+              <span class="story__frame">
+                <img [src]="images[i].url || 'assets/events/placeholder.jpg'" [alt]="images[i].alt || category.title"
+                     loading="lazy" decoding="async">
+                <span class="story__tag">{{ category.badge }}</span>
+              </span>
+              <span class="story__title">{{ category.title }}</span>
+              <span class="story__text">{{ category.description }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    }
+  }
 </section>

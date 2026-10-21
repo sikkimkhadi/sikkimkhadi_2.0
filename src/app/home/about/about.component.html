@@ -1,25 +1,28 @@
-<main class="welcome">
-    <header class="welcome-text">
-        <h1>
-            <span class="welcomeTo">Welcome to</span>
-            <span>&nbsp;Sikkim Khadi</span> 
-            <span class="welcomeTo">&nbsp;and</span>
-            <span>&nbsp;Village Industries Board</span>
-        </h1>
-    </header>
-    <article class="welcome-contents">
-      <section class="details">
-        <p>Sikkim Khadi &amp; Village Industries Board (SKVIB) is an autonomous body of Government of Sikkim under the Commerce &amp; Industries Department. While it was established in 1963, the Sikkim Khadi &amp; Village Industries Board Act of 1996 covers its functions and objectives which are as follows :</p>
-        <ol>
-          <li>Social objective of generating employment to the rural artisans in the field of khadi
-            and village industries</li>
-          <li>The economic objective of producing saleable Khadi &amp; village industries goods</li>
-          <li>The wider objective of creating self reliance amongst the people and building up of a
-            strong rural community spirit</li>
-          <li>Implementation of government schemes targeting rural employment generation</li>
-          <li>Impart training and support in establishment of khadi institutions, societies and
-            village industries units.</li>
-        </ol>
-      </section>
-    </article>
-</main>
+<section class="about" aria-labelledby="about-heading">
+  <div class="about__intro">
+    <h2 id="about-heading">Working for Sikkim's rural artisans since 1963</h2>
+    <p>
+      Sikkim Khadi &amp; Village Industries Board (SKVIB) is an autonomous body of the Government of Sikkim
+      under the Commerce &amp; Industries Department. It was established in 1963, and its functions are set out
+      in the Sikkim Khadi &amp; Village Industries Board Act, 1996.
+    </p>
+    @if (stats$ | async; as s) {
+      <dl class="facts">
+        <div><dt>Outlets</dt><dd>{{ s.outlets }}</dd></div>
+        <div><dt>Production centres</dt><dd>{{ s.production }}</dd></div>
+        <div><dt>Product lines</dt><dd>{{ s.products }}</dd></div>
+      </dl>
+    }
+    <a class="about__link" routerLink="/about">About the Board</a>
+  </div>
+  <div class="about__aims">
+    <h3>What the Board does</h3>
+    <ul>
+      <li>Creates employment for rural artisans in khadi and village industries</li>
+      <li>Produces khadi and village industry goods for sale</li>
+      <li>Builds self-reliance and a strong rural community spirit</li>
+      <li>Runs government schemes for rural employment</li>
+      <li>Trains and supports new khadi institutions, societies and village industry units</li>
+    </ul>
+  </div>
+</section>

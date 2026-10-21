@@ -1,140 +1,81 @@
-/* ========================================
-   Welcome Section Styles
-   ======================================== */
-
-/* Reset H1 styles while maintaining semantic value
- * Used in about.component to match design requirements
- * while keeping accessibility benefits of h1 tag
- */
-h1 {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+.about {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  padding: 56px 32px;
 }
-
-/* Main container styles */
-.welcome {
-  padding: 2rem 1.5rem;
-  background-color: #f5d096;
+.about h2 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  max-width: 18ch;
+  margin-bottom: 16px;
+}
+.about__intro p {
+  max-width: 60ch;
+  color: var(--sk-earth);
+}
+.facts {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: var(--fs-body);
+  gap: 32px;
+  margin: 28px 0 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--sk-line);
 }
-
-/* Header styles - Contains welcome text with golden background */
-.welcome-text {
-  background-color: rgb(205, 134, 20);
-  color: #ffffff;
-  text-transform: uppercase;
-  padding: 1rem 3rem;
-  margin-bottom: 1.5rem;
-  border-radius: 1.5rem;
+.facts div { display: flex; flex-direction: column-reverse; }
+.facts dd {
+  font-family: var(--sk-display);
+  font-weight: 800;
+  font-size: 3.6rem;
+  line-height: 1;
+  color: var(--sk-maroon);
+}
+.facts dt {
+  font-size: 1.3rem;
+  color: var(--sk-earth-2);
+  margin-top: 6px;
+}
+.about__link {
   display: inline-block;
+  font-weight: 600;
+  color: var(--sk-saffron-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
 }
-
-.welcome-text span {
-  font-family: var(--font-subheading);
-  line-height: var(--lh-subheading);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-h4);
+.about__link:hover { color: var(--sk-maroon); }
+.about__aims {
+  background: var(--sk-paper);
+  border-radius: var(--sk-radius);
+  padding: 28px 32px;
+  align-self: start;
+  border-top: 6px solid var(--sk-cardamom);
 }
-
-/* Content container styles */
-.welcome-contents {
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-regular);
-  padding: 1rem 2rem;
-  color: rgb(112, 73, 11);
+.about__aims h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
-
-/* List styles */
-.details ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
+.about__aims li {
+  position: relative;
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px solid var(--sk-line);
+  line-height: 1.5;
 }
-
-.details ol li {
-  margin-left: 6rem;
-  margin-bottom: 0.5rem;
-  list-style-type: disc;
-  font-family: var(--font-body);
-  line-height: var(--lh-body);
+.about__aims li:last-child { border-bottom: 0; }
+.about__aims li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 17px;
+  width: 10px;
+  height: 10px;
+  background: var(--sk-cardamom);
+  transform: rotate(45deg);
 }
-
-/* ========================================
-   Mobile Responsive Styles (max-width: 768px)
-   ======================================== */
-@media (max-width: 768px) {
-    /* Mobile container adjustments */
-    .welcome {
-        padding: 2rem 1.5rem;
-        background-color: #f5d096;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* font-size: 1.6rem; */
-    }
-
-    /* Mobile header text adjustments */
-    .welcome-text span {
-      font-family: var(--font-subheading);
-      line-height: var(--lh-subheading);
-      font-weight: var(--fw-semibold);
-    }
-
-    /* Specific targeting for mobile spans */
-    /* 1st span: "Welcome to" - smaller */
-    .welcome-text h1 span:nth-child(1) {
-      font-size: var(--fs-small);
-      font-weight: var(--fw-regular);
-    }
-
-    /* 2nd span: "Sikkim Khadi" - bigger */
-    .welcome-text h1 span:nth-child(2) {
-      font-size: var(--fs-h3);
-      font-weight: var(--fw-bold);
-    }
-
-    /* 3rd span: "and" - smaller */
-    .welcome-text h1 span:nth-child(3) {
-      font-size: var(--fs-small);
-      font-weight: var(--fw-regular);
-    }
-
-    /* 4th span: "Village Industries Board" - bigger */
-    .welcome-text h1 span:nth-child(4) {
-      font-size: var(--fs-h3);
-      font-weight: var(--fw-bold);
-    }
-
-    /* Mobile heading layout */
-    .welcome .welcome-text h1 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Mobile content adjustments */
-    .welcome .welcome-contents {
-        font-size: var(--fs-h5);
-        padding: 1rem 2rem;
-        margin-bottom: 5px;
-    }
-
-    /* Mobile list adjustments */
-    .details ol {
-      margin: 1rem 0;
-      padding-left: 1rem;
-    }
-
-    .details ol li {
-      margin-left: 1rem;
-      font-size: var(--fs-h5);
-      margin-bottom: 0.8rem;
-    }
+@media (max-width: 900px) {
+  .about { grid-template-columns: 1fr; gap: 28px; padding: 36px 16px; }
+  .about h2 { font-size: 2.6rem; }
+  .facts { gap: 20px; }
+  .facts dd { font-size: 3rem; }
+  .about__aims { padding: 20px; }
 }

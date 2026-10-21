@@ -266,3 +266,69 @@ p, li, td, span {
     --fs-xsmall: 1.1rem; /* 11px */
   }
 }
+
+/* =====================================================================
+   SKVIB design system (redesign). Prefix --sk-. Base palette preserved:
+   peach / sun / saffron / earth brown. New accents from Sikkim:
+   cardamom green and monastery maroon.
+   ===================================================================== */
+:root {
+  --sk-peach: #f6d7a6;        /* page background (unchanged) */
+  --sk-sun: #f2c377;          /* header band (unchanged) */
+  --sk-paper: #fff8ec;        /* content surfaces */
+  --sk-saffron: #e8862e;      /* fills, rules, highlights */
+  --sk-saffron-ink: #a3490b;  /* saffron for text and links (AA on paper) */
+  --sk-earth: #4a2508;        /* primary text */
+  --sk-earth-2: #74461f;      /* secondary text */
+  --sk-cardamom: #2f6b3f;     /* accent: actions, confirmations */
+  --sk-cardamom-tint: #e4eedd;
+  --sk-maroon: #7a1f2b;       /* accent: dates, badges, emphasis */
+  --sk-line: rgba(74, 37, 8, 0.16);
+
+  --sk-display: 'Martel', Georgia, serif;
+  --sk-text: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --sk-radius-s: 4px;
+  --sk-radius: 10px;
+  --sk-space: 8px;
+}
+
+/* Woven band after the pangden stripes of Sikkimese weaving */
+.sk-weave {
+  display: block;
+  height: 14px;
+  background: linear-gradient(to bottom,
+    var(--sk-maroon) 0 2px,
+    var(--sk-saffron) 2px 5px,
+    var(--sk-sun) 5px 6px,
+    var(--sk-cardamom) 6px 9px,
+    var(--sk-paper) 9px 10px,
+    var(--sk-saffron) 10px 12px,
+    var(--sk-maroon) 12px 14px);
+}
+
+.sk-page {
+  font-family: var(--sk-text);
+  color: var(--sk-earth);
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.sk-page :is(p, li, dd, dt, td, address, a, span, button, label, input) {
+  font-family: inherit;
+}
+/* undo the global 0.8rem mobile padding on links inside redesigned pages
+   (zero specificity, so component classes still win) */
+:where(.sk-page) a { padding: 0; }
+.sk-page :is(h1, h2, h3) {
+  font-family: var(--sk-display);
+  color: var(--sk-earth);
+  line-height: 1.2;
+}
+.sk-page a:focus-visible,
+.sk-page button:focus-visible {
+  outline: 3px solid var(--sk-cardamom);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk-page * { transition: none !important; animation: none !important; }
+}

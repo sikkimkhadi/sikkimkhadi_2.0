@@ -1,77 +1,78 @@
-<div class="contact-container">
-  <!-- Header Section -->
-  <div class="contact-header">
-    <h1 class="contact-title">Administrative Officers</h1>
-    <p class="contact-subtitle">Details of the officials overseeing governance and development</p>
-  </div>
+<div class="sk-page contact">
+  <span class="sk-weave" aria-hidden="true"></span>
 
-  <!-- Loading State -->
-  <div class="loading-section" *ngIf="loading">
-    <div class="loading-spinner">
-      <div class="spinner"></div>
-    </div>
-    <p class="loading-text">Loading contacts...</p>
-  </div>
+  <header class="contact__head">
+    <h1>Contact the Board</h1>
+    <p>Call the desk that handles your question, or visit us at {{ c.office.building }}, {{ c.office.street }}, Gangtok.</p>
+  </header>
 
-  <!-- Contacts Section -->
-  <section class="contacts-section" *ngIf="!loading">
-    <div class="container">
+  <section class="desks" aria-labelledby="desks-heading">
+    <h2 id="desks-heading">Who to call</h2>
+    <ul class="desks__grid">
+      @for (d of c.helpDesks; track d.id) {
+        <li class="desk" [attr.data-desk]="d.id">
+          <h3>{{ d.topic }}</h3>
+          <p class="desk__summary">
+            {{ d.summary }}
+            @if (d.link) { <a [routerLink]="d.link">More on RTI</a> }
+          </p>
+          <ul class="desk__lines">
+            @for (l of d.lines; track l.phone) {
+              <li>
+                <span class="desk__label">{{ l.label }}</span>
+                <a class="call" [href]="telHref(l.phone)">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                  <span class="visually-hidden">Call </span>{{ formatPhone(l.phone) }}
+                </a>
+              </li>
+            }
+          </ul>
+        </li>
+      }
+    </ul>
+  </section>
 
-      
-      <div class="contacts-grid">
-        <div class="contact-card" *ngFor="let contact of contacts; trackBy: trackByContactId">
-          <div class="card-header">
-            <div class="avatar">
-              <span class="avatar-text">{{ getInitials(contact.name) }}</span>
-            </div>
-            <div class="contact-info">
-              <h3 class="contact-name">{{ contact.name }}</h3>
-              <p class="contact-designation">{{ contact.designation }}</p>
-              <p class="contact-department" *ngIf="contact.department">{{ contact.department }}</p>
-              <div class="specialization-container" *ngIf="contact.specialization">
-                <span class="specialization-badge">{{ contact.specialization }}</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card-actions">
-            <a class="contact-btn call-btn" [href]="'tel:' + contact.contact" (click)="makeCall(contact.contact)">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <span class="btn-text">{{ contact.contact }}</span>
-            </a>
-            
-            <a class="contact-btn email-btn" *ngIf="contact.email" [href]="'mailto:' + contact.email">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span class="btn-text">Email</span>
-            </a>
-          </div>
+  <section class="office" aria-labelledby="office-heading">
+    <div class="office__details">
+      <h2 id="office-heading">Head office</h2>
+      <address>
+        {{ c.office.name }}<br>
+        {{ c.office.building }}, {{ c.office.street }}<br>
+        {{ c.office.city }} {{ c.office.pin }}
+      </address>
+      <dl>
+        <div>
+          <dt>Phone</dt>
+          <dd class="phones">
+            @for (p of c.office.phones; track p) {
+              <a [href]="telHref(p)">{{ formatPhone(p) }}</a>
+            }
+          </dd>
         </div>
-      </div>
+        <div><dt>Fax</dt><dd>{{ formatPhone(c.office.fax) }}</dd></div>
+        <div><dt>Email</dt><dd><a [href]="'mailto:' + c.office.email">{{ c.office.email }}</a></dd></div>
+      </dl>
+      <a class="directions" [href]="directionsUrl" target="_blank" rel="noopener">Get directions in Google Maps</a>
+    </div>
+    <div class="office__map">
+      <iframe [src]="mapUrl" title="Map of Khadi Bhawan, Deorali, Gangtok" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
-  <!-- Office Information -->
-  <section class="office-section">
-    <div class="container">
-      <div class="office-card">
-        <div class="office-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-        </div>
-        <div class="office-content">
-          <h3 class="office-title">Office Address</h3>
-          <p class="office-name">Sikkim Khadi & Village Industries Board</p>
-          <p class="office-govt">Government of Sikkim</p>
-          <p class="office-address">Khadi Bhawan Deorali, Gangtok Sikkim - 737102</p>
-        </div>
-      </div>
-    </div>
+  <section class="officers" aria-labelledby="officers-heading">
+    <h2 id="officers-heading">Officers of the Board</h2>
+    <table>
+      <thead><tr><th scope="col">Name</th><th scope="col">Designation</th><th scope="col">Phone</th></tr></thead>
+      <tbody>
+        @for (o of c.officers; track o.name) {
+          <tr>
+            <th scope="row">{{ o.name }}</th>
+            <td>{{ o.designation }}</td>
+            <td><a [href]="telHref(o.phone)">{{ formatPhone(o.phone) }}</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
   </section>
 </div>

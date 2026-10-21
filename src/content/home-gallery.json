@@ -1,0 +1,185 @@
+{
+  "_note": "Home page gallery. Edited by the admin panel. Order = display order; set visible to false to hide an item.",
+  "items": [
+    {
+      "id": "national-flag",
+      "title": "Khadi National Flag",
+      "category": "products",
+      "image": "assets/gallery/national-flag.jpg",
+      "link": "/national-flag",
+      "alt": "Khadi Indian National Flag on display",
+      "visible": true
+    },
+    {
+      "id": "silk-saris",
+      "title": "Handwoven silk saris",
+      "category": "products",
+      "image": "assets/gallery/silk-saris.jpg",
+      "link": "/products/saree",
+      "alt": "Blue handwoven silk sari with woven motifs",
+      "visible": true
+    },
+    {
+      "id": "organic-incense",
+      "title": "Organic incense",
+      "category": "products",
+      "image": "assets/gallery/organic-incense.jpg",
+      "link": "/products/incense",
+      "alt": "Sikkim organic incense sticks",
+      "visible": true
+    },
+    {
+      "id": "namchi-outlet",
+      "title": "Namchi outlet",
+      "category": "outlets",
+      "image": "assets/gallery/namchi-outlet.jpg",
+      "link": "/outlets/namchi",
+      "alt": "Shoppers inside the Namchi Khadi outlet",
+      "visible": true
+    },
+    {
+      "id": "khadi-quilts",
+      "title": "Khadi quilts",
+      "category": "products",
+      "image": "assets/gallery/khadi-quilts.jpg",
+      "link": "/products/quilt",
+      "alt": "Rolled khadi quilts on shelves",
+      "visible": true
+    },
+    {
+      "id": "simul-pillows",
+      "title": "Simul cotton pillows",
+      "category": "products",
+      "image": "assets/gallery/simul-pillows.jpg",
+      "link": "/products/pillow",
+      "alt": "Simul cotton pillows beside a charkha",
+      "visible": true
+    },
+    {
+      "id": "gyalshing-outlet",
+      "title": "Gyalshing outlet",
+      "category": "outlets",
+      "image": "assets/gallery/gyalshing-outlet.jpg",
+      "link": "/outlets/gyalshing",
+      "alt": "Shelves at the Gyalshing Khadi outlet",
+      "visible": true
+    },
+    {
+      "id": "organic-turmeric",
+      "title": "Organic turmeric",
+      "category": "products",
+      "image": "assets/gallery/organic-turmeric.jpg",
+      "link": "/products/turmeric",
+      "alt": "Packs of Sikkim organic turmeric powder",
+      "visible": true
+    },
+    {
+      "id": "tarku-weaving",
+      "title": "Tarku production centre",
+      "category": "production",
+      "image": "assets/gallery/tarku-weaving.jpg",
+      "link": "/tarku",
+      "alt": "Spindles of yarn at the Tarku production centre",
+      "visible": true
+    },
+    {
+      "id": "temi-tea",
+      "title": "Temi tea",
+      "category": "products",
+      "image": "assets/gallery/temi-tea.jpg",
+      "link": "/products/temitea",
+      "alt": "Temi tea packs and a cup of tea",
+      "visible": true
+    },
+    {
+      "id": "handmade-shawls",
+      "title": "Handmade khadi shawls",
+      "category": "products",
+      "image": "assets/gallery/handmade-shawls.jpg",
+      "link": "/products/shawl",
+      "alt": "Folded handmade khadi shawls",
+      "visible": true
+    },
+    {
+      "id": "organic-honey",
+      "title": "Organic honey",
+      "category": "products",
+      "image": "assets/gallery/organic-honey.jpg",
+      "link": "/products/honey",
+      "alt": "Jars of organic honey on a wooden stand",
+      "visible": true
+    },
+    {
+      "id": "turuk-weaving",
+      "title": "Turuk weaving centre",
+      "category": "production",
+      "image": "assets/gallery/turuk-weaving.jpg",
+      "link": "/turuk",
+      "alt": "Artisans at work in the Turuk weaving centre",
+      "visible": true
+    },
+    {
+      "id": "cotton-saris",
+      "title": "Handmade cotton saris",
+      "category": "products",
+      "image": "assets/gallery/cotton-saris.jpg",
+      "link": "/products/saree",
+      "alt": "Green handmade cotton sari on a stand",
+      "visible": true
+    },
+    {
+      "id": "beekeeping-equipment",
+      "title": "Bee-keeping equipment",
+      "category": "products",
+      "image": "assets/gallery/beekeeping-equipment.jpg",
+      "link": "/products/beebox",
+      "alt": "Bee boxes and a honey extractor",
+      "visible": true
+    },
+    {
+      "id": "deorali-outlet",
+      "title": "Deorali outlet",
+      "category": "outlets",
+      "image": "assets/gallery/deorali-outlet.jpg",
+      "link": "/outlets/deorali",
+      "alt": "Inside the Deorali Khadi outlet",
+      "visible": true
+    },
+    {
+      "id": "khadi-shawls-premium",
+      "title": "Woven khadi shawl",
+      "category": "products",
+      "image": "assets/gallery/khadi-shawls-premium.jpg",
+      "link": "/products/shawl",
+      "alt": "Purple khadi shawl with a gold woven border",
+      "visible": true
+    },
+    {
+      "id": "khadi-toiletries",
+      "title": "Khadi toiletries",
+      "category": "products",
+      "image": "assets/gallery/khadi-toiletries.jpg",
+      "link": "/products/toileteries",
+      "alt": "Bottles of khadi herbal toiletries",
+      "visible": true
+    },
+    {
+      "id": "local-honey",
+      "title": "Local honey",
+      "category": "products",
+      "image": "assets/gallery/local-honey.jpg",
+      "link": "/products/honey",
+      "alt": "Jars of local honey",
+      "visible": true
+    },
+    {
+      "id": "khadi-rugs",
+      "title": "Khadi duree and rugs",
+      "category": "products",
+      "image": "assets/gallery/khadi-rugs.jpg",
+      "link": "/products/duree",
+      "alt": "Rolled khadi duree and rugs",
+      "visible": true
+    }
+  ]
+}

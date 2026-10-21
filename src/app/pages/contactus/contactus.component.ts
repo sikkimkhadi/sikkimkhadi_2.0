@@ -1,51 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ContactService, ContactPerson } from '../../core/services/contact.service';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { contactContent, formatPhone, telHref } from '../../core/content/content';
 
+/**
+ * Contact page. Data comes from src/content/contacts.json (edited by the admin panel).
+ */
 @Component({
   selector: 'app-contactus',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterLink],
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.css'
 })
-export class ContactusComponent implements OnInit {
-  contacts: ContactPerson[] = [];
-  loading = true;
+export class ContactusComponent {
+  readonly c = contactContent;
+  readonly formatPhone = formatPhone;
+  readonly telHref = telHref;
 
-  constructor(private contactService: ContactService) {}
-
-  ngOnInit(): void {
-    this.loadContacts();
-  }
-
-  private loadContacts(): void {
-    this.contactService.getContacts().subscribe({
-      next: (contacts) => {
-        this.contacts = contacts;
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Error loading contacts:', error);
-        this.loading = false;
-      }
-    });
-  }
-
-  makeCall(phoneNumber: string): void {
-    window.open(`tel:${phoneNumber}`, '_self');
-  }
-
-  trackByContactId(index: number, contact: ContactPerson): number {
-    return contact.id;
-  }
-
-  getInitials(name: string): string {
-    return name
-      .split(' ')
-      .map(word => word.charAt(0))
-      .join('')
-      .substring(0, 2)
-      .toUpperCase();
-  }
+  private readonly query = encodeURIComponent(this.c.office.mapQuery);
+  /** Fixed Google Maps embed origin; only the encoded address varies. */
+  readonly mapUrl: SafeResourceUrl = inject(DomSanitizer)
+    .bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?q=${this.query}&z=16&output=embed`);
+  readonly directionsUrl = `https://www.google.com/maps/search/?api=1&query=${this.query}`;
 }

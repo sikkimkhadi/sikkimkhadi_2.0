@@ -1,102 +1,34 @@
-<!-- Modern Gallery Section -->
-<section class="gallery-section">
-  <!-- Section Header -->
-  <div class="section-header">
-    <h2 class="section-title">Our Heritage Collection</h2>
-    <p class="section-subtitle">
-      Discover authentic Khadi products, traditional crafts, and visit our outlets across Sikkim
-    </p>
-    
-    <!-- Category Stats -->
-    <div class="category-stats" *ngIf="galleryStats$ | async as stats">
-      <div class="stat-item">
-        <span class="stat-number">{{ stats.products }}</span>
-        <span class="stat-label">Products</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ stats.outlets }}</span>
-        <span class="stat-label">Outlets</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ stats.production }}</span>
-        <span class="stat-label">Centers</span>
-      </div>
+<section class="gallery" aria-labelledby="gallery-heading">
+  <div class="gallery__head">
+    <h2 id="gallery-heading">From our looms, centres and outlets</h2>
+    <div class="gallery__filters" role="group" aria-label="Show photos of">
+      @for (f of filters; track f.id) {
+        <button type="button" class="chip" [class.chip--on]="active() === f.id"
+                [attr.aria-pressed]="active() === f.id" (click)="select(f.id)">
+          {{ f.label }} <span class="chip__count">{{ f.count }}</span>
+        </button>
+      }
     </div>
   </div>
 
-  <!-- Gallery Grid -->
-  <div class="gallery-container">
-    <div class="gallery-grid" *ngIf="galleryItems$ | async as items; else loadingTemplate">
-      <article 
-        class="gallery-item" 
-        *ngFor="let item of visibleItems; trackBy: trackByItemId"
-        [class]="'size-' + item.size"
-        [class.loaded]="item.loaded"
-        appLazyLoad
-        (appear)="onItemAppear(item)"
-      >
-        <!-- Image Container -->
-        <div class="item-image-container">
-          <img 
-            [src]="item.imageUrl" 
-            [alt]="item.alt"
-            class="item-image"
-            [class.loaded]="item.loaded"
-            (load)="onImageLoad(item)"
-            (error)="onImageError(item)"
-            loading="lazy"
-          >
-          
-          <!-- Loading Placeholder -->
-          <div class="image-placeholder" *ngIf="!item.loaded">
-            <div class="placeholder-shimmer"></div>
-          </div>
-          
-          <!-- Category Badge -->
-          <div class="category-badge" [class]="'badge-' + item.category">
-            {{ getCategoryLabel(item.category) }}
-          </div>
-          
-          <!-- Overlay -->
-          <a 
-            [routerLink]="item.route" 
-            class="item-overlay"
-            [attr.aria-label]="'View ' + item.title"
-          >
-            <div class="overlay-content">
-              <h3 class="item-title">{{ item.title }}</h3>
-              <p class="item-description" *ngIf="item.description">{{ item.description }}</p>
-              
-              <div class="item-action">
-                <span class="action-text">Explore More</span>
-                <span class="action-icon" aria-hidden="true">→</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </article>
-    </div>
-    
-    <!-- Load More Trigger -->
-    <div 
-      class="load-more-trigger" 
-      appLazyLoad 
-      (appear)="loadMoreItems()"
-      *ngIf="hasMoreItems"
-    >
-      <div class="loading-indicator">
-        <div class="spinner"></div>
-        <span>Loading more items...</span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Loading Template -->
-  <ng-template #loadingTemplate>
-    <div class="gallery-grid loading">
-      <div class="gallery-item skeleton" *ngFor="let item of [1,2,3,4,5,6]">
-        <div class="item-image-container skeleton-image"></div>
-      </div>
-    </div>
-  </ng-template>
+  <ul class="gallery__grid" id="gallery-grid">
+    @for (item of shown(); track item.id; let i = $index) {
+      <li>
+        <a class="tile" [routerLink]="item.link">
+          <span class="tile__frame">
+            <img [src]="item.image" [alt]="item.alt" width="720" height="540"
+                 [attr.loading]="i < 4 ? null : 'lazy'" decoding="async">
+          </span>
+          <span class="tile__title">{{ item.title }}</span>
+          <span class="tile__kind" [attr.data-kind]="item.category">{{ categoryLabel(item.category) }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+
+  @if (filtered().length > initialCount) {
+    <button type="button" class="gallery__more" aria-controls="gallery-grid" (click)="expanded.set(!expanded())">
+      @if (expanded()) { Show fewer } @else { Show all {{ filtered().length }} photos }
+    </button>
+  }
 </section>

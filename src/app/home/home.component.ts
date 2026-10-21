@@ -6,6 +6,7 @@ import { PortraitsComponent } from "./portraits/portraits.component";
 import { EventsectionComponent } from "./eventsection/eventsection.component";
 import { HomegalleryComponent } from "./homegallery/homegallery.component";
 import { AboutComponent } from "./about/about.component";
+import { ServicesComponent } from "./services/services.component";
 import { DeskClComponent } from './carousel/desk-cl/desk-cl.component';
 import { MobClComponent } from './carousel/mob-cl/mob-cl.component';
 
@@ -18,6 +19,7 @@ import { MobClComponent } from './carousel/mob-cl/mob-cl.component';
     EventsectionComponent, 
     HomegalleryComponent, 
     AboutComponent, 
+    ServicesComponent,
     // Carousel components for different screen sizes
     DeskClComponent, 
     MobClComponent,

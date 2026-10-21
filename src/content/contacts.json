@@ -1,0 +1,95 @@
+{
+  "_note": "Contact page data. Edited by the admin panel. Phone numbers without spaces; the page formats them.",
+  "office": {
+    "name": "Sikkim Khadi & Village Industries Board",
+    "building": "Khadi Bhawan",
+    "street": "Deorali",
+    "city": "Gangtok, Sikkim",
+    "pin": "737102",
+    "phones": [
+      "03592281810",
+      "03592281221"
+    ],
+    "fax": "03592281221",
+    "email": "sikkimkhadi@gmail.com",
+    "mapQuery": "Khadi Bhawan, Deorali, Gangtok, Sikkim 737102"
+  },
+  "helpDesks": [
+    {
+      "id": "pmegp",
+      "topic": "PMEGP loans and subsidy",
+      "summary": "Applying for the Prime Minister's Employment Generation Programme, documents and status",
+      "lines": [
+        {
+          "label": "Namchi, Soreng and Gyalshing districts",
+          "phone": "9593889106"
+        },
+        {
+          "label": "Gangtok, Mangan and Pakyong districts",
+          "phone": "8391941008"
+        }
+      ]
+    },
+    {
+      "id": "beekeeping",
+      "topic": "Bee-keeping",
+      "summary": "Training, bee boxes and support for bee-keepers",
+      "lines": [
+        {
+          "label": "Shri Gyalpo Tshering Bhutia",
+          "phone": "7679970205"
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "topic": "Khadi products and orders",
+      "summary": "Product availability, bulk orders and the Khadi National Flag",
+      "lines": [
+        {
+          "label": "Shri Chewang Topden Bhutia, Assistant Executive Officer",
+          "phone": "8918128518"
+        }
+      ]
+    },
+    {
+      "id": "rti",
+      "topic": "Right to Information",
+      "summary": "RTI applications are received at the Head Office, Khadi Bhawan",
+      "link": "/rti",
+      "lines": [
+        {
+          "label": "Smt. Meena Thapa, State Public Information Officer",
+          "phone": "9800366557"
+        }
+      ]
+    }
+  ],
+  "officers": [
+    {
+      "name": "Shri Deepak Kumar Gurung",
+      "designation": "Chairperson",
+      "phone": "9733040950"
+    },
+    {
+      "name": "Shri Dal Bahadur Thatal",
+      "designation": "Advisor",
+      "phone": "7076861594"
+    },
+    {
+      "name": "Shri Dorjee Sherpa",
+      "designation": "Chief Executive Officer",
+      "phone": "9647857686"
+    },
+    {
+      "name": "Smt. Meena Thapa",
+      "designation": "Joint Director / Executive Officer",
+      "phone": "9800366557"
+    },
+    {
+      "name": "Shri Chewang Topden Bhutia",
+      "designation": "Assistant Executive Officer",
+      "phone": "8918128518"
+    }
+  ]
+}

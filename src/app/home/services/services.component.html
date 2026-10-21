@@ -1,0 +1,23 @@
+<section class="services" aria-labelledby="services-heading">
+  <h2 id="services-heading">How can we help?</h2>
+  <ul class="services__grid">
+    @for (s of services; track s.link) {
+      <li>
+        <a class="service" [routerLink]="s.link">
+          <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            @switch (s.icon) {
+              @case ('bag') { <path d="M7 11h18l-1.5 15h-15z"/><path d="M12 11V9a4 4 0 0 1 8 0v2"/> }
+              @case ('store') { <path d="M5 13l2-7h18l2 7"/><path d="M5 13c0 2 1.5 3 3.7 3s3.6-1 3.6-3c0 2 1.5 3 3.7 3s3.7-1 3.7-3c0 2 1.4 3 3.6 3S27 15 27 13"/><path d="M7 16v10h18V16"/><path d="M13 26v-6h6v6"/> }
+              @case ('loom') { <circle cx="11" cy="16" r="7"/><circle cx="11" cy="16" r="1.5"/><path d="M11 9v14M4 16h14M6 11l10 10M16 11 6 21"/><path d="M18 16h9v9"/> }
+              @case ('loan') { <rect x="4" y="9" width="24" height="15" rx="2"/><circle cx="16" cy="16.5" r="3.5"/><path d="M8 13v7M24 13v7"/> }
+              @case ('hive') { <path d="M16 4l5 3v6l-5 3-5-3V7z"/><path d="M11 13l5 3v6l-5 3-5-3v-6z"/><path d="M21 13l5 3v6l-5 3-5-3"/> }
+              @case ('doc') { <path d="M9 4h10l6 6v18H9z"/><path d="M19 4v6h6"/><path d="M13 16h8M13 20h8M13 24h5"/> }
+            }
+          </svg>
+          <span class="service__title">{{ s.title }}</span>
+          <span class="service__text">{{ s.text }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</section>

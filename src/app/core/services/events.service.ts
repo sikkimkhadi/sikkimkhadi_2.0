@@ -178,7 +178,7 @@ export class EventsService {
         id: latest.id,
         title: latest.title,
         description: latest.description,
-        badge: latest.tags && latest.tags.length > 0 ? latest.tags[0].toUpperCase() : 'LATEST EVENT',
+        badge: latest.tags && latest.tags.length > 0 ? latest.tags[0] : 'Latest event',
         route: `/events/latest/${latest.id}`,
         icon: 'event'
       },
@@ -186,7 +186,7 @@ export class EventsService {
         id: secondLatest.id,
         title: secondLatest.title,
         description: secondLatest.description,
-        badge: secondLatest.tags && secondLatest.tags.length > 0 ? secondLatest.tags[0].toUpperCase() : 'EVENT',
+        badge: secondLatest.tags && secondLatest.tags.length > 0 ? secondLatest.tags[0] : 'Event',
         route: `/events/latest/${secondLatest.id}`,
         icon: 'event'
       }
