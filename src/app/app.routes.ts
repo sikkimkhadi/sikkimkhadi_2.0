@@ -42,6 +42,10 @@ export const routes: Routes = [
         loadComponent: () => import('./events/latest/latest.component').then(m => m.LatestComponent),
         children: [
             {
+                path: '02-10-2026',
+                loadComponent: () => import('./events/latest/event-02102026/event-02102026.component').then(m => m.Event02102026Component)
+            },
+            {
                 path: '01-08-2026',
                 loadComponent: () => import('./events/latest/event-01082026/event-01082026.component').then(m => m.Event01082026Component)
             },
@@ -191,6 +195,10 @@ export const routes: Routes = [
     {
         path: 'outlets/jorethang',
         loadComponent: () => import('./pages/outlets/jorethang/jorethang.component').then(m => m.JorethangComponent)
+    },
+    {
+        path: 'outlets/vi-emporium',
+        loadComponent: () => import('./pages/outlets/vi-emporium/vi-emporium.component').then(m => m.ViEmporiumComponent)
     },
     {
         path: 'outlets/supermarket',

@@ -376,6 +376,73 @@ export class OutletDetailService {
       ],
       specialties: ['Premium Products', 'Traditional Handicrafts', 'Government Supplies']
     },
+    'vi-emporium': {
+      id: 'vi-emporium',
+      name: 'Village Industries Emporium',
+      location: 'Deorali, Gangtok',
+      fullAddress: {
+        line1: 'V.I. Products Sales Emporium',
+        line2: 'Sikkim Khadi & Village Industries Board',
+        line3: 'Deorali, Gangtok, East Sikkim'
+      },
+      description: 'The Village Industries Emporium at Deorali, Gangtok is the newest outlet of the Sikkim Khadi & Village Industries Board. Here we support local entrepreneurs by bringing their village industry products to customers under one roof.',
+      features: [
+        'Supports local entrepreneurs',
+        'Village industry products',
+        'Located in Deorali, Gangtok'
+      ],
+      // Opening hours and contact not yet provided by the Board; the page hides these cards while empty.
+      openingHours: {
+        weekdays: '',
+        weekends: ''
+      },
+      contact: {},
+      heroImage: {
+        id: 'vi-emporium-hero',
+        url: '../../../../assets/outlets/vi_emporium/images/hero.jpg',
+        alt: 'Village Industries Emporium signboard at Deorali, Gangtok',
+        cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/hero',
+        caption: 'Supporting local entrepreneurs'
+      },
+      galleryImages: [
+        {
+          id: 'vi-emporium-gallery-1',
+          url: '../../../../assets/outlets/vi_emporium/images/img1.jpg',
+          alt: 'Emporium entrance at Deorali',
+          cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/img1',
+          caption: 'Entrance of the V.I. Products Sales Emporium, Deorali'
+        },
+        {
+          id: 'vi-emporium-gallery-2',
+          url: '../../../../assets/outlets/vi_emporium/images/img2.jpg',
+          alt: 'Inauguration of the emporium',
+          cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/img2',
+          caption: 'Inauguration of the Village Industries Emporium'
+        },
+        {
+          id: 'vi-emporium-gallery-3',
+          url: '../../../../assets/outlets/vi_emporium/images/img3.jpg',
+          alt: 'Ceremonial opening of the emporium',
+          cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/img3',
+          caption: 'Opening ceremony at the emporium'
+        },
+        {
+          id: 'vi-emporium-gallery-4',
+          url: '../../../../assets/outlets/vi_emporium/images/img4.jpg',
+          alt: 'Products on display inside the emporium',
+          cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/img4',
+          caption: 'Village industry products from local entrepreneurs'
+        },
+        {
+          id: 'vi-emporium-gallery-5',
+          url: '../../../../assets/outlets/vi_emporium/images/img5.jpg',
+          alt: 'Emporium interior and displays',
+          cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/img5',
+          caption: 'Inside the emporium'
+        }
+      ],
+      specialties: ['Local Entrepreneurs', 'Village Industry Products']
+    },
     'jorethang': {
       id: 'jorethang',
       name: 'Jorethang Outlet',

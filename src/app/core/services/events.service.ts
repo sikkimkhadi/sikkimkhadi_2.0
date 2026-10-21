@@ -36,6 +36,18 @@ export class EventsService {
 
   private readonly latestEvents: Event[] = [
     {
+      id: '02-10-2026',
+      title: '157th Gandhi Jayanti Celebration, MG Marg, Gangtok',
+      date: '2nd October 2026',
+      description: 'The Sikkim Khadi & Village Industries Board took part in the 157th Gandhi Jayanti Celebration at MG Marg, Gangtok, with a stall showcasing Khadi products, textiles, handicrafts and the work of local artisans.',
+      imageUrl: 'assets/events/gandhi_jayanti_2026/thumbnail.jpg',
+      category: 'latest',
+      fullDescription: 'On 2nd October 2026, the Sikkim Khadi & Village Industries Board took part in the 157th Gandhi Jayanti Celebration at MG Marg, Gangtok, marking the birth anniversary of the Father of the Nation, Mahatma Gandhi. The programme was graced by the Hon\'ble Governor of Sikkim and the Hon\'ble Chief Minister of Sikkim, along with distinguished dignitaries, senior officials, delegates and members. The Board set up a stall showcasing Khadi products, traditional textiles, handicrafts and the work of Sikkim\'s local artisans.',
+      location: 'MG Marg, Gangtok',
+      organizer: 'Sikkim Khadi & Village Industries Board (SKVIB)',
+      tags: ['Gandhi Jayanti', 'Khadi', 'Exhibition', 'Artisans', 'MG Marg']
+    },
+    {
       id: '01-08-2026',
       title: 'Farewell Programme for Ex-Principal Chief Executive Officer and Smt. Kabita Rai',
       date: '1st August 2026',
