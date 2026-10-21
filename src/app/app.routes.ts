@@ -197,6 +197,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/outlets/jorethang/jorethang.component').then(m => m.JorethangComponent)
     },
     {
+        path: 'outlets/vi-emporium',
+        loadComponent: () => import('./pages/outlets/vi-emporium/vi-emporium.component').then(m => m.ViEmporiumComponent)
+    },
+    {
         path: 'outlets/supermarket',
         loadComponent: () => import('./pages/outlets/supermarket/supermarket.component').then(m => m.SupermarketComponent)
     },

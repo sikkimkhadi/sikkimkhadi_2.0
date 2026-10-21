@@ -16,9 +16,9 @@ export class StatsService {
   // Actual counts based on your dedicated components
   private readonly actualStats: SiteStats = {
     products: 11,    // beebox, duree, honey, incense, pillow, quilt, saree, shawl, temitea, toileteries, turmeric
-    outlets: 6,      // deorali, gyalshing, jorethang, namchi, singtam, supermarket
-    production: 7,   // dodak, gom, mendogaon, pune, raley, samdong, tarku, turuk
-    total: 25
+    outlets: 7,      // deorali, gyalshing, jorethang, namchi, singtam, supermarket, vi-emporium
+    production: 8,   // dodak, gom, mendogaon, pune, raley, samdong, tarku, turuk
+    total: 26
   };
 
   constructor() { }

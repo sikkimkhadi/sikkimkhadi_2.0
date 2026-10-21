@@ -157,6 +157,25 @@ export class OutletsService {
       route: ['/outlets', 'deorali']
     },
     {
+      id: 'vi-emporium',
+      name: 'Village Industries Emporium',
+      location: 'Deorali, Gangtok',
+      address: {
+        line1: 'V.I. Products Sales Emporium',
+        line2: 'Sikkim Khadi & Village Industries Board',
+        line3: 'Deorali, Gangtok, East Sikkim'
+      },
+      description: 'Our newest outlet at Deorali, Gangtok, where we support local entrepreneurs by bringing their village industry products to customers.',
+      coverImage: {
+        id: 'vi-emporium-cover',
+        url: '../../../assets/outlets/images/vi_emporium.jpg',
+        alt: 'Village Industries Emporium signboard at Deorali, Gangtok',
+        cloudinaryId: 'sikkim-khadi/outlets/vi-emporium/cover'
+      },
+      galleryImages: [],
+      route: ['/outlets', 'vi-emporium']
+    },
+    {
       id: 'jorethang',
       name: 'Jorethang Outlet',
       location: 'Jorethang, South Sikkim',
