@@ -75,7 +75,7 @@ export class RTIActComponent implements OnInit {
         <p>Sikkim Khadi &amp; Village Industries Board<br>
         Khadi Bhavan, Deorali – 737102, Gangtok, Sikkim<br>
         Phone: 03592-281810, 281221 | Fax: 03592-281221<br>
-        Email: <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi@gmail.com</a></p>
+        Email: <a href="mailto:sikkimkhadiviboard@gmail.com">sikkimkhadiviboard@gmail.com</a></p>
       `
     },
     {
@@ -169,7 +169,7 @@ export class RTIActComponent implements OnInit {
           <li>PMEGP entrepreneur awareness camps held across all four districts of Sikkim.</li>
           <li>Artisan training programs where community members can enroll.</li>
           <li>Feedback from customers and stakeholders at Khadi Bhandars (outlets).</li>
-          <li>Grievances and suggestions may be submitted at the Head Office or via email at <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi@gmail.com</a>.</li>
+          <li>Grievances and suggestions may be submitted at the Head Office or via email at <a href="mailto:sikkimkhadiviboard@gmail.com">sikkimkhadiviboard@gmail.com</a>.</li>
         </ul>
       `
     },
@@ -268,7 +268,7 @@ export class RTIActComponent implements OnInit {
           <li><strong>PMEGP Facilitation</strong> — assistance with application forms and documentation for loan applicants.</li>
           <li><strong>RTI Facilitation</strong> — RTI applications received at the Head Office; acknowledgement issued within 2 working days.</li>
           <li><strong>Khadi Bhandars</strong> — six retail outlets across Gangtok (Deorali Supermarket), Namchi, Jorethang, Gyalshing, Singtam, and other locations.</li>
-          <li><strong>Email Contact</strong> — <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi@gmail.com</a> for general queries.</li>
+          <li><strong>Email Contact</strong> — <a href="mailto:sikkimkhadiviboard@gmail.com">sikkimkhadiviboard@gmail.com</a> for general queries.</li>
         </ul>
       `
     },
@@ -289,7 +289,7 @@ export class RTIActComponent implements OnInit {
         <p>SKVIB has a structured grievance redressal mechanism to ensure accountability and transparency:</p>
         <ul>
           <li>Grievances may be submitted in writing to the SPIO at the Head Office, Deorali, Gangtok.</li>
-          <li>Email grievances may be sent to <a href="mailto:sikkimkhadi@gmail.com">sikkimkhadi@gmail.com</a>.</li>
+          <li>Email grievances may be sent to <a href="mailto:sikkimkhadiviboard@gmail.com">sikkimkhadiviboard@gmail.com</a>.</li>
           <li>All grievances are acknowledged within 2 working days and resolved within 30 days.</li>
           <li>Appeals against SPIO decisions lie with the Appellate Authority (CEO) within 90 days of the original order.</li>
           <li>Second appeals lie before the State Information Commission, Sikkim.</li>

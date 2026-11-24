@@ -50,60 +50,70 @@ export class AboutService {
       nonOfficial: [
         {
           id: 'no-1',
-          name: 'Smt. Chung Chung Bhutia',
+          name: 'Shri Deepak Kumar Gurung',
           position: 'Chairperson',
           category: 'non-official'
         },
         {
           id: 'no-2',
-          name: 'Dr. Kalpana Pradhan',
+          name: 'Ms. Gyan Maya Limboo',
+          position: 'Member',
           category: 'non-official'
         },
         {
           id: 'no-3',
-          name: 'Smt. Diki Lhamu Lepcha',
+          name: 'Shri Tanka Prasad Sharma',
+          position: 'Member',
           category: 'non-official'
         },
         {
           id: 'no-4',
-          name: 'Smt. Sonam Doma Lepcha',
+          name: 'Shri Ritam Biswakarma',
+          position: 'Member',
           category: 'non-official'
         },
         {
           id: 'no-5',
-          name: 'Shri Yanten Dong',
+          name: 'Shri Subash Sundash Darjee',
+          position: 'Member',
           category: 'non-official'
         }
       ],
       official: [
         {
           id: 'of-1',
-          name: 'Director, Commerce and Industries',
-          position: 'Government of Sikkim',
+          name: 'Director, Commerce and Industries Department',
+          position: 'Government of Sikkim — Member',
           category: 'official'
         },
         {
           id: 'of-2',
           name: 'Joint Secretary, Planning and Development Department',
-          position: 'Government of Sikkim',
+          position: 'Government of Sikkim — Member',
           category: 'official'
         },
         {
           id: 'of-3',
           name: 'Joint Secretary, Finance Department',
-          position: 'Government of Sikkim',
+          position: 'Government of Sikkim — Member',
           category: 'official'
         },
         {
           id: 'of-4',
-          name: 'One representative from Khadi and Village Industries Commission',
-          position: 'State Office, Gangtok',
+          name: 'Representative, Sikkim Khadi & Village Industries Commission',
+          position: 'State Office, Gangtok — Member',
           category: 'official'
         },
         {
           id: 'of-5',
+          name: 'Finance Officer-cum-Senior Accounts Officer',
+          position: 'Sikkim Khadi & Village Industries Board — Member',
+          category: 'official'
+        },
+        {
+          id: 'of-6',
           name: 'Chief Executive Officer',
-          position: 'Sikkim Khadi and Village Industries Board',
+          position: 'Sikkim Khadi & Village Industries Board — Member Secretary',
           category: 'official'
         }
       ]
